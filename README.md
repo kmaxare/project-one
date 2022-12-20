@@ -1,2 +1,2 @@
 # project-one
-Proyecto plataformero desarrollado en comunidad.
+Proyecto plataformero muy al estilo MarioBros desarrollado en comunidad.
