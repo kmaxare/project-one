@@ -1,7 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
+<<<<<<< HEAD:Tilemap/floor.tscn
 [ext_resource path="res://tilemap/design.tres" type="TileSet" id=1]
 
+=======
+[ext_resource path="res://scenes/tiles/design.tres" type="TileSet" id=1]
+>>>>>>> eae0f56f4579277964ce3a39e3caef5f05bab489:scenes/tiles/floor.tscn
 
 [node name="floor" type="TileMap"]
 tile_set = ExtResource( 1 )
