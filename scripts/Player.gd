@@ -47,4 +47,7 @@ func _on_Area2D_body_entered(body):
 			#var nota = preload("res://scenes/tiles/floor.tscn")
 			#var notaa = PackedScene 
 			#nota.remove_tiles() 
+			var posi: Vector2 = $area/position.global_position
+			print("posicion del player global", posi)
+			get_tree().call_group("well", "remove_tile", posi)
 			print("toco la cabeza")
