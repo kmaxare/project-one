@@ -25,12 +25,7 @@ func _physics_process(delta):
 
 	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-	#var get_col = get_slide_collision(get_slide_count()-1)
-	
-	#if get_col != null:
-		#if get_col.collider.is_in_group("well"):
-			#position.y = Vector2(0,-10)
-			#pass
+
 	
 	#var tile : Vector2 = tilemap.world_to_map(player.global_position)
 	#var id = tilemap.get_cell(int(tile.x), int(tile.y))
@@ -48,6 +43,5 @@ func _on_Area2D_body_entered(body):
 			#var notaa = PackedScene 
 			#nota.remove_tiles() 
 			var posi: Vector2 = $area/position.global_position
-			print("posicion del player global", posi)
 			get_tree().call_group("well", "remove_tile", posi)
-			print("toco la cabeza")
+			print("toco la cabeza", posi)

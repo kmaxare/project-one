@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/tiles/floor.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/tiles/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/character/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/arboles.tscn" type="PackedScene" id=3]
 
 [node name="Scenery" type="Node2D"]
 
@@ -12,3 +13,6 @@ tile_data = PoolIntArray( 589837, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0
 [node name="Player" parent="." groups=["player"] instance=ExtResource( 2 )]
 position = Vector2( 280, 275 )
 rotation = 0.0248038
+
+[node name="arboles" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 524309, 0, 0, 720903, 2, 0, 786439, 2, 0, 786440, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851978, 2, 0, 851980, 2, 0 )
