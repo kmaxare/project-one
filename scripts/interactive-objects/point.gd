@@ -4,13 +4,7 @@ export var value = 1 # 0 = (+1 punto) / 1 = (+3 puntos)
 
 onready var sprite = $Sprite
 
-#func _init():
-#	if value == 1:
-#		sprite.frame = 0
-#	elif value == 2:
-#		sprite.frame = 1
-
-func _physics_process(delta):
+func _ready():
 	if value == 1:
 		sprite.frame = 0
 	elif value == 2:
