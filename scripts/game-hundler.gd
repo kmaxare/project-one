@@ -1,6 +1,6 @@
 extends Node
 
-# Variable para puntos dedl jugador
+# Variable para puntos del jugador
 var puntos = 0
 
 func _ready():
