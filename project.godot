@@ -18,6 +18,12 @@ config/icon="res://icon.png"
 
 Gamehundler="*res://scripts/game-hundler.gd"
 
+[global]
+
+lay=false
+laver=false
+label=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
