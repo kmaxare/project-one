@@ -9,7 +9,7 @@ export var Vparo = 320
 var lookD = true
 var velocity
 
-# 
+# variables de la fuerza de salto y la gravedad del personaje
 var GRAVITY = 20
 var JUMPFORCE = -550
 
@@ -22,6 +22,7 @@ func _physics_process(_delta):
 	move()
 	#velocity = move_and_slide(velocity, VectorUP)
 	
+	# metodo para el salto del personaje con la tecla "M", sobre una loza o base.
 	if Input.is_action_just_pressed("m") and is_on_floor():
 		velocity.y = JUMPFORCE
 	velocity.y += GRAVITY
