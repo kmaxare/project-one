@@ -35,5 +35,7 @@ func move():
 		#establece que esta en estado idle
 		velocity.x = 0
 #		$AnimationPlayer.play("Idle")
-	
 
+#Establece lo que hara el jugador al morir
+func gameOver():
+	pass
