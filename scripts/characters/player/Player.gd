@@ -16,13 +16,13 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity, VectorUP)
 
 func move():
-	if Input.is_action_pressed("ui_d"):
+	if Input.is_action_pressed("ui_right"):
 		velocity.x = min(velocity.x + Vinicial, Vparo)
 		#establece que mira ala derecha
 		lookD = true
 #		$AnimationPlayer.play("Walk")
 #		$Sprite.flip_h = true 
-	elif Input.is_action_pressed("ui_a"):
+	elif Input.is_action_pressed("ui_left"):
 		velocity.x = max(velocity.x - Vinicial, -Vparo)
 		#establece que mira ala izquierda
 		lookD = false
@@ -36,6 +36,4 @@ func move():
 		velocity.x = 0
 #		$AnimationPlayer.play("Idle")
 	
-	
-	
-	
+
