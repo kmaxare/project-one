@@ -51,6 +51,12 @@ func move():
 		velocity.x = 0
 #		$AnimationPlayer.play("Idle")
 	
+func damageReceived(damage):
+	if Gamehundler.puntos >= damage:
+		Gamehundler.puntos -= damage
+	else:
+		# Estado del personaje muerto
+		Gamehundler.gameOver()
 	
 #Establece lo que hara el jugador al morir
 func gameOver():
