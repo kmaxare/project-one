@@ -55,9 +55,9 @@ func damageReceived(damage):
 	if Gamehundler.puntos >= damage:
 		Gamehundler.puntos -= damage
 	else:
-		# Estado del personaje muerto
-		Gamehundler.gameOver()
+		gameOver()
 	
-#Establece lo que hara el jugador al morir
+# Establece lo que hara el jugador al morir
 func gameOver():
+	# Estado del personaje muerto
 	pass
