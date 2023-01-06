@@ -54,4 +54,4 @@ func move():
 	
 #Establece lo que hara el jugador al morir
 func gameOver():
-	pass
+	print("El jugador ha muerto")
