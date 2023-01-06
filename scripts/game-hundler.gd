@@ -3,6 +3,9 @@ extends Node
 # Variable para puntos del jugador
 var puntos = 0
 
+# Gravedad para personajes
+var GRAVITY = 20
+
 func _ready():
 	pass 
 
