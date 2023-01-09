@@ -18,12 +18,11 @@ func _physics_process(delta):
 			move.x = speed * dir
 		move_and_slide(Vector2(move.x, 0), Vector2(0,-1))
 		
-		if is_on_wall():
-			dir = -dir
+		if is_on_wall(): dir = -dir
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
-		body.damageReceived(ataque, body)
+		body.damageReceived(ataque)
 
 func apply_gravity(delta) -> void:
 	var G = gravity * delta
@@ -31,4 +30,11 @@ func apply_gravity(delta) -> void:
 	move_and_slide(Vector2(0, move.y), Vector2(0, -1))
 	if is_on_floor():
 		move.y = 0
+		
+func muerte(deadTipe):
+	if (deadTipe == 'crushed'):
+		# Animacion de aplastamiento
+		# Animacion muerte
+		print('Muerte por aplastamiento')
+	queue_free()
 	

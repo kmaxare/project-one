@@ -26,3 +26,15 @@ drag_margin_v_enabled = true
 drag_margin_left = 0.83
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="RayCast" type="Node2D" parent="."]
+
+[node name="RaycastBottLeft" type="RayCast2D" parent="."]
+position = Vector2( -25, 0 )
+enabled = true
+cast_to = Vector2( 0, 36 )
+
+[node name="RaycastBottRight" type="RayCast2D" parent="."]
+position = Vector2( 26, 0 )
+enabled = true
+cast_to = Vector2( 0, 36 )

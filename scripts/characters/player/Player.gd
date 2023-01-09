@@ -5,7 +5,6 @@ const VectorUP = Vector2(0,-1);
 export var Vinicial = 30
 export var Vparo = 320
 
-
 var lookD = true
 var velocity
 
@@ -13,10 +12,10 @@ var velocity
 var GRAVITY = 20
 var JUMPFORCE = -550
 
+
 func _ready():
 	velocity = Vector2.ZERO
-	 
-	
+
 
 func _physics_process(_delta):
 	move()
@@ -25,9 +24,19 @@ func _physics_process(_delta):
 	# metodo para el salto del personaje con la tecla "M", sobre una loza o base.
 	if Input.is_action_just_pressed("m") and is_on_floor():
 		velocity.y = JUMPFORCE
+		
 	velocity.y += GRAVITY
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x,0,0.2)
+	
+	if($RaycastBottLeft.is_colliding() or $RaycastBottRight.is_colliding()):
+		var object_coll
+		if ($RaycastBottLeft.is_colliding()):
+			object_coll = $RaycastBottLeft.get_collider()
+		elif ($RaycastBottRight.is_colliding()):
+			object_coll = $RaycastBottRight.get_collider()
+		
+		if (object_coll.is_in_group("enemy")): object_coll.muerte('crushed')
 	
 
 func move():
@@ -50,10 +59,10 @@ func move():
 		#establece que esta en estado idle
 		velocity.x = 0
 #		$AnimationPlayer.play("Idle")
+
 	
-func damageReceived(damage, body):
+func damageReceived(damage):
 	print('Choque con npc')
-	print(body)
 	if Gamehundler.puntos >= damage:
 		Gamehundler.puntos -= damage
 	else:
@@ -63,3 +72,4 @@ func damageReceived(damage, body):
 func gameOver():
 	# Estado del personaje muerto
 	pass
+
