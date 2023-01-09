@@ -54,7 +54,6 @@ func move():
 
 	
 func damageReceived(damage):
-	print('Choque con npc')
 	if Gamehundler.puntos >= damage:
 		Gamehundler.puntos -= damage
 	else:
