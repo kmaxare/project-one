@@ -51,7 +51,9 @@ func move():
 		velocity.x = 0
 #		$AnimationPlayer.play("Idle")
 	
-func damageReceived(damage):
+func damageReceived(damage, body):
+	print('Choque con npc')
+	print(body)
 	if Gamehundler.puntos >= damage:
 		Gamehundler.puntos -= damage
 	else:

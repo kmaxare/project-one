@@ -4,7 +4,7 @@ extends Node
 var puntos = 0
 
 # Gravedad para personajes
-var GRAVITY = 20
+var gravity = 20
 
 func _ready():
 	pass 
