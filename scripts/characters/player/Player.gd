@@ -20,7 +20,6 @@ func _ready():
 func _physics_process(_delta):
 	move()
 	#velocity = move_and_slide(velocity, VectorUP)
-	
 	# metodo para el salto del personaje con la tecla "M", sobre una loza o base.
 	if Input.is_action_just_pressed("m") and is_on_floor():
 		velocity.y = JUMPFORCE
@@ -29,15 +28,8 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x,0,0.2)
 	
-	if($RaycastBottLeft.is_colliding() or $RaycastBottRight.is_colliding()):
-		var object_coll
-		if ($RaycastBottLeft.is_colliding()):
-			object_coll = $RaycastBottLeft.get_collider()
-		elif ($RaycastBottRight.is_colliding()):
-			object_coll = $RaycastBottRight.get_collider()
-		
-		if (object_coll.is_in_group("enemy")): object_coll.muerte('crushed')
-	
+	smash()
+
 
 func move():
 	if Input.is_action_pressed("ui_right"):
@@ -67,9 +59,21 @@ func damageReceived(damage):
 		Gamehundler.puntos -= damage
 	else:
 		gameOver()
-	
+
 # Establece lo que hara el jugador al morir
 func gameOver():
 	# Estado del personaje muerto
 	pass
 
+
+func smash() -> void:
+	if($RaycastBottLeft.is_colliding() or $RaycastBottRight.is_colliding()):
+		var object_coll
+		if ($RaycastBottLeft.is_colliding()):
+			object_coll = $RaycastBottLeft.get_collider()
+		elif ($RaycastBottRight.is_colliding()):
+			object_coll = $RaycastBottRight.get_collider()
+		
+		if (object_coll.is_in_group("enemy")):
+			object_coll.death('crushed')
+			velocity.y = JUMPFORCE / 2 # Pequeño salto

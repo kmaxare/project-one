@@ -31,8 +31,8 @@ func apply_gravity(delta) -> void:
 	if is_on_floor():
 		move.y = 0
 		
-func muerte(deadTipe):
-	if (deadTipe == 'crushed'):
+func death(deathTipe) -> void:
+	if (deathTipe == 'crushed'):
 		# Animacion de aplastamiento
 		# Animacion muerte
 		print('Muerte por aplastamiento')
