@@ -21,14 +21,6 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-drag_margin_left = 0.83
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [node name="RayCast" type="Node2D" parent="."]
 
 [node name="RaycastBottLeft" type="RayCast2D" parent="."]
