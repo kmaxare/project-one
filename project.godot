@@ -61,6 +61,7 @@ m={
 2d_render/layer_1="player"
 2d_render/layer_2="enemie"
 2d_render/layer_3="well"
+2d_physics/layer_5="soloPlayer"
 
 [physics]
 
