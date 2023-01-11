@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/characters/player/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4.33333, 18.7708 )
+extents = Vector2( 10, 18.7708 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -133,7 +133,7 @@ vframes = 17
 frame = 41
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1.229 )
+position = Vector2( 0.666667, 1.229 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -156,11 +156,11 @@ editor_draw_drag_margin = true
 [node name="RayCast" type="Node2D" parent="."]
 
 [node name="RaycastBottLeft" type="RayCast2D" parent="."]
-position = Vector2( -25, 0 )
+position = Vector2( -4.33334, 1.49012e-06 )
 enabled = true
-cast_to = Vector2( 0, 36 )
+cast_to = Vector2( 0, 26.667 )
 
 [node name="RaycastBottRight" type="RayCast2D" parent="."]
-position = Vector2( 26, 0 )
+position = Vector2( 6, 5.96046e-08 )
 enabled = true
-cast_to = Vector2( 0, 36 )
+cast_to = Vector2( -3.8147e-06, 26.6667 )
