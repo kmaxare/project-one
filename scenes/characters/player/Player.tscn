@@ -121,6 +121,7 @@ tracks/0/keys = {
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 17
+collision_mask = 9
 script = ExtResource( 2 )
 Vinicial = 70
 
@@ -151,3 +152,15 @@ drag_margin_v_enabled = true
 drag_margin_left = 0.83
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="RayCast" type="Node2D" parent="."]
+
+[node name="RaycastBottLeft" type="RayCast2D" parent="."]
+position = Vector2( -25, 0 )
+enabled = true
+cast_to = Vector2( 0, 36 )
+
+[node name="RaycastBottRight" type="RayCast2D" parent="."]
+position = Vector2( 26, 0 )
+enabled = true
+cast_to = Vector2( 0, 36 )

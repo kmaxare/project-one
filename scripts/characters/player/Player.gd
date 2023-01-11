@@ -5,7 +5,6 @@ const VectorUP = Vector2(0,-1);
 export var Vinicial = 30
 export var Vparo = 320
 
-
 var lookD = true
 var velocity
 
@@ -14,6 +13,7 @@ var GRAVITY = 20
 var JUMPFORCE = -550
 var estado = "fall"
 var estadoant = "idle"
+
 
 func _ready():
 	velocity = Vector2.ZERO
@@ -42,7 +42,8 @@ func _physics_process(_delta):
 		if velocity.y > 1:
 			estado = "fall"
 	animacion()
-#	print(estado)
+	# print(estado)
+	smash()
 
 func move():
 	if Input.is_action_pressed("ui_right"):
@@ -95,6 +96,30 @@ func animacion():
 		$Sprite.offset = Vector2(-6, 6)
 	$Sprite.flip_h = !lookD 
 
-#Establece lo que hara el jugador al morir
+# Establece lo que hara el jugador al morir
+# $AnimationPlayer.play("Idle")
+	
+func damageReceived(damage):
+	if Gamehundler.puntos >= damage:
+		Gamehundler.puntos -= damage
+	else:
+		gameOver()
+
+# Establece lo que hara el jugador al morir
 func gameOver():
+	print("El jugador ha muerto")
+	# Estado del personaje muerto
 	pass
+
+
+func smash() -> void:
+	if($RaycastBottLeft.is_colliding() or $RaycastBottRight.is_colliding()):
+		var object_coll
+		if ($RaycastBottLeft.is_colliding()):
+			object_coll = $RaycastBottLeft.get_collider()
+		elif ($RaycastBottRight.is_colliding()):
+			object_coll = $RaycastBottRight.get_collider()
+		
+		if (object_coll.is_in_group("enemy")):
+			object_coll.death('crushed')
+			velocity.y = JUMPFORCE / 2 # Pequeño salto
