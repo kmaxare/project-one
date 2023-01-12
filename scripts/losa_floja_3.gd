@@ -1,29 +1,20 @@
 extends KinematicBody2D
 
 
-var velocity = Vector2()
-var GRAVITY = 100
+var arriba = Vector2.UP
+var movi = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-func _physics_process(delta):
-	velocity.x = 0
-	
-	
-	velocity = move_and_slide(velocity,Vector2(0,-1))
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Area2D_body_entered(body):
-	if body.is_in_group("player"):
-		print("Ingreso player")
-		$Timer.start(6)
-		if $Timer.time_left > 5:
-			print("paso 2 segundos")
+func _process(delta):
+	var collision_down = move_and_collide(Vector2.DOWN,true,true,true)
+	if collision_down:
+		collision_down.collider.has_method("smash")
+		queue_free()
 		
-			#velocity.y += GRAVITY
-		
+	var collision_up = move_and_collide(arriba,true,true,movi)
+	if collision_up:
+		collision_up.collider.has_method("smash")
+		yield(get_tree().create_timer(2),"timeout")
+		arriba = Vector2(0,50)
+		movi = false
+
+
