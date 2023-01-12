@@ -16,10 +16,9 @@ tile_data = PoolIntArray( 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0,
 position = Vector2( 598, 203 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 88, 312 )
+position = Vector2( 231, 308 )
 
-[node name="Camera" parent="." instance=ExtResource( 4 )]
-limit_top = 0
+[node name="bloques-soprpress" type="Node2D" parent="."]
 
 [node name="player death" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1696, 608 )
