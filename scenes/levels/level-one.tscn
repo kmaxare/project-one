@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/tiles/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/characters/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tiles/well.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/characters/player/Camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/characters/player/player death.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tiles/losa_floja_3.tscn" type="PackedScene" id=6]
 
@@ -17,6 +18,8 @@ position = Vector2( 598, 203 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 231, 308 )
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]
 
 [node name="bloques-soprpress" type="Node2D" parent="."]
 
