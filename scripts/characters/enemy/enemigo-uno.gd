@@ -6,19 +6,30 @@ export (bool) var it_move = true # El enemigo se puede mover
 
 var ataque = 2
 var live = true
-var dir = -1
+export (int) var dir_desp = -1
 
 var move: Vector2 = Vector2(0, 0)
+var limit_border: bool = false
+
 export (float) var displSpeed
+
+func _ready():
+	set_dir()
 
 func _physics_process(delta):
 	if (live):
 		apply_gravity(delta)
 		if (it_move):
-			move.x = speed * dir
+			move.x = speed * dir_desp
 		move_and_slide(Vector2(move.x, 0), Vector2(0,-1))
-		
-		if is_on_wall(): dir = -dir
+#		limit_border = $RayCastLimit.get_collider().get_nodes_in_group('area')[0] and !$RayCastLimit.get_collider().get_nodes_in_group('area')[0]
+		if is_on_wall() or $RayCastLimit.get_collider():
+#			var valorLoco = $RayCastLimit.is_colliding().get_nodes_in_group('area')
+#			print(valorLoco)
+#			if ():
+#				pass
+			dir_desp = -dir_desp
+			set_dir()
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
@@ -30,6 +41,9 @@ func apply_gravity(delta) -> void:
 	move_and_slide(Vector2(0, move.y), Vector2(0, -1))
 	if is_on_floor():
 		move.y = 0
+
+func set_dir() -> void:
+	$RayCastLimit.position.x = $CollisionShape2D.shape.get_extents().x * dir_desp
 		
 func death(deathTipe) -> void:
 	if (deathTipe == 'crushed'):
