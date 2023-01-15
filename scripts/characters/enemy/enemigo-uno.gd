@@ -9,25 +9,22 @@ var live = true
 export (int) var dir_desp = -1
 
 var move: Vector2 = Vector2(0, 0)
-var limit_border: bool = false
 
-export (float) var displSpeed
+var precipicio = 1
 
 func _ready():
 	set_dir()
 
 func _physics_process(delta):
+	var suelo = $RayCastLimit.get_collider()
 	if (live):
+		var dimension = transform
+		
 		apply_gravity(delta)
 		if (it_move):
 			move.x = speed * dir_desp
 		move_and_slide(Vector2(move.x, 0), Vector2(0,-1))
-#		limit_border = $RayCastLimit.get_collider().get_nodes_in_group('area')[0] and !$RayCastLimit.get_collider().get_nodes_in_group('area')[0]
-		if is_on_wall() or $RayCastLimit.get_collider():
-#			var valorLoco = $RayCastLimit.is_colliding().get_nodes_in_group('area')
-#			print(valorLoco)
-#			if ():
-#				pass
+		if is_on_wall():
 			dir_desp = -dir_desp
 			set_dir()
 

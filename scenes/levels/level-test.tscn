@@ -25,12 +25,6 @@ position = Vector2( 373, 296 )
 
 [node name="NPCs" type="Node2D" parent="."]
 
-[node name="enemyOne" parent="NPCs" instance=ExtResource( 5 )]
-position = Vector2( 365, 356 )
-
 [node name="enemyOne2" parent="NPCs" instance=ExtResource( 5 )]
 position = Vector2( 670, 403 )
 dir_desp = 1
-
-[node name="enemyOne3" parent="NPCs" instance=ExtResource( 5 )]
-position = Vector2( 951, 297 )
