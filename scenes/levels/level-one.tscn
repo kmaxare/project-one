@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/tiles/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/characters/player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scripts/levels/level-one.gd" type="Script" id=8]
 [ext_resource path="res://scenes/interactive-objects/point.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/characters/enemy/enemyOne.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/interactive-objects/powerup.tscn" type="PackedScene" id=11]
 
 [node name="Scenery" type="Node2D"]
 script = ExtResource( 8 )
@@ -47,3 +48,6 @@ position = Vector2( 624, 320 )
 
 [node name="enemyOne" parent="." instance=ExtResource( 10 )]
 position = Vector2( 408, 408 )
+
+[node name="powerup" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1152, 448 )
