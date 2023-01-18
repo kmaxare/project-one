@@ -14,11 +14,9 @@ var JUMPFORCE = -550
 var estado = "fall"
 var estadoant = "idle"
 
-
 func _ready():
 	velocity = Vector2.ZERO
 	 
-
 func _physics_process(_delta):
 	match estado:
 		"idle":

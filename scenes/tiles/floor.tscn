@@ -6,7 +6,8 @@
 [node name="floor" type="TileMap" groups=["well"]]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
-collision_layer = 2
+collision_layer = 11
+collision_mask = 11
 format = 1
 tile_data = PoolIntArray( 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0 )
 script = ExtResource( 2 )
