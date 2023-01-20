@@ -6,42 +6,40 @@ export var Vinicial = 30
 export var Vparo = 320
 
 var lookD = true
-var velocity
-
+var velocity = Vector2.ZERO
 # variables de la fuerza de salto y la gravedad del personaje
 var GRAVITY = 20
 var JUMPFORCE = -550
 var estado = "fall"
 var estadoant = "idle"
+var Vretroceso = 100
+var inhabilitado : bool = false
+var invunerable : bool = false
+var danado : bool = false
+var danadoD : bool = false #si es true el atacante esta a la derecha 
 
 func _ready():
-	velocity = Vector2.ZERO
-	 
+	pass
+
 func _physics_process(_delta):
 	match estado:
-		"idle":
+		"idle", "run":
 			move()
 			saltar()
-		"run":
-			move()
-			saltar()
-		"jump":
-			moversaltamdo()
-		"fall":
+		"jump", "fall":
 			moversaltamdo()
 		"hurt":
-			estado 
-	velocity.y += GRAVITY
+			funcHurt() 
+	velocity.y += GRAVITY 
+	animacion()
 	velocity = move_and_slide(velocity, VectorUP)
 	#velocity.x = lerp(velocity.x,0,0.2)
-	if !is_on_floor():
+	if !is_on_floor() and !inhabilitado:
 		if velocity.y < -1:
 			estado = "jump"
 		if velocity.y > 1:
 			estado = "fall"
-	animacion()
-	# print(estado)
-	smash()
+	smash() #verifica si golpeo enemigo 
 
 func move():
 	if Input.is_action_pressed("ui_right"):
@@ -79,36 +77,48 @@ func moversaltamdo():
 			estado = "fall"
 
 func saltar():
-	# metodo para el salto del personaje con la tecla "M", sobre una loza o base.
 	if Input.is_action_just_pressed("m") and is_on_floor():
 		velocity.y = JUMPFORCE
 		estado = "jump"
-
+func funcHurt():
+	if !inhabilitado:
+		estado = "idle"
 func animacion():
+	if danado:
+		estado = "hurt"
+		danado = false
+		inhabilitado = true
+		invunerable = true
+		$Timer.start(0.74)
+		if danadoD:
+			velocity.x += -Vretroceso
+			lookD = true
+		else:
+			velocity.x += Vretroceso
+			lookD = false
+	#se actualiza el estado anterior 
 	if estado != estadoant:
 		$AnimationPlayer.play(estado)
 		estadoant = estado
 	if lookD:
-		$Sprite.offset = Vector2(6, 0)
+		$CollisionShape2D.position = Vector2(2.5, 1.5)
 	else:
-		$Sprite.offset = Vector2(-6, 6)
+		$CollisionShape2D.position = Vector2(-2.5, 1.5)
 	$Sprite.flip_h = !lookD 
 
-# Establece lo que hara el jugador al morir
-# $AnimationPlayer.play("Idle")
-	
-func damageReceived(damage):
-	if Gamehundler.puntos >= damage:
-		Gamehundler.puntos -= damage
-	else:
-		gameOver()
-
-# Establece lo que hara el jugador al morir
-func gameOver():
-	print("El jugador ha muerto")
-	# Estado del personaje muerto
-	pass
-
+func damageReceived(damage, positionEnemy : Vector2):
+	if !invunerable:
+		danado = true
+		if global_position.x < positionEnemy.x:
+			danadoD = true
+		else:
+			danadoD = false
+		if Gamehundler.puntos >= damage:
+			Gamehundler.puntos -= damage
+		else:
+			Gamehundler.gameOver()
+func postHurt():
+	inhabilitado = false
 
 func smash() -> void:
 	if($RaycastBottLeft.is_colliding() or $RaycastBottRight.is_colliding()):
@@ -121,3 +131,7 @@ func smash() -> void:
 		if (object_coll.is_in_group("enemy")):
 			object_coll.death('crushed')
 			velocity.y = JUMPFORCE / 2 # Pequeño salto
+
+func _on_Timer_timeout():
+	invunerable = false
+	pass # Replace with function body.
