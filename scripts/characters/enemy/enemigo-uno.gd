@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+# Enemigo Uno
+
 export (float) var gravity = 250.0
 export (float) var speed = 60
 export (bool) var it_move = true # El enemigo se puede mover
@@ -9,8 +11,6 @@ var live = true
 export (int) var dir_desp = -1
 
 var move: Vector2 = Vector2(0, 0)
-
-var precipicio = 1
 
 func _ready():
 	set_dir()
