@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 # Enemigo Uno
 export (float) var gravity = 300
-export (float) var speed = 60
+export (float) var speed = 130
 export (bool) var it_move = true # El enemigo se puede mover
 
 var ataque = 2
@@ -20,7 +20,7 @@ func _ready():
 func _physics_process(delta):
 	if (live):
 		if (it_move):
-			distance.x = speed_force * delta
+			distance.x = speed * delta
 			move.x = (dir_desp * distance.x)/delta
 			move.y += gravity * delta
 			move_and_slide(move, Vector2(0,-1))
