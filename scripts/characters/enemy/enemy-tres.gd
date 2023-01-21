@@ -41,6 +41,7 @@ func saltar() -> void:
 func looking_at():
 	var looking_object
 	if $RayCastVision.is_colliding():
+		print ('coliciono')
 		looking_object = $RayCastVision.get_collider()
 		alert_watching = true
 	elif !$RayCastVision.is_colliding():
@@ -58,7 +59,7 @@ func observe_npc(looking_object):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
-		body.damageReceived(ataque)
+		body.damageReceived(ataque, global_position)
 
 func set_direction_raycast() -> void:
 	# Reubicacion dinamica de rayCast para detectar borde
