@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/tests/Prota/Timer_Coin_Numbers_Outlined (8 x 8).png" type="Texture" id=1]
+[ext_resource path="res://scenes/interactive-objects/powerup.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 34.1321
+
+[node name="powerup" type="Area2D"]
+collision_layer = 11
+collision_mask = 11
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.500001, -1 )
+scale = Vector2( 7.875, 7.75 )
+texture = ExtResource( 1 )
+hframes = 7
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_powerup_body_entered"]

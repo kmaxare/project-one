@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/GUI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GUI/GUI.gd" type="Script" id=2]
+
+[node name="GUI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -153.5
+margin_top = 20.0
+margin_right = 153.5
+margin_bottom = 50.0
+custom_constants/separation = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 125.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "Points"
+align = 1
+valign = 1
+
+[node name="puntos" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 125.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 225.0
+margin_right = 307.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 82.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "time"
+align = 1
+valign = 1
+
+[node name="tiempo" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 27.0
+margin_right = 82.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1
+
+[node name="GameOverGUIbasica" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -153.5
+margin_top = 240.0
+margin_right = 153.5
+margin_bottom = 50.0
+custom_constants/separation = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverGUIbasica"]
+margin_right = 307.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GameOverGUIbasica/VBoxContainer"]
+margin_right = 307.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="puntos" type="Label" parent="GameOverGUIbasica/VBoxContainer"]
+margin_top = 27.0
+margin_right = 307.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+text = "pulsa \"m\""
+align = 1
+valign = 1

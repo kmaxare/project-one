@@ -8,7 +8,8 @@ extents = Vector2( 30, 7 )
 
 [node name="well" type="Area2D" groups=["faience"]]
 position = Vector2( 444, 359 )
-collision_layer = 4
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
