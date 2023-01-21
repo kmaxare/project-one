@@ -5,11 +5,7 @@ var puntos = 0
 # Gravedad para personajes
 var gravity = 20
 # Tiempo para que termine el nivel
-var tiempo = 400
-var estadoGameOver = false
-
-func _ready():
-	pass 
+var tiempo = 180
 
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
@@ -18,7 +14,4 @@ func _process(delta):
 		get_tree().reload_current_scene()
 
 func gameOver():
-	get_tree().paused = true
-	print("El jugador ha muerto")
-	estadoGameOver = true
-	pass
+	get_tree().change_scene("res://GUI/game_over.tscn")
