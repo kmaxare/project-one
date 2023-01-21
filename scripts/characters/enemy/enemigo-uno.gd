@@ -15,7 +15,7 @@ var move = Vector2()
 var speed_force = 200
 
 func _ready():
-	set_dir()
+	set_direction_raycast()
 
 func _physics_process(delta):
 	if (live):
@@ -27,13 +27,14 @@ func _physics_process(delta):
 			
 		if is_on_wall():
 			dir_desp = -dir_desp
-			set_dir()
+			set_direction_raycast()
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		body.damageReceived(ataque)
 
-func set_dir() -> void:
+func set_direction_raycast() -> void:
+	# Reubicacion dinamica de rayCast para detectar borde
 	$RayCastLimit.position.x = $CollisionShape2D.shape.get_extents().x * dir_desp
 		
 func death(deathTipe) -> void:
