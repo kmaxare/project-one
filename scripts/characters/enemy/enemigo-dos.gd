@@ -29,7 +29,7 @@ func _physics_process(delta):
 
 		if is_on_wall(): # Colosion de lados
 			dir_desp = -dir_desp
-			set_direction_raycast()
+			set_direction_raycast() 
 			
 		if (is_on_ceiling()): # Colosion con el techo
 			move.y = +150
