@@ -25,6 +25,7 @@ tile_data = PoolIntArray( 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0,
 position = Vector2( 231, 308 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
+editor_draw_drag_margin = true
 
 [node name="bloques-interactuables" type="Node2D" parent="."]
 
@@ -35,24 +36,45 @@ position = Vector2( 791, 385 )
 position = Vector2( 2914, 473 )
 
 [node name="bloque-sorpresa" parent="bloques-interactuables" instance=ExtResource( 3 )]
-position = Vector2( 711, 301 )
+position = Vector2( 701, 360 )
 
 [node name="bloque-sorpresa2" parent="bloques-interactuables" instance=ExtResource( 3 )]
-position = Vector2( 860, 290 )
+position = Vector2( 850, 349 )
 
 [node name="bloque-sorpresa3" parent="bloques-interactuables" instance=ExtResource( 3 )]
-position = Vector2( 618, 254 )
+position = Vector2( 608, 313 )
+
+[node name="bloque-sorpresa4" parent="bloques-interactuables" instance=ExtResource( 3 )]
+position = Vector2( 240, 456 )
+
+[node name="bloque-sorpresa5" parent="bloques-interactuables" instance=ExtResource( 3 )]
+position = Vector2( 138, 394 )
+
+[node name="bloque-sorpresa6" parent="bloques-interactuables" instance=ExtResource( 3 )]
+position = Vector2( 60, 332 )
+
+[node name="bloque-sorpresa7" parent="bloques-interactuables" instance=ExtResource( 3 )]
+position = Vector2( 144, 278 )
+
+[node name="bloque-sorpresa8" parent="bloques-interactuables" instance=ExtResource( 3 )]
+position = Vector2( 331, 338 )
+
+[node name="bloque-sorpresa10" parent="bloques-interactuables" instance=ExtResource( 3 )]
+position = Vector2( 274, 340 )
+
+[node name="bloque-sorpresa9" parent="bloques-interactuables" instance=ExtResource( 3 )]
+position = Vector2( 445, 408 )
 
 [node name="points" type="Node2D" parent="."]
 
 [node name="point" parent="points" instance=ExtResource( 9 )]
-position = Vector2( 576, 320 )
+position = Vector2( 566, 379 )
 
 [node name="point2" parent="points" instance=ExtResource( 9 )]
-position = Vector2( 600, 320 )
+position = Vector2( 590, 379 )
 
 [node name="point3" parent="points" instance=ExtResource( 9 )]
-position = Vector2( 624, 320 )
+position = Vector2( 614, 379 )
 
 [node name="powerup" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1160, 481 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/qubodupSqueakyRatPain.ogg-8f750bbf33538e21070b5aaf77262216.oggstr"
+
+[deps]
+
+source_file="res://sprites/tests/Prota/qubodupSqueakyRatPain.ogg"
+dest_files=[ "res://.import/qubodupSqueakyRatPain.ogg-8f750bbf33538e21070b5aaf77262216.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -83,6 +83,7 @@ func saltar():
 func funcHurt():
 	if !inhabilitado:
 		estado = "idle"
+		$AudioStreamPlayer.playing = false
 func animacion():
 	if danado:
 		estado = "hurt"
@@ -115,6 +116,9 @@ func damageReceived(damage, positionEnemy : Vector2):
 			danadoD = false
 		if Gamehundler.puntos >= damage:
 			Gamehundler.puntos -= damage
+			get_tree().get_nodes_in_group("camera")[0].screen_shake(0.15, 0.5, 10)
+			$AudioStreamPlayer.playing = true
+			#$AudioStreamPlayer.playing = false
 		else:
 			Gamehundler.gameOver()
 func postHurt():

@@ -1,7 +1,7 @@
 extends Node
 
 # Variable para puntos del jugador
-var puntos = 0
+var puntos = 5
 # Gravedad para personajes
 var gravity = 20
 # Tiempo para que termine el nivel
