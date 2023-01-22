@@ -25,7 +25,7 @@ func _physics_process(delta):
 			move.y += gravity * delta
 			move_and_slide(move, Vector2(0,-1))
 			
-		if is_on_wall():
+		if is_on_wall() or (is_on_floor() and !$RayCastLimit.is_colliding()):
 			dir_desp = -dir_desp
 			set_direction_raycast()
 
