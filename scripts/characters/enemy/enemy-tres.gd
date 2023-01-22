@@ -13,7 +13,6 @@ export (int) var dir_desp = -1
 
 var distance = Vector2()
 var move = Vector2()
-var alert_watching: bool = false
 
 func _ready():
 	set_direction_raycast()
@@ -32,7 +31,7 @@ func _physics_process(delta):
 			dir_desp = -dir_desp
 			set_direction_raycast()
 		
-		if !alert_watching:
+		if $RayCastVision.enabled:
 			observe_npc(looking_at())
 
 func saltar() -> void:
@@ -41,11 +40,11 @@ func saltar() -> void:
 func looking_at():
 	var looking_object
 	if $RayCastVision.is_colliding():
+		print ('coliciono')
 		looking_object = $RayCastVision.get_collider()
-		alert_watching = true
+		$RayCastVision.enabled = false
 	elif !$RayCastVision.is_colliding():
 		looking_object = null
-	
 	return looking_object
 
 func observe_npc(looking_object):
@@ -58,7 +57,7 @@ func observe_npc(looking_object):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
-		body.damageReceived(ataque)
+		body.damageReceived(ataque, global_position)
 
 func set_direction_raycast() -> void:
 	# Reubicacion dinamica de rayCast para detectar borde
@@ -87,7 +86,7 @@ func attack_player():
 	$Timer.start()
 
 func _on_Timer_timeout():
-	print ('Cargar')
 	yield(get_tree().create_timer(1.0), "timeout")
 	speed_copy = speed
+	$RayCastVision.enabled = true
 

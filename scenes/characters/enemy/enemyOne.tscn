@@ -29,8 +29,9 @@ shape = SubResource( 2 )
 [node name="AnimEnemyUno" type="AnimationPlayer" parent="."]
 
 [node name="RayCastLimit" type="RayCast2D" parent="."]
-position = Vector2( 0, 31 )
+position = Vector2( 0, 1 )
 enabled = true
-cast_to = Vector2( 0, 12 )
+cast_to = Vector2( 0, 39 )
+collision_mask = 16
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
