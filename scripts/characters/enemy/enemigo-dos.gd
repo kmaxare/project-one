@@ -26,37 +26,42 @@ func _physics_process(delta):
 			move.x = (dir_desp * distance.x)/delta
 			move.y += gravity * delta
 			move_and_slide(move, Vector2(0,-1))
-			
-		if is_on_wall():
+
+		if is_on_wall(): # Colosion de lados
 			dir_desp = -dir_desp
 			set_direction_raycast()
 			
+		if (is_on_ceiling()): # Colosion con el techo
+			move.y = +150
+
 		velocidad_despl(is_on_floor())
-			
+
 func saltar() -> void:
-	if is_on_floor(): move.y = -jump
+	randomize()
+	var rand = int(rand_range(1, 5))
+	if is_on_floor() and rand < 2.5:
+		move.y = -jump
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
-		body.damageReceived(ataque)
+		body.damageReceived(ataque, global_position)
 
 func set_direction_raycast() -> void:
 	# Reubicacion dinamica de rayCast para detectar borde
 	$RayCastLimit.position.x = $CollisionShape2D.shape.get_extents().x * dir_desp
-		
+
 func death(deathTipe) -> void:
 	if (deathTipe == 'crushed'):
 		# Animacion de aplastamiento
 		# Animacion muerte
 		print('Muerte por aplastamiento')
 	queue_free()
-	
+
 func velocidad_despl(isJump: bool):
 	if (isJump):
-		speed_copy = speed 
+		speed_copy = speed
 	elif (!isJump):
 		speed_copy = speed / 2
 
 func _on_Timer_timeout():
-	print ('Saltar')
 	saltar()
