@@ -3,11 +3,21 @@ extends Camera2D
 onready var player = get_tree().get_nodes_in_group("player")[0]
 var rng = RandomNumberGenerator.new()
 
+func _ready():
+	var bordeSI = get_tree().get_nodes_in_group('bordeSI')[0]
+	var bordeID = get_tree().get_nodes_in_group('bordeID')[0]
+	limit_left = bordeSI.position.x
+	limit_right = bordeID.position.x
+	limit_top = bordeSI.position.y
+	limit_bottom = bordeID.position.y
+
 func _physics_process(delta):
 	position.y = player.position.y
+	position.x = player.position.x
 	
-	if player.position.x + 200 > position.x:
-		position.x = player.position.x + 200
+#	if player.position.x + 200 > position.x:
+#		position.x = player.position.x + 200
+
 
 func random(minimo, maximo):
 	rng.randomize()

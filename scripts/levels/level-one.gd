@@ -5,6 +5,10 @@ var cont = 0
 func _physics_process(delta):
 	time_control()
 		
+		
+		
+		
+		
 func time_control():
 	cont += 1
 	if cont > 60:
