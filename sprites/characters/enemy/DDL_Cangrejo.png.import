@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/JerboJuntado_01.png-2780185b5f0607f229b8373d36610922.stex"
+path="res://.import/DDL_Cangrejo.png-407b894a0efbb8e6c41ce03c429d276c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/Player/JerboJuntado_01.png"
-dest_files=[ "res://.import/JerboJuntado_01.png-2780185b5f0607f229b8373d36610922.stex" ]
+source_file="res://sprites/characters/enemy/DDL_Cangrejo.png"
+dest_files=[ "res://.import/DDL_Cangrejo.png-407b894a0efbb8e6c41ce03c429d276c.stex" ]
 
 [params]
 

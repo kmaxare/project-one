@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/characters/enemy/enemigo-dos.gd" type="Script" id=2]
@@ -8,6 +8,24 @@ extents = Vector2( 28, 30 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 27.5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "charger"
+
+[sub_resource type="Animation" id=4]
+resource_name = "fall"
+
+[sub_resource type="Animation" id=5]
+resource_name = "hurt"
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=7]
+resource_name = "run"
+
+[sub_resource type="Animation" id=8]
+resource_name = "walk"
 
 [node name="enemyDos" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 2 )
@@ -25,6 +43,12 @@ position = Vector2( 0, -1.5 )
 shape = SubResource( 2 )
 
 [node name="AnimEnemyUno" type="AnimationPlayer" parent="."]
+anims/charger = SubResource( 3 )
+anims/fall = SubResource( 4 )
+anims/hurt = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/run = SubResource( 7 )
+anims/walk = SubResource( 8 )
 
 [node name="RayCastLimit" type="RayCast2D" parent="."]
 position = Vector2( 0, 31 )

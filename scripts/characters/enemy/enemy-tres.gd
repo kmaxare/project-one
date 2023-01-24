@@ -17,10 +17,13 @@ var move = Vector2()
 func _ready():
 	set_direction_raycast()
 	speed_copy = speed
+	$AnimEnemyUno.play("idle")
 
 func _physics_process(delta):
 	if (live):
+		
 		if (it_move):
+			$AnimEnemyUno.play("walk")
 			distance.x = speed_copy * delta
 			
 			move.x = (dir_desp * distance.x)/delta
@@ -29,6 +32,7 @@ func _physics_process(delta):
 			
 		if is_on_wall():
 			dir_desp = -dir_desp
+			$Sprite.flip_h = !$Sprite.flip_h
 			set_direction_raycast()
 		
 		if $RayCastVision.enabled:
@@ -67,10 +71,14 @@ func set_direction_raycast() -> void:
 	$RayCastVision.rotation_degrees = - $RayCastVision.rotation_degrees
 
 func death(deathTipe) -> void:
+	if !live: return
+	
+	live = false
 	if (deathTipe == 'crushed'):
 		# Animacion de aplastamiento
 		# Animacion muerte
 		print('Muerte por aplastamiento')
+		$AnimEnemyUno.play("hurt")
 	queue_free()
 
 func velocidad_despl(isJump: bool):
@@ -80,13 +88,18 @@ func velocidad_despl(isJump: bool):
 		speed_copy = speed / 2
 
 func attack_player():
+	it_move = false
+	$AnimEnemyUno.play("charger")
 	speed_copy = 0
-	yield(get_tree().create_timer(3.0), "timeout")
+#	yield(get_tree().create_timer(3.0), "timeout")
+	yield($AnimEnemyUno, "animation_finished")
 	speed_copy = speed * 2
 	$Timer.start()
 
 func _on_Timer_timeout():
 	yield(get_tree().create_timer(1.0), "timeout")
+	it_move = true
+	$AnimEnemyUno.play("run")
 	speed_copy = speed
 	$RayCastVision.enabled = true
 

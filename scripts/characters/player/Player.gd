@@ -3,13 +3,13 @@ extends KinematicBody2D
 #indica que el vector UP solo reconoce como suelo a lo de abajo
 const VectorUP = Vector2(0,-1);
 export var Vinicial = 30
-export var Vparo = 320
+export var Vparo = 150 # 320
 
 var lookD = true
 var velocity = Vector2.ZERO
 # variables de la fuerza de salto y la gravedad del personaje
 var GRAVITY = 20
-var JUMPFORCE = -550
+var JUMPFORCE = -420 #-550
 var estado = "fall"
 var estadoant = "idle"
 var Vretroceso = 100
