@@ -3,7 +3,7 @@ extends KinematicBody2D
 enum states {idle, run, hurt}
 var enemy_state = states
 
-export (float) var gravity = 300
+export (float) var gravity = 150
 export (float) var speed = 60
 export (bool) var it_move = true # El enemigo se puede mover
 

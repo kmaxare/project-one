@@ -26,17 +26,18 @@ custom_constants/separation = 30
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_right = 320.0
-margin_bottom = 40.0
+margin_top = 80.0
+margin_right = 640.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 0, 40 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 70.0
-margin_right = 320.0
-margin_bottom = 95.0
+margin_top = 150.0
+margin_right = 640.0
+margin_bottom = 175.0
 rect_min_size = Vector2( 0, 25 )
 custom_fonts/font = SubResource( 1 )
 text = "Proyecto DDL"
@@ -44,58 +45,58 @@ align = 1
 valign = 1
 
 [node name="start" type="Button" parent="VBoxContainer"]
-margin_top = 125.0
-margin_right = 320.0
-margin_bottom = 141.0
+margin_top = 205.0
+margin_right = 640.0
+margin_bottom = 221.0
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 
 [node name="score" type="Button" parent="VBoxContainer"]
-margin_top = 171.0
-margin_right = 320.0
-margin_bottom = 187.0
+margin_top = 251.0
+margin_right = 640.0
+margin_bottom = 267.0
 custom_fonts/font = SubResource( 2 )
 text = "Score"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 217.0
-margin_right = 320.0
-margin_bottom = 233.0
+margin_top = 297.0
+margin_right = 640.0
+margin_bottom = 313.0
 custom_constants/separation = 80
 alignment = 1
 
 [node name="instruccions" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 58.0
-margin_right = 128.0
+margin_left = 218.0
+margin_right = 288.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 2 )
 text = "Instructions"
 
 [node name="controls" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 208.0
-margin_right = 262.0
+margin_left = 368.0
+margin_right = 422.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 2 )
 text = "Controls"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 263.0
-margin_right = 320.0
-margin_bottom = 279.0
+margin_top = 343.0
+margin_right = 640.0
+margin_bottom = 359.0
 custom_constants/separation = 80
 alignment = 1
 
 [node name="credits" type="Button" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 83.0
-margin_right = 128.0
+margin_left = 243.0
+margin_right = 288.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
 icon_align = 1
 
 [node name="quit" type="Button" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 208.0
-margin_right = 237.0
+margin_left = 368.0
+margin_right = 397.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"

@@ -21,6 +21,7 @@ func _ready():
 func _physics_process(delta):
 	if (live):
 		if (it_move):
+			$AnimEnemyUno.play("walk")
 			distance.x = speed_copy * delta
 			
 			move.x = (dir_desp * distance.x)/delta
@@ -29,6 +30,7 @@ func _physics_process(delta):
 
 		if is_on_wall(): # Colosion de lados
 			dir_desp = -dir_desp
+			$Sprite.flip_h = !$Sprite.flip_h
 			set_direction_raycast() 
 			
 		if (is_on_ceiling()): # Colosion con el techo
@@ -37,10 +39,18 @@ func _physics_process(delta):
 		velocidad_despl(is_on_floor())
 
 func saltar() -> void:
+	it_move = false
+	speed_copy = 0
 	randomize()
 	var rand = int(rand_range(1, 5))
+	$AnimEnemyUno.play("charger")
+	yield($AnimEnemyUno, "animation_finished")
+	speed_copy = speed
 	if is_on_floor() and rand < 2.5:
 		move.y = -jump
+		$AnimEnemyUno.play("jump")
+		yield($AnimEnemyUno, "animation_finished")
+	it_move = true
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
@@ -64,4 +74,4 @@ func velocidad_despl(isJump: bool):
 		speed_copy = speed / 2
 
 func _on_Timer_timeout():
-	saltar()
+	if is_on_floor(): saltar()
