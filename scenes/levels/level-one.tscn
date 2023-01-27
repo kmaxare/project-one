@@ -56,6 +56,9 @@ position = Vector2( 607, 11 )
 [node name="death" parent="bloques-interactuables" instance=ExtResource( 5 )]
 position = Vector2( 1195, 231 )
 
+[node name="losa_floja_4" parent="bloques-interactuables" instance=ExtResource( 6 )]
+position = Vector2( 400, 470 )
+
 [node name="points" type="Node2D" parent="."]
 
 [node name="point" parent="points" instance=ExtResource( 9 )]
@@ -89,14 +92,5 @@ position = Vector2( 496, -235 )
 [node name="enemyDos" parent="Enemigos" instance=ExtResource( 14 )]
 position = Vector2( 1087, 23 )
 
-[node name="enemyDos2" parent="Enemigos" instance=ExtResource( 14 )]
-position = Vector2( 303, 12 )
-
 [node name="enemyTres" parent="Enemigos" instance=ExtResource( 15 )]
 position = Vector2( 1117, 123 )
-
-[node name="enemyTres2" parent="Enemigos" instance=ExtResource( 15 )]
-position = Vector2( 747, -229 )
-
-[node name="enemyTres3" parent="Enemigos" instance=ExtResource( 15 )]
-position = Vector2( 294, -109 )
