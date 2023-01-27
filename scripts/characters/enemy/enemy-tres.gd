@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Enemigo Dos
-export (float) var gravity = 300
+export (float) var gravity = 150
 export (float) var speed = 130
 export (float) var jump = 250
 var speed_copy: int
@@ -44,9 +44,8 @@ func saltar() -> void:
 func looking_at():
 	var looking_object
 	if $RayCastVision.is_colliding():
-		print ('coliciono')
 		looking_object = $RayCastVision.get_collider()
-		$RayCastVision.enabled = false
+		
 	elif !$RayCastVision.is_colliding():
 		looking_object = null
 	return looking_object
@@ -55,6 +54,7 @@ func observe_npc(looking_object):
 	if looking_object != null:
 		if looking_object.is_in_group('player'):
 			print('Es el juguador mi patasa')
+			$RayCastVision.enabled = false
 			attack_player()
 		elif looking_object.is_in_group('enemigo'):
 			print('Es Billy el quejumbroso')
@@ -89,16 +89,16 @@ func velocidad_despl(isJump: bool):
 
 func attack_player():
 	it_move = false
-	$AnimEnemyUno.play("charger")
 	speed_copy = 0
+	$AnimEnemyUno.play("charger")
 #	yield(get_tree().create_timer(3.0), "timeout")
 	yield($AnimEnemyUno, "animation_finished")
 	speed_copy = speed * 2
+	it_move = true
 	$Timer.start()
 
 func _on_Timer_timeout():
-	yield(get_tree().create_timer(1.0), "timeout")
-	it_move = true
+#	yield(get_tree().create_timer(1.0), "timeout")
 	$AnimEnemyUno.play("run")
 	speed_copy = speed
 	$RayCastVision.enabled = true
