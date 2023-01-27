@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 24.0
 
-[node name="barrel" type="RigidBody2D"]
+[node name="barrel" type="RigidBody2D" groups=["barrel"]]
 can_sleep = false
 linear_damp = 0.0
 
