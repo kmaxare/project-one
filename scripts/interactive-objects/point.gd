@@ -4,8 +4,6 @@ export var value = 1 # 0 = (+1 punto) / 1 = (+3 puntos)
 export (Texture) var semillaOne
 export (Texture) var semillaTwo
 
-onready var sprite = $Sprite
-
 func _ready():
 	if value == 1:
 		$Sprite.texture = semillaOne
