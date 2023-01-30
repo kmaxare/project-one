@@ -62,13 +62,14 @@ position = Vector2( 400, 470 )
 [node name="points" type="Node2D" parent="."]
 
 [node name="point" parent="points" instance=ExtResource( 9 )]
-position = Vector2( 972, 767 )
+position = Vector2( 560, 319 )
 
 [node name="point2" parent="points" instance=ExtResource( 9 )]
-position = Vector2( 1042, 766 )
+position = Vector2( 688, 317 )
 
 [node name="point3" parent="points" instance=ExtResource( 9 )]
-position = Vector2( 1152, 769 )
+position = Vector2( 816, 318 )
+value = 2
 
 [node name="powerup" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1118, 927 )
