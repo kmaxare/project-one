@@ -142,7 +142,6 @@ anims/run = SubResource( 3 )
 [node name="RayCast" type="Node2D" parent="."]
 
 [node name="RaycastBottLeft" type="RayCast2D" parent="."]
-position = Vector2( -6, 0 )
 enabled = true
 cast_to = Vector2( 0, 18 )
 
