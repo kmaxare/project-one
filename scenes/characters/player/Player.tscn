@@ -156,4 +156,9 @@ collision_mask = 2
 wait_time = 0.74
 one_shot = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Tween" type="Tween" parent="Camera2D"]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
