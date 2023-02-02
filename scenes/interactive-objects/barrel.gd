@@ -20,8 +20,16 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	# Mover el objeto y evitar colisiones con el suelo
 	motion = move_and_slide(motion, FLOOR)
+	
+	animDisplacement()
 
 # Función para cambiar la dirección del movimiento del objeto
 func change_direction(direction: float):
 	# Multiplicar la velocidad actual por la dirección especificada
 	SPEED *= direction
+	
+func animDisplacement():
+	if (motion.x != 0):
+		$AnimBarrel.play("rolling")
+	else:
+		$AnimBarrel.stop()
