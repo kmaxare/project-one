@@ -1,7 +1,7 @@
 extends Node2D
 
 #radio de la circunferencia en la que se moverán los slabs
-export var radius = 150.0
+export var radius = 100.0
 #arreglo que contiene los ángulos iniciales de cada slab en radianes
 var angles = [0.0, 1.5708, 3.14159, 4.71239]
 
@@ -20,4 +20,3 @@ func move_slab(angle, slab):
 	var y = radius * sin(angle)
 	# asignar posición al cuerpo estático
 	slab.position = Vector2(x, y)
-
