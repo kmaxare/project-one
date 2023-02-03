@@ -9,7 +9,7 @@ var lookD = true
 var velocity = Vector2.ZERO
 # variables de la fuerza de salto y la gravedad del personaje
 var GRAVITY = 20
-var JUMPFORCE = -420 #-550
+export var JUMPFORCE = -420 #-550
 var estado = "fall"
 var estadoant = "idle"
 var Vretroceso = 100

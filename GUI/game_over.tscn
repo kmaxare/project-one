@@ -20,23 +20,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
+margin_left = -160.0
+margin_top = -90.0
+margin_right = 160.0
+margin_bottom = 110.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -354.0
-margin_top = -231.0
-margin_right = 354.0
-margin_bottom = 231.0
+margin_left = -136.0
+margin_top = -100.0
+margin_right = 572.0
+margin_bottom = 362.0
+rect_scale = Vector2( 0.4, 0.4 )
 custom_constants/separation = 60
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 708.0
