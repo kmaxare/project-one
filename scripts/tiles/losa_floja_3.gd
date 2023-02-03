@@ -19,7 +19,7 @@ func _process(delta):
 	if collision_up:
 		collision_up.collider.has_method("smash")
 		yield(get_tree().create_timer(2),"timeout")
-		arriba = Vector2(0,50)
+		arriba = Vector2(0,4)
 		movi = false
 
 
