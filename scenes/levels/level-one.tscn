@@ -11,7 +11,7 @@
 [ext_resource path="res://scenes/interactive-objects/point.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/interactive-objects/rotating wheel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/interactive-objects/powerup.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/interactive-objects/barrel generator.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/interactive-objects/barrel_generator.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/characters/enemy/enemyOne.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/characters/enemy/enemyDos.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/characters/enemy/enemyTres.tscn" type="PackedScene" id=15]
