@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/characters/enemy/enemyDos.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/characters/enemy/enemyTres.tscn" type="PackedScene" id=15]
 
+
 [node name="Scenery" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 8 )
