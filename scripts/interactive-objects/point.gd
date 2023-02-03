@@ -1,14 +1,16 @@
 extends Area2D
 
 export var value = 1 # 0 = (+1 punto) / 1 = (+3 puntos)
-
-onready var sprite = $Sprite
+export (Texture) var semillaOne
+export (Texture) var semillaTwo
 
 func _ready():
 	if value == 1:
-		sprite.frame = 0
+		$Sprite.texture = semillaOne
 	elif value == 2:
-		sprite.frame = 1
+		$Sprite.texture = semillaTwo
+		
+	$AnimationPlayer.play("anim_idle")
 
 func _on_point_body_entered(body):
 	$AnimationPlayer.play("collected") # Para animacion (Pixel).

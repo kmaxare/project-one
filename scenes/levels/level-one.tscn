@@ -11,7 +11,7 @@
 [ext_resource path="res://scenes/interactive-objects/point.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/interactive-objects/rotating wheel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/interactive-objects/powerup.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/interactive-objects/barrel generator.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/interactive-objects/barrel_generator.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/characters/enemy/enemyOne.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/characters/enemy/enemyDos.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/characters/enemy/enemyTres.tscn" type="PackedScene" id=15]
@@ -64,12 +64,25 @@ position = Vector2( 2914, 473 )
 
 [node name="rotating wheel" parent="bloques-interactuables" instance=ExtResource( 10 )]
 position = Vector2( 928, -62 )
+radius = 100.0
 
 [node name="barrel generator" parent="bloques-interactuables" instance=ExtResource( 12 )]
 position = Vector2( 864, 648 )
 
 [node name="death" parent="bloques-interactuables" instance=ExtResource( 5 )]
-position = Vector2( 1195, 231 )
+position = Vector2( 388, 607 )
+
+[node name="death2" parent="bloques-interactuables" instance=ExtResource( 5 )]
+position = Vector2( 505, 607 )
+
+[node name="death3" parent="bloques-interactuables" instance=ExtResource( 5 )]
+position = Vector2( 682, 607 )
+
+[node name="death4" parent="bloques-interactuables" instance=ExtResource( 5 )]
+position = Vector2( 828, 609 )
+
+[node name="death5" parent="bloques-interactuables" instance=ExtResource( 5 )]
+position = Vector2( 1197, 230 )
 
 [node name="losa_floja_4" parent="bloques-interactuables" instance=ExtResource( 6 )]
 position = Vector2( 344, 392 )
