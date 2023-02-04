@@ -18,8 +18,13 @@ func _process(delta):
 	var collision_up = move_and_collide(arriba,true,true,movi)
 	if collision_up:
 		collision_up.collider.has_method("smash")
+		$AnimationPlayer.play("vibracion")
 		yield(get_tree().create_timer(2),"timeout")
-		arriba = Vector2(0,50)
+		arriba = Vector2(0,4)
 		movi = false
 
 
+
+#se elimina cuando sale de la vista
+func _on_Visibility_screen_exited():
+	queue_free()
