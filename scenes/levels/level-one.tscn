@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/tiles/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/characters/player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/characters/enemy/enemyOne.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/characters/enemy/enemyDos.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/characters/enemy/enemyTres.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/interactive-objects/spikes.tscn" type="PackedScene" id=16]
 
 [node name="Scenery" type="Node2D"]
 pause_mode = 1
@@ -104,6 +105,9 @@ position = Vector2( 849, 515 )
 
 [node name="losa_floja_15" parent="bloques-interactuables" instance=ExtResource( 6 )]
 position = Vector2( 881, 515 )
+
+[node name="spikes" parent="bloques-interactuables" instance=ExtResource( 16 )]
+position = Vector2( 75, 489 )
 
 [node name="points" type="Node2D" parent="."]
 
