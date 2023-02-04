@@ -1,14 +1,7 @@
 extends Node2D
 
-<<<<<<< Updated upstream
-#radio de la circunferencia en la que se moverán los slabs
-export var radius = 100.0
-#arreglo que contiene los ángulos iniciales de cada slab en radianes
-var angles = [0.0, 1.5708, 3.14159, 4.71239]
-=======
 # Radio del movimiento circular
 export var radius = 100.0
->>>>>>> Stashed changes
 
 # Lista de tableros que se moverán en un círculo
 onready var slabs = [$slab1, $slab2, $slab3, $slab4]
