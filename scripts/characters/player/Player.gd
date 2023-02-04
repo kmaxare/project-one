@@ -117,16 +117,13 @@ func damageReceived(damage, positionEnemy : Vector2):
 			Gamehundler.puntos -= damage
 		else:
 			Gamehundler.gameOver()
+			
 func postHurt():
 	inhabilitado = false
 
 func smash() -> void:
-	if($RaycastBottLeft.is_colliding() or $RaycastBottRight.is_colliding()):
-		var object_coll
-		if ($RaycastBottLeft.is_colliding()):
-			object_coll = $RaycastBottLeft.get_collider()
-		elif ($RaycastBottRight.is_colliding()):
-			object_coll = $RaycastBottRight.get_collider()
+	if($RaycastBott.is_colliding()):
+		var object_coll = $RaycastBott.get_collider()
 		
 		if (object_coll.is_in_group("enemy")):
 			object_coll.death('crushed')

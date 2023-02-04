@@ -170,15 +170,11 @@ anims/run = SubResource( 3 )
 
 [node name="RayCast" type="Node2D" parent="."]
 
-[node name="RaycastBottLeft" type="RayCast2D" parent="."]
+[node name="RaycastBott" type="RayCast2D" parent="."]
+position = Vector2( 3, 3 )
+scale = Vector2( 2, 1 )
 enabled = true
-cast_to = Vector2( 0, 18 )
-
-[node name="RaycastBottRight" type="RayCast2D" parent="."]
-position = Vector2( 6, 0 )
-enabled = true
-cast_to = Vector2( 0, 18 )
-collision_mask = 2
+cast_to = Vector2( 0, 17 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.74
