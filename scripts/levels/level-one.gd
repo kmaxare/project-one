@@ -4,6 +4,7 @@ var cont = 0
 
 func _ready():
 	Gamehundler.tiempo = 180
+	Gamehundler.puntos = 0
 
 func _physics_process(delta):
 	time_control()
