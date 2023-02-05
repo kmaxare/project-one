@@ -122,8 +122,8 @@ func postHurt():
 	inhabilitado = false
 
 func smash() -> void:
-	if($RaycastBott.is_colliding()):
-		var object_coll = $RaycastBott.get_collider()
+	if($RayCast/RaycastBott.is_colliding()):
+		var object_coll = $RayCast/RaycastBott.get_collider()
 		
 		if (object_coll.is_in_group("enemy")):
 			object_coll.death('crushed')
@@ -132,3 +132,7 @@ func smash() -> void:
 func _on_Timer_timeout():
 	invunerable = false
 	pass # Replace with function body.
+	
+func movPosition(move_direction: String) -> void:
+	if move_direction == 'move_right': global_position -= Vector2(-2,0)
+	elif move_direction == 'move_left': global_position -= Vector2(+2,0)
