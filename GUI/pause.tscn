@@ -4,7 +4,7 @@
 [ext_resource path="res://GUI/pause.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 15
 font_data = ExtResource( 1 )
 
 [node name="pause" type="Control"]
@@ -15,38 +15,39 @@ script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -218.5
-margin_top = -219.0
-margin_right = 218.5
-margin_bottom = -81.0
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -46.0
+margin_right = 104.0
+margin_bottom = 46.0
 custom_constants/separation = 50
 alignment = 1
 
 [node name="resume" type="Button" parent="VBoxContainer"]
-margin_right = 437.0
-margin_bottom = 44.0
+margin_right = 208.0
+margin_bottom = 21.0
 custom_fonts/font = SubResource( 1 )
 text = "resume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 94.0
-margin_right = 437.0
-margin_bottom = 138.0
+margin_top = 71.0
+margin_right = 208.0
+margin_bottom = 92.0
 custom_constants/separation = 50
+alignment = 1
 
 [node name="return_menu" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 300.0
-margin_bottom = 44.0
+margin_right = 118.0
+margin_bottom = 21.0
 custom_fonts/font = SubResource( 1 )
 text = "return to menu"
 
 [node name="quit" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 350.0
-margin_right = 437.0
-margin_bottom = 44.0
+margin_left = 168.0
+margin_right = 208.0
+margin_bottom = 21.0
 custom_fonts/font = SubResource( 1 )
 text = "quit"
 
