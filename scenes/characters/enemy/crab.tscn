@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/characters/enemy/DDL_Cangrejo.png" type="Texture" id=1]
-[ext_resource path="res://scripts/characters/enemy/enemigo-uno.gd" type="Script" id=2]
+[ext_resource path="res://scenes/characters/enemy/crab.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 9.5 )
@@ -75,7 +75,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[node name="enemyOne" type="KinematicBody2D" groups=["enemy"]]
+[node name="crab" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 11
 collision_mask = 11
 script = ExtResource( 2 )
@@ -96,7 +96,7 @@ shape = SubResource( 1 )
 position = Vector2( 0.5, 6.5 )
 shape = SubResource( 2 )
 
-[node name="AnimEnemyUno" type="AnimationPlayer" parent="."]
+[node name="animation" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 6 )
 anims/hurt = SubResource( 3 )
 anims/idle = SubResource( 4 )

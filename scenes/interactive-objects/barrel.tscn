@@ -98,7 +98,7 @@ position = Vector2( 0, 2 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="AnimBarrel" type="AnimationPlayer" parent="."]
+[node name="animbarrel" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/rolling_left = SubResource( 6 )

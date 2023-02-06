@@ -20,8 +20,6 @@ func _physics_process(delta):
 	motion.y += gravity
 	# Mover el objeto y evitar colisiones con el suelo
 	motion = move_and_slide(motion, FLOOR)
-	
-	
 
 # Función para cambiar la dirección del movimiento del objeto
 func change_direction(direction: float):
@@ -33,9 +31,9 @@ func change_direction(direction: float):
 # Funcion para ajustar animacion del barril con respecto a su direccion
 func animationAndPositionDamageAreaOfBarrel(direction):
 	if (direction > 0):
-		$AnimBarrel.play("rolling_right")
+		$animbarrel.play("rolling_right")
 	elif (direction < 0):
-		$AnimBarrel.play("rolling_left")
+		$animbarrel.play("rolling_left")
 	
 	$damage.position = Vector2(3 * direction, 6)
 

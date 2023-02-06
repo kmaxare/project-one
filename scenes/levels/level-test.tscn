@@ -4,8 +4,9 @@
 [ext_resource path="res://scenes/characters/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interactive-objects/point.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/characters/player/Camera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/characters/enemy/enemyOne.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/characters/enemy/crab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/levels/level-test.gd" type="Script" id=6]
+
 
 [node name="Scenery" type="Node2D"]
 position = Vector2( 427, -85 )

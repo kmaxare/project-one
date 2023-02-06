@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/interactive-objects/point.gd" type="Script" id=1]
+[ext_resource path="res://scenes/interactive-objects/point.gd" type="Script" id=1]
 [ext_resource path="res://sprites/seed/01_DDL_Semilla_16px.png" type="Texture" id=2]
+
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 4.0

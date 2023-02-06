@@ -1,8 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprites/object/Idle_DDL_Box.png" type="Texture" id=1]
-[ext_resource path="res://scripts/interactive-objects/bloque-sorpresa.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interactive-objects/bloque-sorpresa.gd" type="Script" id=2]
 [ext_resource path="res://sprites/object/Hit_DDL_Box.png" type="Texture" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
