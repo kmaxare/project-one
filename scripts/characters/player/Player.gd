@@ -54,10 +54,14 @@ func _physics_process(_delta):
 	animation()
 	velocity = move_and_slide(velocity, VectorUP)
 	if !is_on_floor() and !disabled:
+		$RayCast.raycast_up_enabled(true)
 		if velocity.y < -1:
 			state = "jump"
 		if velocity.y > 1:
 			state = "fall"
+	else:
+		$RayCast.raycast_up_enabled(false)
+		
 	smash() #verifica si golpeo enemigo 
 
 func _on_the_floor():

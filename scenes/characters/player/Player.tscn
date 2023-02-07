@@ -181,13 +181,13 @@ cast_to = Vector2( 0, 17 )
 position = Vector2( -1, 0 )
 rotation = 3.14159
 enabled = true
-cast_to = Vector2( 1.19209e-06, 13 )
+cast_to = Vector2( -3.29614e-05, 13 )
 
 [node name="RayCastUpRight" type="RayCast2D" parent="RayCast"]
 position = Vector2( 7, 0 )
 rotation = 3.14159
 enabled = true
-cast_to = Vector2( 9.53674e-07, 13 )
+cast_to = Vector2( -3.29018e-05, 13 )
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -207,12 +207,6 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Tween" type="Tween" parent="Camera2D"]
-
-[node name="RaycastBott" type="RayCast2D" parent="."]
-position = Vector2( 3, 3 )
-scale = Vector2( 2, 1 )
-enabled = true
-cast_to = Vector2( 0, 17 )
 
 [node name="RayCast" type="Node2D" parent="."]
 

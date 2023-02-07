@@ -10,8 +10,11 @@ func _process(delta):
 	# Si solo coliciona el raycast izquierdo
 	if $RayCastUpLeft.is_colliding() and !$RayCastUpRight.is_colliding():
 		get_parent().movPosition('move_right')
-		print('Coll izquierda')
+		
 	# Si solo coliciona el raycast derecho
 	elif !$RayCastUpLeft.is_colliding() and $RayCastUpRight.is_colliding():
 		get_parent().movPosition('move_left')
-		print('Coll derecha')
+		
+func raycast_up_enabled(state: bool):
+	$RayCastUpLeft.enabled = state
+	$RayCastUpRight.enabled = state
