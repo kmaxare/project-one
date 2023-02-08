@@ -3,8 +3,8 @@ extends Node2D
 var cont = 0
 
 func _ready():
-	Gamehundler.tiempo = 180
-	Gamehundler.puntos = 0
+	game_handler.points = 0
+	game_handler.time = 180
 
 func _physics_process(delta):
 	time_control()
@@ -13,7 +13,7 @@ func time_control():
 	cont += 1
 	if cont > 60:
 		cont = 0
-		Gamehundler.tiempo -= 1
+		game_handler.time -= 1
 		
-		if Gamehundler.tiempo == 0:
-			Gamehundler.gameOver()
+		if game_handler.time == 0:
+			game_handler.game_over()

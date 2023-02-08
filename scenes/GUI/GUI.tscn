@@ -4,7 +4,6 @@
 [ext_resource path="res://scenes/GUI/GUI.gd" type="Script" id=2]
 [ext_resource path="res://scenes/GUI/pause.tscn" type="PackedScene" id=3]
 
-
 [node name="GUI" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 2 )
@@ -31,7 +30,7 @@ text = "Points"
 align = 1
 valign = 1
 
-[node name="puntos" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="points" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 16.0
 margin_right = 60.0
 margin_bottom = 28.0
@@ -52,7 +51,7 @@ text = "time"
 align = 1
 valign = 1
 
-[node name="tiempo" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="time" type="Label" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 16.0
 margin_right = 40.0
 margin_bottom = 28.0

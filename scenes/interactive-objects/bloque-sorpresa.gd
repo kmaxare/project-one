@@ -15,10 +15,8 @@ func _process(_delta):
 	if collision:
 		destuirBloque()
 
-
-
 func destuirBloque():
-	Gamehundler.puntos += 3
+	game_handler.points += 3
 #	queue_free()
 	# <<<Codigo Espageti para animacion de destruccion (Pixel)>>>
 	box -= 1
@@ -44,22 +42,3 @@ func destuirBloque():
 		queue_free()
 	else:
 		$animation.play("hit")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

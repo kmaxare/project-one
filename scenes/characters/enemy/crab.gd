@@ -20,22 +20,9 @@ func _ready():
 	set_direction_raycast()
 
 func _physics_process(delta):
-	if not is_moving or not is_alive:
-		return
-	
-	$animation.play("run")
-	distance.x = speed * delta
-	movement.x = direction * distance.x
-	movement.y += gravity * delta
-	move_and_slide(movement, Vector2(0,-1))
+	motion_ctrl()
 
-	var ray_cast_limit_colliding = $RayCastLimit.is_colliding()
-	if is_on_wall() or (is_on_floor() and not ray_cast_limit_colliding):
-		direction = - direction
-		$Sprite.flip_h = not $Sprite.flip_h
-		set_direction_raycast()
-
-func death(death_tipe):
+func handle_death(death_tipe):
 	if not is_alive:
 		return
 	
@@ -47,6 +34,22 @@ func death(death_tipe):
 		yield(animation, "animation_finished")
 	
 	queue_free()
+	
+func motion_ctrl():
+	if not is_moving or not is_alive:
+		return
+	
+	animation.play("run")
+	distance.x = speed
+	movement.x = direction * distance.x
+	movement.y += gravity
+	move_and_slide(movement, Vector2(0,-1))
+
+	var ray_cast_limit_colliding = $RayCastLimit.is_colliding()
+	if is_on_wall() or (is_on_floor() and not ray_cast_limit_colliding):
+		direction = - direction
+		$Sprite.flip_h = not $Sprite.flip_h
+		set_direction_raycast()
 
 func set_direction_raycast() -> void:
 	$RayCastLimit.position.x = $CollisionShape2D.shape.get_extents().x * direction
