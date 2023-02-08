@@ -8,12 +8,13 @@ func _ready():
 	$AnimationPlayer.play("idle")
 
 func _process(delta):
-	var collision_down = move_and_collide(Vector2.DOWN,true,true,true)
-	if collision_down:
-		collision_down.collider.has_method("smash")
-		$AnimationPlayer.play("collition_player")
-		yield($AnimationPlayer, "animation_finished")
-		queue_free()
+# Comentado por el momento, ya que la loza floja no deve poder ser destruida con un golpe inferior del jugador
+#	var collision_down = move_and_collide(Vector2.DOWN,true,true,true)
+#	if collision_down:
+#		collision_down.collider.has_method("smash")
+#		$AnimationPlayer.play("collition_player")
+#		yield($AnimationPlayer, "animation_finished")
+#		queue_free()
 		
 	var collision_up = move_and_collide(arriba,true,true,movi)
 	if collision_up:
