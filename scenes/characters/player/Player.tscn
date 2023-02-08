@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/characters/Player/Full_DDL_Jerbo.png" type="Texture" id=1]
 [ext_resource path="res://scripts/characters/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://scripts/characters/player/RaycastPlayer.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 7.0
@@ -167,6 +168,29 @@ anims/idle = SubResource( 7 )
 anims/jump = SubResource( 6 )
 anims/run = SubResource( 3 )
 
+[node name="RayCast" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="RaycastBott" type="RayCast2D" parent="RayCast"]
+position = Vector2( 3, 3 )
+scale = Vector2( 2, 1 )
+enabled = true
+cast_to = Vector2( 0, 17 )
+
+[node name="RayCastUpLeft" type="RayCast2D" parent="RayCast"]
+position = Vector2( -1, 0 )
+rotation = 3.14159
+enabled = true
+cast_to = Vector2( -3.29614e-05, 13 )
+
+[node name="RayCastUpRight" type="RayCast2D" parent="RayCast"]
+position = Vector2( 7, 0 )
+rotation = 3.14159
+enabled = true
+cast_to = Vector2( -3.29018e-05, 13 )
+
+[node name="Timer" type="Timer" parent="."]
+
 [node name="timer_invunerable" type="Timer" parent="."]
 wait_time = 0.74
 one_shot = true
@@ -183,12 +207,6 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Tween" type="Tween" parent="Camera2D"]
-
-[node name="RaycastBott" type="RayCast2D" parent="."]
-position = Vector2( 3, 3 )
-scale = Vector2( 2, 1 )
-enabled = true
-cast_to = Vector2( 0, 17 )
 
 [node name="RayCast" type="Node2D" parent="."]
 

@@ -54,10 +54,14 @@ func _physics_process(_delta):
 	animation()
 	velocity = move_and_slide(velocity, VectorUP)
 	if !is_on_floor() and !disabled:
+		$RayCast.raycast_up_enabled(true)
 		if velocity.y < -1:
 			state = "jump"
 		if velocity.y > 1:
 			state = "fall"
+	else:
+		$RayCast.raycast_up_enabled(false)
+		
 	smash() #verifica si golpeo enemigo 
 
 func _on_the_floor():
@@ -180,8 +184,9 @@ func postHurt() -> void:
 	disabled = false
 
 func smash() -> void:
-	if($RaycastBott.is_colliding()):
-		var object_coll = $RaycastBott.get_collider()
+	if($RayCast/RaycastBott.is_colliding()):
+		var object_coll = $RayCast/RaycastBott.get_collider()
+		
 		if (object_coll.is_in_group("enemy")):
 			object_coll.death('crushed')
 			velocity.y = JUMPFORCE / 2 # Pequeño salto
@@ -242,3 +247,7 @@ func set_borders() -> void:
 func _on_timer_coyote_timeout():
 	coyote_time = false
 	pass # Replace with function body.
+	
+func movPosition(move_direction: String) -> void:
+	if move_direction == 'move_right': global_position -= Vector2(-2,0)
+	elif move_direction == 'move_left': global_position -= Vector2(+2,0)
