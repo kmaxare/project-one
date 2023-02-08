@@ -20,7 +20,7 @@ func _process(delta):
 	if collision_up:
 		collision_up.collider.has_method("smash")
 		$AnimationPlayer.play("vibracion")
-		yield(get_tree().create_timer(2),"timeout")
+		yield($AnimationPlayer, "animation_finished")
 		arriba = Vector2(0,4)
 		movi = false
 
