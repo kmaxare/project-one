@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/interactive-objects/DDL_Platform.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 15 )
+extents = Vector2( 15, 4 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -110,6 +110,7 @@ pause_mode = 2
 texture = ExtResource( 3 )
 
 [node name="colllision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -119,5 +120,7 @@ anims/idle = SubResource( 4 )
 anims/vibracion = SubResource( 5 )
 
 [node name="Visibility" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 4.17233e-07, -5 )
+scale = Vector2( 1.3, 0.2 )
 
 [connection signal="screen_exited" from="Visibility" to="." method="_on_Visibility_screen_exited"]
