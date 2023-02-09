@@ -102,6 +102,9 @@ position = Vector2( 817, 507 )
 [node name="losa_floja_20" parent="loza-floja" instance=ExtResource( 6 )]
 position = Vector2( 881, 507 )
 
+[node name="losa_floja_21" parent="loza-floja" instance=ExtResource( 6 )]
+position = Vector2( 324, 416 )
+
 [node name="Bloque sorpresa" type="Node2D" parent="."]
 
 [node name="bloque-sorpresa" parent="Bloque sorpresa" instance=ExtResource( 3 )]

@@ -54,13 +54,10 @@ func _physics_process(_delta):
 	animation()
 	velocity = move_and_slide(velocity, VectorUP)
 	if !is_on_floor() and !disabled:
-		$RayCast.raycast_up_enabled(true)
 		if velocity.y < -1:
 			state = "jump"
 		if velocity.y > 1:
 			state = "fall"
-	else:
-		$RayCast.raycast_up_enabled(false)
 		
 	smash() #verifica si golpeo enemigo 
 
@@ -248,7 +245,7 @@ func _on_timer_coyote_timeout():
 	coyote_time = false
 	pass # Replace with function body.
 	
-func movPosition(move_direction: String) -> void:
+func mov_position_player(move_direction: String) -> void:
 	if move_direction == 'move_right': global_position -= Vector2(-2,0)
 	elif move_direction == 'move_left': global_position -= Vector2(+2,0)
 
