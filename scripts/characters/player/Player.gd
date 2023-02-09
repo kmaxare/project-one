@@ -151,9 +151,9 @@ func animation():
 		$AnimationPlayer.play(state)
 		prev_state = state
 	if look_R:
-		$CollisionShape2D.position = Vector2(2.5, 1.5)
+		position_coll_and_raycast(Vector2(2.5, 1.5))
 	else:
-		$CollisionShape2D.position = Vector2(-2.5, 1.5)
+		position_coll_and_raycast(Vector2(-2.5, 1.5))
 	$Sprite.flip_h = !look_R 
 
 #Esta funciona ocurre cuando un enemigo cruza al jugador
@@ -251,3 +251,7 @@ func _on_timer_coyote_timeout():
 func movPosition(move_direction: String) -> void:
 	if move_direction == 'move_right': global_position -= Vector2(-2,0)
 	elif move_direction == 'move_left': global_position -= Vector2(+2,0)
+
+func position_coll_and_raycast(new_position: Vector2) -> void:
+	$CollisionShape2D.position = new_position
+	$RayCast.position = new_position
