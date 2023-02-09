@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/interactive-objects/death.gd" type="Script" id=1]
-
+[ext_resource path="res://scenes/interactive-objects/death_zone.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 57, 8 )
+extents = Vector2( 24, 8 )
 
 [node name="death" type="Area2D"]
 script = ExtResource( 1 )

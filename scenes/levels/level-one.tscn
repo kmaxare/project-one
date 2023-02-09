@@ -2,9 +2,9 @@
 
 [ext_resource path="res://scenes/tiles/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/characters/player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/tiles/bloque-sorpresa.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interactive-objects/death.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/tiles/losa_floja_3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/interactive-objects/surprise_block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interactive-objects/death_zone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tiles/loose_slab.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/levels/level-one.gd" type="Script" id=8]
 [ext_resource path="res://scenes/interactive-objects/point.tscn" type="PackedScene" id=9]

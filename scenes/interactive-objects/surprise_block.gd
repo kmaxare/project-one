@@ -1,5 +1,6 @@
 extends KinematicBody2D
-onready var animacion = $animation
+
+onready var animation = $animation
 
 export var box = 1 # Para animacion de destruccion (Pixel).
 var divX = 2 # Para animacion de destruccion (Pixel).
@@ -13,9 +14,9 @@ func _process(_delta):
 	#animacion.play("idle")
 	var collision = move_and_collide(Vector2.DOWN, true, true, true )
 	if collision:
-		destuirBloque()
+		destroy_block()
 
-func destuirBloque():
+func destroy_block():
 	game_handler.points += 3
 #	queue_free()
 	# <<<Codigo Espageti para animacion de destruccion (Pixel)>>>
@@ -41,4 +42,4 @@ func destuirBloque():
 				rigid.apply_impulse(Vector2.ZERO, Vector2(rand_range(-50, 50), rand_range(-100, -150)))
 		queue_free()
 	else:
-		$animation.play("hit")
+		animation.play("hit")

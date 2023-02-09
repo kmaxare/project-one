@@ -1,8 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sprites/interactive-objects/box/Naranja_DDL_Box.png" type="Texture" id=1]
-[ext_resource path="res://scenes/tiles/losa_floja_3.gd" type="Script" id=2]
-
+[ext_resource path="res://scenes/tiles/loose_slab.gd" type="Script" id=1]
+[ext_resource path="res://sprites/interactive-objects/box/Naranja_DDL_Box.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 15 )
@@ -19,7 +18,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ ExtResource( 1 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("spr:frame")
@@ -97,24 +96,24 @@ tracks/0/keys = {
 "values": [ Vector2( 3, 1 ), Vector2( 3, 1 ), Vector2( 3, 1 ), Vector2( 0, 1 ) ]
 }
 
-[node name="losa_floja_3" type="KinematicBody2D"]
+[node name="loose_slab" type="KinematicBody2D"]
 pause_mode = 2
 collision_mask = 2
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="spr" type="Sprite" parent="."]
 pause_mode = 2
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 hframes = 4
 vframes = 2
 
 [node name="colllision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="animation" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/collition_player = SubResource( 3 )
 anims/idle = SubResource( 4 )
