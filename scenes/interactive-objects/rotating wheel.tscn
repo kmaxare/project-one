@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.125, 4 )
 
-[node name="rotating wheel" type="Node2D"]
+[node name="rotating wheel" type="Node2D" groups=["rotating_wheel"]]
 script = ExtResource( 2 )
 
 [node name="slab1" type="StaticBody2D" parent="."]

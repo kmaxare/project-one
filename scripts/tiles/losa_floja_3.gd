@@ -27,8 +27,6 @@ func _process(delta):
 		$AnimationPlayer.play("collition_player")
 		yield($AnimationPlayer, "animation_finished")
 		queue_free()
-	
-	print(collision_up)
 
 #se elimina cuando sale de la vista
 func _on_Visibility_screen_exited():

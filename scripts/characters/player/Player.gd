@@ -63,11 +63,11 @@ func _physics_process(_delta):
 
 func _on_the_floor():
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = min(velocity.x + Vinitial, Vstop)
+		velocity.x = min(velocity.x + Vinitial + on_platform(), Vstop)
 		#establece que mira ala derecha
 		look_R = true
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x = max(velocity.x - Vinitial, -Vstop)
+		velocity.x = max(velocity.x - Vinitial + on_platform(), -Vstop)
 		#establece que mira ala izquierda
 		look_R = false
 	else:
@@ -252,3 +252,12 @@ func mov_position_player(move_direction: String) -> void:
 func position_coll_and_raycast(new_position: Vector2) -> void:
 	$CollisionShape2D.position = new_position
 	$RayCast.position = new_position
+	
+#func on_platform():
+#	var v_plataform: int = 0
+#	var collider_node = get_slide_collision(get_slide_count()-1)
+#
+#	if collider_node.is_in_group('rotatwing_wheel'):
+#		v_plataform = collider_node.linear_velocity
+#
+#	return v_plataform
