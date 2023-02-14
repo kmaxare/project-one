@@ -48,7 +48,7 @@ func collition_down(JUMPFORCE: int) -> void:
 			get_parent().velocity.y = JUMPFORCE / 2 # Pequeño salto
 		
 		elif (object_coll.is_in_group('rotating_wheel')):
-			print('Pataclaun')
+			get_parent().velocity_platform = object_coll.constant_linear_velocity
 				
 func on_platform():
 	var v_plataform: int = 0
