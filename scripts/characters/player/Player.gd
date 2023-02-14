@@ -59,15 +59,15 @@ func _physics_process(_delta):
 		if velocity.y > 1:
 			state = "fall"
 		
-	smash() #verifica si golpeo enemigo 
+	$RayCast.collition_down(JUMPFORCE) #verifica si golpeo enemigo
 
 func _on_the_floor():
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = min(velocity.x + Vinitial + on_platform(), Vstop)
+		velocity.x = min(velocity.x + Vinitial, Vstop)
 		#establece que mira ala derecha
 		look_R = true
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x = max(velocity.x - Vinitial + on_platform(), -Vstop)
+		velocity.x = max(velocity.x - Vinitial, -Vstop)
 		#establece que mira ala izquierda
 		look_R = false
 	else:
@@ -180,13 +180,6 @@ func damageReceived(damage, positionEnemy : Vector2):
 func postHurt() -> void:
 	disabled = false
 
-func smash() -> void:
-	if($RayCast/RaycastBott.is_colliding()):
-		var object_coll = $RayCast/RaycastBott.get_collider()
-		
-		if (object_coll.is_in_group("enemy")):
-			object_coll.death('crushed')
-			velocity.y = JUMPFORCE / 2 # Pequeño salto
 
 #indica que el temporizador de invunerabilidad termino
 func _on_timer_invunerable_timeout():
@@ -252,12 +245,3 @@ func mov_position_player(move_direction: String) -> void:
 func position_coll_and_raycast(new_position: Vector2) -> void:
 	$CollisionShape2D.position = new_position
 	$RayCast.position = new_position
-	
-#func on_platform():
-#	var v_plataform: int = 0
-#	var collider_node = get_slide_collision(get_slide_count()-1)
-#
-#	if collider_node.is_in_group('rotatwing_wheel'):
-#		v_plataform = collider_node.linear_velocity
-#
-#	return v_plataform

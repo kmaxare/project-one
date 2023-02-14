@@ -7,6 +7,11 @@ extends Node2D
 """
 
 func _process(delta):
+	collition_up()
+#	collition_down()
+			
+
+func collition_up():
 	# Si solo coliciona el raycast izquierdo
 	if $RayCastUpLeft.is_colliding() and !$RayCastUpRight.is_colliding():
 		if $RayCastUpLeft.get_collider().is_in_group('foor'):
@@ -24,6 +29,36 @@ func _process(delta):
 	elif $RayCastUpLeft.is_colliding() and $RayCastUpRight.is_colliding():
 		if $RayCastUpRight.get_collider().is_in_group('losa_floja'):
 			other_object($RayCastUpRight.get_collider())
+			
+#func collition_down():
+#	if ($RaycastBott.is_colliding()):
+#		if ($RaycastBott.get_collider().is_in_group('rotating_wheel')):
+#			print('Pataclaun')
+	
+func collition_down(JUMPFORCE: int) -> void:
+	# Si este nodo no tiene padre que retorne y no haga nada
+	if (!get_parent()):
+		return
+		
+	if($RaycastBott.is_colliding()):
+		var object_coll = $RaycastBott.get_collider()
+		
+		if (object_coll.is_in_group("enemy")):
+			object_coll.death('crushed')
+			get_parent().velocity.y = JUMPFORCE / 2 # Pequeño salto
+		
+		elif (object_coll.is_in_group('rotating_wheel')):
+			print('Pataclaun')
+				
+func on_platform():
+	var v_plataform: int = 0
+#	var collider_node = get_slide_collision(get_slide_count()-1)
+
+#	if collider_node.is_in_group('rotatwing_wheel'):
+#		print("Entro")
+#		v_plataform = int(collider_node.linear_velocity)
+
+	return v_plataform
 			
 func other_object(object_coll):
 	if object_coll.is_in_group('losa_floja'):
