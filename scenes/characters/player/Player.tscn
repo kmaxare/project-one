@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/characters/Player/Full_DDL_Jerbo.png" type="Texture" id=1]
-[ext_resource path="res://scripts/characters/player/Player.gd" type="Script" id=2]
-[ext_resource path="res://scripts/characters/player/RaycastPlayer.gd" type="Script" id=3]
+[ext_resource path="res://scenes/characters/player/player.gd" type="Script" id=2]
+[ext_resource path="res://scenes/characters/player/raycast_player.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 7.0
@@ -207,8 +207,6 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Tween" type="Tween" parent="Camera2D"]
-
-[node name="RayCast" type="Node2D" parent="."]
 
 [connection signal="timeout" from="timer_invunerable" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="timer_invunerable" to="." method="_on_timer_invunerable_timeout"]
