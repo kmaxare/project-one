@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://fonts/GUI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://text_fonts/GUI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=2]
 [ext_resource path="res://GUI/pause.tscn" type="PackedScene" id=3]
 

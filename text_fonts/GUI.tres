@@ -1,6 +1,6 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://fonts/Super Mario Bros. 2.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://text_fonts/super_mario_bros.ttf" type="DynamicFontData" id=1]
 
 [resource]
 size = 10
