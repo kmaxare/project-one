@@ -12,8 +12,8 @@
 [ext_resource path="res://scenes/interactive-objects/powerup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/interactive-objects/barrel_generator.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/characters/enemy/crab_enemy.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/characters/enemy/enemyDos.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/characters/enemy/enemyTres.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/characters/enemy/pigx_enemy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/characters/enemy/snake_enemy.tscn" type="PackedScene" id=15]
 
 [node name="Scenery" type="Node2D"]
 pause_mode = 1
@@ -52,7 +52,7 @@ position = Vector2( 496, -235 )
 position = Vector2( 1087, 23 )
 
 [node name="enemyTres" parent="Enemigos" instance=ExtResource( 15 )]
-position = Vector2( 1117, 123 )
+position = Vector2( 859, 20 )
 
 [node name="floor2" parent="." groups=["foor"] instance=ExtResource( 1 )]
 position = Vector2( 33, -13 )
