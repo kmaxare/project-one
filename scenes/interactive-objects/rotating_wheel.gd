@@ -4,7 +4,7 @@ extends Node2D
 export var radius = 100.0
 
 # Lista de tableros que se moverán en un círculo
-onready var slabs = [$slab1, $slab2, $slab3, $slab4]
+onready var slabs = [$Slab1, $Slab2, $Slab3, $Slab4]
 
 # Ángulos para cada tablero
 var angles = [0.0, 1.5708, 3.14159, 4.71239]

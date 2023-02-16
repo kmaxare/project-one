@@ -86,7 +86,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15, 11 )
 
-[node name="barrel" type="KinematicBody2D" groups=["barrel"]]
+[node name="Barrel" type="KinematicBody2D" groups=["barrel"]]
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
