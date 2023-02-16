@@ -169,22 +169,23 @@ anims/jump = SubResource( 6 )
 anims/run = SubResource( 3 )
 
 [node name="RayCast" type="Node2D" parent="."]
+position = Vector2( 3, 3 )
 script = ExtResource( 3 )
 
 [node name="RaycastBott" type="RayCast2D" parent="RayCast"]
-position = Vector2( 3, 3 )
+position = Vector2( 0, 1 )
 scale = Vector2( 2, 1 )
 enabled = true
 cast_to = Vector2( 0, 17 )
 
 [node name="RayCastUpLeft" type="RayCast2D" parent="RayCast"]
-position = Vector2( -1, 0 )
+position = Vector2( -4, -3 )
 rotation = 3.14159
 enabled = true
 cast_to = Vector2( -3.29614e-05, 13 )
 
 [node name="RayCastUpRight" type="RayCast2D" parent="RayCast"]
-position = Vector2( 7, 0 )
+position = Vector2( 4, -3 )
 rotation = 3.14159
 enabled = true
 cast_to = Vector2( -3.29018e-05, 13 )

@@ -16,6 +16,7 @@ onready var rng = RandomNumberGenerator.new()
 # bandera que indica si el personaje esta mirando hacia la derecha
 var look_R = true
 var velocity = Vector2.ZERO
+var velocity_platform = 0
 # variables de la fuerza de salto y la gravedad del personaje
 var GRAVITY = 20
 var JUMPFORCE = -420 #-550
@@ -54,15 +55,12 @@ func _physics_process(_delta):
 	animation()
 	velocity = move_and_slide(velocity, VectorUP)
 	if !is_on_floor() and !disabled:
-		$RayCast.raycast_up_enabled(true)
 		if velocity.y < -1:
 			state = "jump"
 		if velocity.y > 1:
 			state = "fall"
-	else:
-		$RayCast.raycast_up_enabled(false)
 		
-	smash() #verifica si golpeo enemigo 
+	$RayCast.collition_down(JUMPFORCE) #verifica si golpeo enemigo
 
 func _on_the_floor():
 	if Input.is_action_pressed("ui_right"):
@@ -151,9 +149,9 @@ func animation():
 		$AnimationPlayer.play(state)
 		prev_state = state
 	if look_R:
-		$CollisionShape2D.position = Vector2(2.5, 1.5)
+		position_coll_and_raycast(Vector2(2.5, 1.5))
 	else:
-		$CollisionShape2D.position = Vector2(-2.5, 1.5)
+		position_coll_and_raycast(Vector2(-2.5, 1.5))
 	$Sprite.flip_h = !look_R 
 
 #Esta funciona ocurre cuando un enemigo cruza al jugador
@@ -183,13 +181,6 @@ func damageReceived(damage, positionEnemy : Vector2):
 func postHurt() -> void:
 	disabled = false
 
-func smash() -> void:
-	if($RayCast/RaycastBott.is_colliding()):
-		var object_coll = $RayCast/RaycastBott.get_collider()
-		
-		if (object_coll.is_in_group("enemy")):
-			object_coll.death('crushed')
-			velocity.y = JUMPFORCE / 2 # Pequeño salto
 
 #indica que el temporizador de invunerabilidad termino
 func _on_timer_invunerable_timeout():
@@ -248,6 +239,10 @@ func _on_timer_coyote_timeout():
 	coyote_time = false
 	pass # Replace with function body.
 	
-func movPosition(move_direction: String) -> void:
+func mov_position_player(move_direction: String) -> void:
 	if move_direction == 'move_right': global_position -= Vector2(-2,0)
 	elif move_direction == 'move_left': global_position -= Vector2(+2,0)
+
+func position_coll_and_raycast(new_position: Vector2) -> void:
+	$CollisionShape2D.position = new_position
+	$RayCast.position = new_position
