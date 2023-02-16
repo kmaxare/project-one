@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scripts/tiles/losa_floja_3.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interactive-objects/trap_board.gd" type="Script" id=1]
 [ext_resource path="res://sprites/interactive-objects/DDL_Platform.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -71,10 +71,10 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 2, 0 ), Vector2( -2, 0 ), Vector2( 0, 0 ), Vector2( 2, 0 ), Vector2( -2, 0 ) ]
 }
 
-[node name="losa_floja_3" type="KinematicBody2D" groups=["losa_floja"]]
+[node name="TrapBoard" type="KinematicBody2D" groups=["losa_floja"]]
 pause_mode = 2
 collision_mask = 2
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }

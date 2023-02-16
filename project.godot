@@ -17,7 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 game_handler="*res://scenes/game_handler.gd"
-Gamehundler="*res://scripts/game-hundler.gd"
+Gamehundler="*res://scenes/game-hundler.gd"
 
 [display]
 
