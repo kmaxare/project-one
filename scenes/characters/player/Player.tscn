@@ -211,6 +211,6 @@ editor_draw_drag_margin = true
 
 [node name="RayCast" type="Node2D" parent="."]
 
-[connection signal="timeout" from="timer_invunerable" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="timer_invunerable" to="." method="_on_timer_invunerable_timeout"]
+[connection signal="timeout" from="timer_invunerable" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="timer_coyote" to="." method="_on_timer_coyote_timeout"]

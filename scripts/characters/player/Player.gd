@@ -16,6 +16,7 @@ onready var rng = RandomNumberGenerator.new()
 # bandera que indica si el personaje esta mirando hacia la derecha
 var look_R = true
 var velocity = Vector2.ZERO
+var velocity_platform = 0
 # variables de la fuerza de salto y la gravedad del personaje
 var GRAVITY = 20
 var JUMPFORCE = -420 #-550
@@ -82,11 +83,11 @@ func _jump() -> void:
 
 func _on_the_air() -> void:
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = min(velocity.x + Vinitial, Vstop)
+		velocity.x = min(velocity.x + Vinitial + velocity_platform, Vstop)
 		#establece que mira ala derecha
 		look_R = true
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x = max(velocity.x - Vinitial, -Vstop)
+		velocity.x = max(velocity.x - Vinitial - velocity_platform, -Vstop)
 		#establece que mira ala izquierda
 		look_R = false
 	else:
