@@ -172,7 +172,7 @@ func damage_received(damage, positionEnemy : Vector2):
 		if GameHandler.puntos >= damage:
 			GameHandler.puntos -= damage
 		else:
-			GameHandler.gameOver()
+			GameHandler.game_over()
 
 # se llama por medio del animation player cuando se termina la 
 # animacion de hurt, para marcar que el jugador vuelve a estar 

@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/tiles/design.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/tiles/floor.gd" type="Script" id=2]
 
-[node name="floor" type="TileMap" groups=["well"]]
+[node name="Floor" type="TileMap" groups=["well"]]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 27

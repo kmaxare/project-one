@@ -13,5 +13,5 @@ func _process(delta):
 	if Input.is_action_pressed("ui_focus_next"):
 		get_tree().reload_current_scene()
 
-func gameOver():
+func game_over():
 	get_tree().change_scene("res://GUI/game_over.tscn")

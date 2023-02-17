@@ -2,7 +2,7 @@
 extends Control
 
 # Obtiene el nodo de texto para mostrar la puntuación del jugador
-onready var score = $VBoxContainer/VBoxContainer2/player/score
+onready var score = $VBoxContainer/VBoxContainer2/Player/Score
 
 # Función llamada al terminar la carga del nodo
 func _ready():

@@ -3,7 +3,6 @@
 [ext_resource path="res://text_fonts/font_example.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://GUI/game_over.gd" type="Script" id=2]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
@@ -47,13 +46,13 @@ margin_right = 190.0
 margin_bottom = 108.0
 custom_constants/separation = 20
 
-[node name="player" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+[node name="Player" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2"]
 margin_right = 190.0
 margin_bottom = 15.0
 custom_constants/separation = 75
 alignment = 1
 
-[node name="name" type="Label" parent="VBoxContainer/VBoxContainer2/player"]
+[node name="Name" type="Label" parent="VBoxContainer/VBoxContainer2/Player"]
 margin_left = 8.0
 margin_right = 59.0
 margin_bottom = 15.0
@@ -62,7 +61,7 @@ text = "Nombre"
 align = 1
 valign = 1
 
-[node name="score" type="Label" parent="VBoxContainer/VBoxContainer2/player"]
+[node name="Score" type="Label" parent="VBoxContainer/VBoxContainer2/Player"]
 margin_left = 134.0
 margin_right = 182.0
 margin_bottom = 15.0
@@ -71,14 +70,14 @@ text = "000000"
 align = 1
 valign = 1
 
-[node name="top_player" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+[node name="TopPlayer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2"]
 margin_top = 35.0
 margin_right = 190.0
 margin_bottom = 50.0
 custom_constants/separation = 75
 alignment = 1
 
-[node name="name" type="Label" parent="VBoxContainer/VBoxContainer2/top_player"]
+[node name="Name" type="Label" parent="VBoxContainer/VBoxContainer2/TopPlayer"]
 margin_left = 8.0
 margin_right = 59.0
 margin_bottom = 15.0
@@ -87,7 +86,7 @@ text = "Nombre"
 align = 1
 valign = 1
 
-[node name="score" type="Label" parent="VBoxContainer/VBoxContainer2/top_player"]
+[node name="Score" type="Label" parent="VBoxContainer/VBoxContainer2/TopPlayer"]
 margin_left = 134.0
 margin_right = 182.0
 margin_bottom = 15.0

@@ -30,7 +30,7 @@ text = "Points"
 align = 1
 valign = 1
 
-[node name="puntos" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Points" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 16.0
 margin_right = 60.0
 margin_bottom = 28.0
@@ -51,7 +51,7 @@ text = "time"
 align = 1
 valign = 1
 
-[node name="tiempo" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="Tiempo" type="Label" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 16.0
 margin_right = 40.0
 margin_bottom = 28.0
@@ -77,7 +77,7 @@ margin_bottom = 13.0
 custom_fonts/font = ExtResource( 1 )
 text = "frames:"
 
-[node name="frames" type="Label" parent="HBoxContainer2"]
+[node name="Frames" type="Label" parent="HBoxContainer2"]
 margin_left = 74.0
 margin_top = 1.0
 margin_right = 74.0

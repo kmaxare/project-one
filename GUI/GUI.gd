@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-onready var frames = $HBoxContainer2/frames
-onready var puntos = $HBoxContainer/VBoxContainer/puntos
-onready var tiempo = $HBoxContainer/VBoxContainer2/tiempo
+onready var frames = $HBoxContainer2/Frames
+onready var puntos = $HBoxContainer/VBoxContainer/Points
+onready var tiempo = $HBoxContainer/VBoxContainer2/Tiempo
 
 func _process(delta):
 	puntos.text = str(GameHandler.puntos)
