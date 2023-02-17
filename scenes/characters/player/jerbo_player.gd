@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 #vector para que se reconozca como suelo la parte de abajo
 #del escenario usando move_and_slide
-const VectorUP = Vector2(0,-1);
+const vector_up = Vector2(0,-1);
 # velocidad inicial y de paro del personaje
 export var Vinitial = 30
 export var Vstop = 150 # 320
@@ -14,7 +14,7 @@ onready var timer_coyote : Timer = $timer_coyote
 onready var rng = RandomNumberGenerator.new()
 
 # bandera que indica si el personaje esta mirando hacia la derecha
-var look_R = true
+var look_r = true
 var velocity = Vector2.ZERO
 var velocity_platform = 0
 # variables de la fuerza de salto y la gravedad del personaje
@@ -27,10 +27,10 @@ var prev_state : String = "idle"
 var Vknockback : float = 100
 var disabled : bool = false
 var invulnerable : bool = false
-#bandera que indica si el personaje fue dañado
+#bandera que indica si el personaje fue dañado	
 var damaged : bool = false
 # bandera que indica si el personaje fue dañado por la derecha
-var damaged_R : bool = false 
+var damaged_r : bool = false
 # bandera que indica que esta activo el coyote time 
 var coyote_time : bool = false
 # bandera que indica que esta activo el primer salto 
@@ -53,7 +53,7 @@ func _physics_process(_delta):
 			func_hurt() 
 	velocity.y += GRAVITY 
 	animation()
-	velocity = move_and_slide(velocity, VectorUP)
+	velocity = move_and_slide(velocity, vector_up)
 	if !is_on_floor() and !disabled:
 		if velocity.y < -1:
 			state = "jump"
@@ -66,11 +66,11 @@ func _on_the_floor():
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = min(velocity.x + Vinitial, Vstop)
 		#establece que mira ala derecha
-		look_R = true
+		look_r = true
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = max(velocity.x - Vinitial, -Vstop)
 		#establece que mira ala izquierda
-		look_R = false
+		look_r = false
 	else:
 		velocity.x = 0
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
@@ -85,11 +85,11 @@ func _on_the_air() -> void:
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = min(velocity.x + Vinitial, Vstop)
 		#establece que mira ala derecha
-		look_R = true
+		look_r = true
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = max(velocity.x - Vinitial, -Vstop)
 		#establece que mira ala izquierda
-		look_R = false
+		look_r = false
 	else:
 		velocity.x = 0
 	# Spregunta si se ha presionado el boton de salto
@@ -137,22 +137,22 @@ func animation():
 		disabled = true
 		invulnerable = true
 		$timer_invunerable.start(0.74)
-		if damaged_R:
+		if damaged_r:
 			velocity.x += -Vknockback
-			look_R = true
+			look_r = true
 		else:
 			velocity.x += Vknockback
-			look_R = false
+			look_r = false
 	# SE VERIFICA QUE SE HAYA CAMBIADO DE ESTADO
 	if state != prev_state:
 		_jump_check()
 		$AnimationPlayer.play(state)
 		prev_state = state
-	if look_R:
+	if look_r:
 		position_coll_and_raycast(Vector2(2.5, 1.5))
 	else:
 		position_coll_and_raycast(Vector2(-2.5, 1.5))
-	$Sprite.flip_h = !look_R 
+	$Sprite.flip_h = !look_r 
 
 #Esta funciona ocurre cuando un enemigo cruza al jugador
 func damageReceived(damage, positionEnemy : Vector2):
@@ -166,9 +166,9 @@ func damageReceived(damage, positionEnemy : Vector2):
 		screen_shake(0.3, 0.1, 2)
 	# EStablece desde que lado se recibe el daño 
 		if global_position.x < positionEnemy.x:
-			damaged_R = true #derecha
+			damaged_r = true #derecha
 		else:
-			damaged_R = false #izquierda
+			damaged_r = false #izquierda
 		#se restan los puntos al jugador
 		if Gamehundler.puntos >= damage:
 			Gamehundler.puntos -= damage
