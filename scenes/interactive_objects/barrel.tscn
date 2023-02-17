@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("sprite:frame")
+tracks/1/path = NodePath("Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -37,7 +37,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "idle"
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -54,7 +54,7 @@ resource_name = "rolling_left"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -71,7 +71,7 @@ resource_name = "rolling_right"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -89,7 +89,7 @@ extents = Vector2( 15, 11 )
 [node name="Barrel" type="KinematicBody2D" groups=["barrel"]]
 script = ExtResource( 2 )
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 3
 
@@ -104,9 +104,9 @@ anims/idle = SubResource( 3 )
 anims/rolling_left = SubResource( 6 )
 anims/rolling_right = SubResource( 4 )
 
-[node name="damage" type="Area2D" parent="."]
+[node name="Damage" type="Area2D" parent="."]
 
-[node name="damage_collision" type="CollisionShape2D" parent="damage"]
+[node name="DamageCollision" type="CollisionShape2D" parent="Damage"]
 shape = SubResource( 5 )
 
-[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
+[connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]

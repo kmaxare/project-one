@@ -9,7 +9,7 @@ extents = Vector2( 15, 4 )
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("spr:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("spr:visible")
+tracks/1/path = NodePath("Sprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -38,7 +38,7 @@ resource_name = "collition_player"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("spr:visible")
+tracks/0/path = NodePath("Sprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -59,7 +59,7 @@ loop = true
 resource_name = "vibracion"
 length = 1.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("spr:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -79,11 +79,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="spr" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 pause_mode = 2
 texture = ExtResource( 3 )
 
-[node name="colllision" type="CollisionShape2D" parent="."]
+[node name="Colllision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 

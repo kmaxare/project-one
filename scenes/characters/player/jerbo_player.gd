@@ -9,7 +9,7 @@ export var v_stop = 150 # 320
 #se llama al nodo camará del nodo player y  su nodo Tween
 onready var camera : Camera2D = $Camera2D
 onready var tween : Tween = $Camera2D/Tween
-onready var timer_coyote : Timer = $timer_coyote
+onready var timer_coyote : Timer = $TimerCoyote
 #Variablle para generar numeros randoms 
 onready var rng = RandomNumberGenerator.new()
 
@@ -18,8 +18,8 @@ var look_r = true
 var velocity = Vector2.ZERO
 var velocity_platform = 0
 # variables de la fuerza de salto y la gravedad del personaje
-var GRAVITY = 20
-var JUMPFORCE = -420 #-550
+const GRAVITY = 20
+const JUMPFORCE = -420 #-550
 # Mantiene los valores del estado actual y el estado anterior
 # del personaje
 var state : String = "fall"
@@ -135,7 +135,7 @@ func animation():
 		damaged = false
 		disabled = true
 		invulnerable = true
-		$timer_invunerable.start(0.74)
+		$TimerInvulnerable.start(0.74)
 		if damaged_r:
 			velocity.x += -v_knockback
 			look_r = true
@@ -154,7 +154,7 @@ func animation():
 	$Sprite.flip_h = !look_r 
 
 #Esta funciona ocurre cuando un enemigo cruza al jugador
-func damageReceived(damage, positionEnemy : Vector2):
+func damage_received(damage, positionEnemy : Vector2):
 	#verifica que no este en modo invulnerable
 	if !invulnerable:
 	# activa la bandera de que ya recibio daño, para que no reciba 
@@ -172,12 +172,12 @@ func damageReceived(damage, positionEnemy : Vector2):
 		if GameHandler.puntos >= damage:
 			GameHandler.puntos -= damage
 		else:
-			GameHandler.gameOver()
+			GameHandler.game_over()
 
 # se llama por medio del animation player cuando se termina la 
 # animacion de hurt, para marcar que el jugador vuelve a estar 
 # habilitado para controlarse
-func postHurt() -> void:
+func post_hurt() -> void:
 	disabled = false
 
 
@@ -217,11 +217,11 @@ func screen_shake(shake_length : float, shake_power : float, shake_priority : in
 # Position2D corner TL (Top Left) y cornerBR (Bottom Right)
 func set_borders() -> void:
 	#El if checa si existen estos nodos en la escena actual
-	if has_node("../settings/cornerTL") and has_node("../settings/cornerBR"):
+	if has_node("../Settings/CornerTL") and has_node("../Settings/CornerBR"):
 	#SI existen los nodos entonces se ajustan los limites
 	#de la camara 
-		var cornerTL : Position2D = get_node("../settings/cornerTL")
-		var cornerBR : Position2D = get_node("../settings/cornerBR")
+		var cornerTL : Position2D = get_node("../Settings/CornerTL")
+		var cornerBR : Position2D = get_node("../Settings/CornerBR")
 		camera.limit_bottom = cornerBR.global_position.y
 		camera.limit_right = cornerBR.global_position.x
 		camera.limit_top = cornerTL.global_position.y

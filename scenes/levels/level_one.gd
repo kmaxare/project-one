@@ -8,7 +8,7 @@ func _ready():
 
 func _physics_process(delta):
 	time_control()
-		
+
 func time_control():
 	cont += 1
 	if cont > 60:
@@ -16,4 +16,4 @@ func time_control():
 		GameHandler.tiempo -= 1
 		
 		if GameHandler.tiempo == 0:
-			GameHandler.gameOver()
+			GameHandler.game_over()

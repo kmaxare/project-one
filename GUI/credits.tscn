@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GUI/credits.gd" type="Script" id=1]
 
-[node name="credits" type="Control"]
+[node name="Credits" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = -30.0
 
-[node name="return" type="Button" parent="VBoxContainer"]
+[node name="Return" type="Button" parent="VBoxContainer"]
 margin_right = 54.0
 margin_bottom = 20.0
 text = "Return"
@@ -138,4 +138,4 @@ text = "Nombre y rol"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="VBoxContainer/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_return_pressed"]

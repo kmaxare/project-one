@@ -64,4 +64,4 @@ func other_object(object_coll):
 	if object_coll.is_in_group('losa_floja'):
 		if object_coll.collision_up:
 			# Falta metodo para stun del personaje, por el momento un golpesito sin daño
-			get_parent().damageReceived(0, object_coll.global_position)
+			get_parent().damage_received(0, object_coll.global_position)
