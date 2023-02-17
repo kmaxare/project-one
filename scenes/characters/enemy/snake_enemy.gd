@@ -61,7 +61,7 @@ func observe_npc(looking_object):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
-		body.damageReceived(ataque, global_position)
+		body.damage_received(ataque, global_position)
 
 func set_direction_raycast() -> void:
 	# Reubicacion dinamica de rayCast para detectar borde

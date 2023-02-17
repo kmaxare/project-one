@@ -9,7 +9,7 @@ export var v_stop = 150 # 320
 #se llama al nodo camará del nodo player y  su nodo Tween
 onready var camera : Camera2D = $Camera2D
 onready var tween : Tween = $Camera2D/Tween
-onready var timer_coyote : Timer = $timer_coyote
+onready var timer_coyote : Timer = $TimerCoyote
 #Variablle para generar numeros randoms 
 onready var rng = RandomNumberGenerator.new()
 
@@ -135,7 +135,7 @@ func animation():
 		damaged = false
 		disabled = true
 		invulnerable = true
-		$timer_invunerable.start(0.74)
+		$TimerInvulnerable.start(0.74)
 		if damaged_r:
 			velocity.x += -v_knockback
 			look_r = true
@@ -154,7 +154,7 @@ func animation():
 	$Sprite.flip_h = !look_r 
 
 #Esta funciona ocurre cuando un enemigo cruza al jugador
-func damageReceived(damage, positionEnemy : Vector2):
+func damage_received(damage, positionEnemy : Vector2):
 	#verifica que no este en modo invulnerable
 	if !invulnerable:
 	# activa la bandera de que ya recibio daño, para que no reciba 
@@ -177,7 +177,7 @@ func damageReceived(damage, positionEnemy : Vector2):
 # se llama por medio del animation player cuando se termina la 
 # animacion de hurt, para marcar que el jugador vuelve a estar 
 # habilitado para controlarse
-func postHurt() -> void:
+func post_hurt() -> void:
 	disabled = false
 
 

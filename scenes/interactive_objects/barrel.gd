@@ -43,7 +43,7 @@ func animationAndPositionDamageAreaOfBarrel(direction):
 func _on_damage_body_entered(body):
 	# Verifica si el cuerpo que entró en contacto es el jugador
 	if body.is_in_group("player"):
-		# Llama a la función damageReceived en el cuerpo del jugador
-		body.damageReceived(1, position)
+		# Llama a la función damage_received en el cuerpo del jugador
+		body.damage_received(1, position)
 		# Elimina este objeto de la escena
 		queue_free()
