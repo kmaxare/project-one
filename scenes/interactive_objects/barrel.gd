@@ -37,7 +37,7 @@ func animationAndPositionDamageAreaOfBarrel(direction):
 	elif (direction < 0):
 		$AnimBarrel.play("rolling_left")
 	
-	$damage.position = Vector2(3 * direction, 6)
+	$Damage.position = Vector2(3 * direction, 6)
 
 # Función llamada cuando un cuerpo entra en contacto con este objeto
 func _on_damage_body_entered(body):

@@ -18,8 +18,8 @@ var look_r = true
 var velocity = Vector2.ZERO
 var velocity_platform = 0
 # variables de la fuerza de salto y la gravedad del personaje
-var GRAVITY = 20
-var JUMPFORCE = -420 #-550
+const GRAVITY = 20
+const JUMPFORCE = -420 #-550
 # Mantiene los valores del estado actual y el estado anterior
 # del personaje
 var state : String = "fall"
@@ -217,11 +217,11 @@ func screen_shake(shake_length : float, shake_power : float, shake_priority : in
 # Position2D corner TL (Top Left) y cornerBR (Bottom Right)
 func set_borders() -> void:
 	#El if checa si existen estos nodos en la escena actual
-	if has_node("../settings/cornerTL") and has_node("../settings/cornerBR"):
+	if has_node("../Settings/CornerTL") and has_node("../Settings/CornerBR"):
 	#SI existen los nodos entonces se ajustan los limites
 	#de la camara 
-		var cornerTL : Position2D = get_node("../settings/cornerTL")
-		var cornerBR : Position2D = get_node("../settings/cornerBR")
+		var cornerTL : Position2D = get_node("../Settings/CornerTL")
+		var cornerBR : Position2D = get_node("../Settings/CornerBR")
 		camera.limit_bottom = cornerBR.global_position.y
 		camera.limit_right = cornerBR.global_position.x
 		camera.limit_top = cornerTL.global_position.y

@@ -19,12 +19,12 @@
 pause_mode = 1
 script = ExtResource( 13 )
 
-[node name="settings" type="Node2D" parent="."]
+[node name="Settings" type="Node2D" parent="."]
 
-[node name="cornerTL" type="Position2D" parent="settings"]
+[node name="CornerTL" type="Position2D" parent="Settings"]
 position = Vector2( 10, -476 )
 
-[node name="cornerBR" type="Position2D" parent="settings"]
+[node name="CornerBR" type="Position2D" parent="Settings"]
 position = Vector2( 1522, 548 )
 
 [node name="floor" parent="." groups=["foor"] instance=ExtResource( 9 )]

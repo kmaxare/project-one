@@ -57,7 +57,7 @@ func observe_npc(looking_object):
 			$RayCastVision.enabled = false
 			attack_player()
 		elif looking_object.is_in_group('enemigo'):
-			print('Es Billy el quejumbroso')
+			print('Reconociendo a otro enemigo')
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
