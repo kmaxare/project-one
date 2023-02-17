@@ -18,7 +18,7 @@ func _process(_delta):
 
 
 func destuirBloque():
-	Gamehundler.puntos += 3
+	GameHandler.puntos += 3
 #	queue_free()
 	# <<<Codigo Espageti para animacion de destruccion (Pixel)>>>
 	box -= 1

@@ -5,7 +5,7 @@ export var extra_time = 10
 func _on_powerup_body_entered(body):
 	$AnimationPlayer.play("collected") # Para animacion (Pixel).
 	if body.is_in_group("player"):
-		Gamehundler.tiempo += extra_time
+		GameHandler.tiempo += extra_time
 #		queue_free() # Se pasa a animation_finished (Pixel).
 
 

@@ -4,8 +4,8 @@ extends KinematicBody2D
 #del escenario usando move_and_slide
 const vector_up = Vector2(0,-1);
 # velocidad inicial y de paro del personaje
-export var Vinitial = 30
-export var Vstop = 150 # 320
+export var v_initial = 30
+export var v_stop = 150 # 320
 #se llama al nodo camará del nodo player y  su nodo Tween
 onready var camera : Camera2D = $Camera2D
 onready var tween : Tween = $Camera2D/Tween
@@ -24,7 +24,7 @@ var JUMPFORCE = -420 #-550
 # del personaje
 var state : String = "fall"
 var prev_state : String = "idle"
-var Vknockback : float = 100
+var v_knockback : float = 100
 var disabled : bool = false
 var invulnerable : bool = false
 #bandera que indica si el personaje fue dañado	
@@ -39,9 +39,8 @@ var first_jump : bool = false
 var second_jump : bool = false
 
 func _ready():
-	Gamehundler.puntos += 7 # para propositos de prueba
+	GameHandler.puntos += 7 # para propositos de prueba
 	set_borders()
-	pass
 
 func _physics_process(_delta):
 	match state:
@@ -64,11 +63,11 @@ func _physics_process(_delta):
 
 func _on_the_floor():
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = min(velocity.x + Vinitial, Vstop)
+		velocity.x = min(velocity.x + v_initial, v_stop)
 		#establece que mira ala derecha
 		look_r = true
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x = max(velocity.x - Vinitial, -Vstop)
+		velocity.x = max(velocity.x - v_initial, -v_stop)
 		#establece que mira ala izquierda
 		look_r = false
 	else:
@@ -83,11 +82,11 @@ func _jump() -> void:
 
 func _on_the_air() -> void:
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = min(velocity.x + Vinitial, Vstop)
+		velocity.x = min(velocity.x + v_initial, v_stop)
 		#establece que mira ala derecha
 		look_r = true
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x = max(velocity.x - Vinitial, -Vstop)
+		velocity.x = max(velocity.x - v_initial, -v_stop)
 		#establece que mira ala izquierda
 		look_r = false
 	else:
@@ -138,10 +137,10 @@ func animation():
 		invulnerable = true
 		$timer_invunerable.start(0.74)
 		if damaged_r:
-			velocity.x += -Vknockback
+			velocity.x += -v_knockback
 			look_r = true
 		else:
-			velocity.x += Vknockback
+			velocity.x += v_knockback
 			look_r = false
 	# SE VERIFICA QUE SE HAYA CAMBIADO DE ESTADO
 	if state != prev_state:
@@ -170,10 +169,10 @@ func damageReceived(damage, positionEnemy : Vector2):
 		else:
 			damaged_r = false #izquierda
 		#se restan los puntos al jugador
-		if Gamehundler.puntos >= damage:
-			Gamehundler.puntos -= damage
+		if GameHandler.puntos >= damage:
+			GameHandler.puntos -= damage
 		else:
-			Gamehundler.gameOver()
+			GameHandler.gameOver()
 
 # se llama por medio del animation player cuando se termina la 
 # animacion de hurt, para marcar que el jugador vuelve a estar 
