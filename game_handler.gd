@@ -1,11 +1,11 @@
 extends Node
 
 # Variable para puntos del jugador
-var puntos = 0
+var points = 0
 # Gravedad para personajes
 var gravity = 20
 # Tiempo para que termine el nivel
-var tiempo = 180
+var time = 180
 
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):

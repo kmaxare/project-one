@@ -28,10 +28,10 @@ func change_direction(direction: float):
 	# Multiplicar la velocidad actual por la dirección especificada
 	speed *= direction
 	
-	animationAndPositionDamageAreaOfBarrel(direction)
+	anim_position_damage_area_of_barrel(direction)
 
 # Funcion para ajustar animacion del barril con respecto a su direccion
-func animationAndPositionDamageAreaOfBarrel(direction):
+func anim_position_damage_area_of_barrel(direction):
 	if (direction > 0):
 		$AnimBarrel.play("rolling_right")
 	elif (direction < 0):

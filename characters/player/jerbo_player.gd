@@ -39,7 +39,7 @@ var first_jump : bool = false
 var second_jump : bool = false
 
 func _ready():
-	GameHandler.puntos += 7 # para propositos de prueba
+	GameHandler.points += 7 # para propositos de prueba
 	set_borders()
 
 func _physics_process(_delta):
@@ -169,8 +169,8 @@ func damage_received(damage, positionEnemy : Vector2):
 		else:
 			damaged_r = false #izquierda
 		#se restan los puntos al jugador
-		if GameHandler.puntos >= damage:
-			GameHandler.puntos -= damage
+		if GameHandler.points >= damage:
+			GameHandler.points -= damage
 		else:
 			GameHandler.game_over()
 
