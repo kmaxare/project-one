@@ -190,8 +190,6 @@ rotation = 3.14159
 enabled = true
 cast_to = Vector2( -3.29018e-05, 13 )
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="TimerInvulnerable" type="Timer" parent="."]
 wait_time = 0.74
 one_shot = true
@@ -209,6 +207,5 @@ editor_draw_drag_margin = true
 
 [node name="Tween" type="Tween" parent="Camera2D"]
 
-[connection signal="timeout" from="TimerInvulnerable" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimerInvulnerable" to="." method="_on_timer_invunerable_timeout"]
 [connection signal="timeout" from="TimerCoyote" to="." method="_on_timer_coyote_timeout"]

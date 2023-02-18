@@ -1,5 +1,12 @@
 extends Node
 
+#variable de la dirección ultima escena jugada 
+var previous_scene : String = "res://GUI/main_screen.tscn"
+#variables para el ranking de jugadores 
+var player_name : String = "New Player"
+var player_score = 0
+var top_player_name : String = "Top Player"
+var top_player_score = 15
 # Variable para puntos del jugador
 var points = 0
 # Gravedad para personajes

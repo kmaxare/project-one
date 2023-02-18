@@ -24,13 +24,13 @@ const JUMPFORCE = -420 #-550
 # del personaje
 var state : String = "fall"
 var prev_state : String = "idle"
-var v_knockback : float = 100
+var v_knockback : float = 30
 var disabled : bool = false
 var invulnerable : bool = false
 #bandera que indica si el personaje fue dañado	
 var damaged : bool = false
 # bandera que indica si el personaje fue dañado por la derecha
-var damaged_r : bool = false
+var damaged_right : bool = false
 # bandera que indica que esta activo el coyote time 
 var coyote_time : bool = false
 # bandera que indica que esta activo el primer salto 
@@ -38,11 +38,11 @@ var first_jump : bool = false
 # bandera que indica que esta activo el segundo salto 
 var second_jump : bool = false
 
-func _ready():
-	GameHandler.points += 7 # para propositos de prueba
+func _ready() -> void:
+	#GameHandler.points += 7 # para propositos de prueba
 	set_borders()
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	match state:
 		"idle", "run":
 			_on_the_floor()
@@ -61,7 +61,7 @@ func _physics_process(_delta):
 		
 	$RayCast.collition_down(JUMPFORCE) #verifica si golpeo enemigo
 
-func _on_the_floor():
+func _on_the_floor() -> void:
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = min(velocity.x + v_initial, v_stop)
 		#establece que mira ala derecha
@@ -109,7 +109,7 @@ func _on_the_air() -> void:
 #		if velocity.y > 1:
 #			state = "fall"
 	
-func func_hurt():
+func func_hurt() -> void:
 	if !disabled:
 		state = "idle"
 
@@ -129,15 +129,15 @@ func _jump_check() -> void:
 				timer_coyote.start(0.3)
 				coyote_time = true
 
-func animation():
+func animation() -> void:
 	if damaged:
 		state = "hurt"
 		damaged = false
 		disabled = true
 		invulnerable = true
 		$TimerInvulnerable.start(0.74)
-		if damaged_r:
-			velocity.x += -v_knockback
+		if damaged_right:
+			velocity.x -= v_knockback
 			look_r = true
 		else:
 			velocity.x += v_knockback
@@ -154,7 +154,7 @@ func animation():
 	$Sprite.flip_h = !look_r 
 
 #Esta funciona ocurre cuando un enemigo cruza al jugador
-func damage_received(damage, positionEnemy : Vector2):
+func damage_received(damage, positionEnemy : Vector2) -> void:
 	#verifica que no este en modo invulnerable
 	if !invulnerable:
 	# activa la bandera de que ya recibio daño, para que no reciba 
@@ -165,14 +165,14 @@ func damage_received(damage, positionEnemy : Vector2):
 		screen_shake(0.3, 0.1, 2)
 	# EStablece desde que lado se recibe el daño 
 		if global_position.x < positionEnemy.x:
-			damaged_r = true #derecha
+			damaged_right = true #derecha
 		else:
-			damaged_r = false #izquierda
+			damaged_right = false #izquierda
 		#se restan los puntos al jugador
-		if GameHandler.points >= damage:
-			GameHandler.points -= damage
+		if game_handler.points >= damage:
+			game_handler.points -= damage
 		else:
-			GameHandler.game_over()
+			game_handler.game_over()
 
 # se llama por medio del animation player cuando se termina la 
 # animacion de hurt, para marcar que el jugador vuelve a estar 
@@ -182,9 +182,8 @@ func post_hurt() -> void:
 
 
 #indica que el temporizador de invunerabilidad termino
-func _on_timer_invunerable_timeout():
+func _on_timer_invunerable_timeout() -> void:
 	invulnerable = false
-	pass # Replace with function body.
 
 #Funcion para generar numeros randoms
 func random(minimo, maximo):
@@ -234,9 +233,8 @@ func set_borders() -> void:
 		print("NO HAY NODO SETTINGS")
 
 # pasado el tiempo desactiva bandera del coyote time
-func _on_timer_coyote_timeout():
+func _on_timer_coyote_timeout() -> void:
 	coyote_time = false
-	pass # Replace with function body.
 	
 func mov_position_player(move_direction: String) -> void:
 	if move_direction == 'move_right': global_position -= Vector2(-2,0)

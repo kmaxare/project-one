@@ -215,3 +215,5 @@ position = Vector2( -56, -352 )
 position = Vector2( 648, -512 )
 
 [node name="GUI" parent="." instance=ExtResource( 11 )]
+
+[connection signal="tree_exiting" from="." to="." method="_on_LevelOne_tree_exiting"]
