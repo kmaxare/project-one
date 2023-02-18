@@ -3,7 +3,7 @@ extends Control
 #Función que se activa cuando se presiona el botón "start"
 func _on_start_pressed():
 	#Cambia a la escena "level-one.tscn"
-	get_tree().change_scene("res://scenes/levels/level_one.tscn")
+	get_tree().change_scene("res://levels/level_one.tscn")
 
 #Función que se activa cuando se presiona el botón "score"
 func _on_score_pressed():
