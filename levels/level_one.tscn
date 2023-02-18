@@ -1,19 +1,19 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://characters/enemy/crab_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemy/pigx_enemy_tilemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/jerbo_player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://characters/enemy/pigx_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/enemy/snake_enemy_tilemap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interactive_objects/rotating_wheel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/floor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interactive_objects/trap_board.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interactive_objects/surprise_block.tscn" type="PackedScene" id=7]
-[ext_resource path="res://interactive_objects/seed_point.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interactive_objects/seed_point_tilemap.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interactive_objects/immerse_death.tscn" type="PackedScene" id=9]
-[ext_resource path="res://interactive_objects/powerup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://interactive_objects/powerup_tilemap.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=11]
-[ext_resource path="res://characters/enemy/snake_enemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://interactive_objects/barrel_generator.tscn" type="PackedScene" id=13]
 [ext_resource path="res://levels/level_one.gd" type="Script" id=14]
+[ext_resource path="res://characters/enemy/crab_enemy_tilemap.tscn" type="PackedScene" id=15]
 
 [node name="LevelOne" type="Node2D"]
 pause_mode = 1
@@ -33,26 +33,6 @@ tile_data = PoolIntArray( -1900546, 52, 0, -1900545, 52, 0, -1966080, 52, 0, -19
 
 [node name="JerboPlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 164, 465 )
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="CrabEnemy" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 415, 218 )
-
-[node name="CrabEnemy2" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 387, -337 )
-
-[node name="CrabEnemy3" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 576, 472 )
-
-[node name="CrabEnemy4" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 496, -235 )
-
-[node name="PigxEnemy" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 1087, 23 )
-
-[node name="SnakeEnemy" parent="Enemies" instance=ExtResource( 12 )]
-position = Vector2( 859, 20 )
 
 [node name="UpperFloor" parent="." groups=["foor"] instance=ExtResource( 5 )]
 position = Vector2( 33, -13 )
@@ -83,11 +63,11 @@ position = Vector2( 1197, 230 )
 
 [node name="TrapBoard" type="Node2D" parent="."]
 
-[node name="TrapBoard1" parent="TrapBoard" instance=ExtResource( 6 )]
-position = Vector2( 401, 507 )
-
 [node name="TrapBoard2" parent="TrapBoard" instance=ExtResource( 6 )]
 position = Vector2( 465, 507 )
+
+[node name="TrapBoard8" parent="TrapBoard" instance=ExtResource( 6 )]
+position = Vector2( 401, 507 )
 
 [node name="TrapBoard3" parent="TrapBoard" instance=ExtResource( 6 )]
 position = Vector2( 529, 507 )
@@ -147,71 +127,21 @@ box = 3
 position = Vector2( 608, 416 )
 box = 4
 
-[node name="Points" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="SeedPoint" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 288, 456 )
+[node name="CrabEnemyTilemap" parent="Enemies" instance=ExtResource( 15 )]
+tile_data = PoolIntArray( 262181, 0, 0, 2359314, 0, 0, 2621498, 0, 0, 2883668, 0, 0, 3932274, 0, 0 )
 
-[node name="SeedPoint1" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 680, 344 )
+[node name="PigxEnemyTilemap" parent="Enemies" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -3145614, 0, 0, -1834921, 0, 0, -1834846, 0, 0, -786403, 0, 0, 262244, 0, 0, 1048744, 0, 0 )
 
-[node name="SeedPoint2" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 744, 296 )
+[node name="SnakeEnemyTilemap" parent="Enemies" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -3145565, 0, 0, -786276, 0, 0, 262274, 0, 0, 1048660, 0, 0, 1835187, 0, 0, 4194454, 0, 0 )
 
-[node name="SeedPoint3" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 632, 232 )
+[node name="SeedPointTileMap" parent="." instance=ExtResource( 8 )]
+tile_data = PoolIntArray( -851935, 0, 0, -131057, 0, 0, 655375, 0, 0, 1507343, 0, 0, 1769524, 0, 0, 1835094, 0, 0, 1966150, 0, 0, 2097282, 0, 0, 2293782, 0, 0, 2555966, 0, 0, 2621543, 0, 0, 3801124, 0, 0 )
 
-[node name="SeedPoint4" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 504, 216 )
-
-[node name="SeedPoint5" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 128, 176 )
-
-[node name="SeedPoint6" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 1144, -32 )
-
-[node name="SeedPoint7" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 528, -72 )
-
-[node name="SeedPoint8" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 448, -8 )
-
-[node name="SeedPoint9" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 616, -400 )
-
-[node name="SeedPoint10" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 512, -352 )
-
-[node name="SeedPoint11" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 256, -328 )
-
-[node name="SeedPoint12" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 1104, -280 )
-
-[node name="SeedPoint13" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 1104, -168 )
-
-[node name="SeedPoint14" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 1008, -224 )
-
-[node name="SeedPoint15" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 1008, -360 )
-
-[node name="SeedPoint16" parent="Points" instance=ExtResource( 8 )]
-position = Vector2( 1200, 96 )
-
-[node name="PowerUp" type="Node2D" parent="."]
-position = Vector2( 832, 216 )
-
-[node name="Powerup1" parent="PowerUp" instance=ExtResource( 10 )]
-
-[node name="Powerup2" parent="PowerUp" instance=ExtResource( 10 )]
-position = Vector2( -728, -504 )
-
-[node name="Powerup3" parent="PowerUp" instance=ExtResource( 10 )]
-position = Vector2( -56, -352 )
-
-[node name="Powerup4" parent="PowerUp" instance=ExtResource( 10 )]
-position = Vector2( 648, -512 )
+[node name="PowerUpTilemap" parent="." instance=ExtResource( 10 )]
+tile_data = PoolIntArray( -2424821, 0, 0, -1834833, 0, 0, 1835114, 0, 0 )
 
 [node name="GUI" parent="." instance=ExtResource( 11 )]
