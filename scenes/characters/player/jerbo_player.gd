@@ -24,7 +24,7 @@ const JUMPFORCE = -420 #-550
 # del personaje
 var state : String = "fall"
 var prev_state : String = "idle"
-var v_knockback : float = 100
+var v_knockback : float = 30
 var disabled : bool = false
 var invulnerable : bool = false
 #bandera que indica si el personaje fue dañado	
@@ -66,12 +66,15 @@ func _on_the_floor():
 		velocity.x = min(velocity.x + v_initial, v_stop)
 		#establece que mira ala derecha
 		look_r = true
+		state = "run"
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = max(velocity.x - v_initial, -v_stop)
 		#establece que mira ala izquierda
 		look_r = false
+		state = "run"
 	else:
 		velocity.x = 0
+		state = "idle"
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		_jump()
 		first_jump = true
@@ -109,7 +112,10 @@ func _on_the_air() -> void:
 #		if velocity.y > 1:
 #			state = "fall"
 	
+#es lo que ocurre en mientras se esta en el estado hurt
 func func_hurt():
+	#espera a que pase el tiempo de que el personaje esta
+	#inhabilitado, cuando la bandera disabled vuelva a ser false
 	if !disabled:
 		state = "idle"
 

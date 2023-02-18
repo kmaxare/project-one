@@ -26,13 +26,17 @@ func _physics_process(delta):
 			$AnimEnemyUno.play("run")
 			distance.x = speed * delta
 			move.x = (dir_desp * distance.x)/delta
-			move.y += gravity * delta
+			
 			move_and_slide(move, Vector2(0,-1))
 
 		if is_on_wall() or (is_on_floor() and !$RayCastLimit.is_colliding()):
 			dir_desp = -dir_desp
 			$Sprite.flip_h = !$Sprite.flip_h
 			set_direction_raycast()
+	if is_on_floor():
+		move.y += 30
+	else:
+		move.y += gravity * delta
 
 
 func _on_Area2D_body_entered(body):
@@ -42,7 +46,7 @@ func _on_Area2D_body_entered(body):
 
 func set_direction_raycast() -> void:
 	# Reubicacion dinamica de rayCast para detectar borde
-	$RayCastLimit.position.x = $CollisionShape2D.shape.get_extents().x * dir_desp
+	$RayCastLimit.position.x = $collision_body.shape.get_extents().x * dir_desp
 
 
 func death(deathTipe) -> void:
@@ -50,6 +54,8 @@ func death(deathTipe) -> void:
 		
 	live = false
 	if (deathTipe == 'crushed'):
+		#se apaga la ap
+		$area_hit.set_collision_layer_bit(3, false)
 		print('Muerte por aplastamiento')
 		$AnimEnemyUno.play("hurt")
 	yield($AnimEnemyUno, "animation_finished")
