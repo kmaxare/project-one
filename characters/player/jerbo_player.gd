@@ -66,12 +66,15 @@ func _on_the_floor() -> void:
 		velocity.x = min(velocity.x + v_initial, v_stop)
 		#establece que mira ala derecha
 		look_r = true
+		state = "run"
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = max(velocity.x - v_initial, -v_stop)
 		#establece que mira ala izquierda
 		look_r = false
+		state = "run"
 	else:
 		velocity.x = 0
+		state = "idle"
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		_jump()
 		first_jump = true

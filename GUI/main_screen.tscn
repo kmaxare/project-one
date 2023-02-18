@@ -109,6 +109,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
 [node name="name_panel" type="Panel" parent="."]
+visible = false
 margin_left = 55.0
 margin_top = 39.0
 margin_right = 270.0
