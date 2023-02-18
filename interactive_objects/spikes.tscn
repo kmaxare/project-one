@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/interactive_objects/spikes.gd" type="Script" id=1]
+[ext_resource path="res://interactive_objects/spikes.gd" type="Script" id=1]
 
 [node name="Spikes" type="Area2D"]
 script = ExtResource( 1 )

@@ -1,7 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/interactive_objects/trap_board.gd" type="Script" id=1]
+[ext_resource path="res://interactive_objects/trap_board.gd" type="Script" id=1]
 [ext_resource path="res://sprites/interactive_objects/platform_DDL.png" type="Texture" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 4 )

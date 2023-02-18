@@ -4,7 +4,7 @@ extends StaticBody2D
 export var direction = 1
 
 # Cargar el archivo de escena del barril
-var Barrel = load("res://scenes/interactive_objects/barrel.tscn")
+var Barrel = load("res://interactive_objects/barrel.tscn")
 
 func _on_Timer_timeout():
 	# Crear una instancia del barril

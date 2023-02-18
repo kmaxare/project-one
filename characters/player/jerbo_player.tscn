@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://scenes/characters/player/jerbo_player.gd" type="Script" id=1]
+[ext_resource path="res://characters/player/jerbo_player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/characters/player/jerbo_player_DDL.png" type="Texture" id=2]
-[ext_resource path="res://scenes/characters/player/raycast_player.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/raycast_player.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 7.0

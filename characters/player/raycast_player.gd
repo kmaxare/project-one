@@ -12,23 +12,39 @@ func _process(delta):
 			
 
 func collition_up():
+	var raycast_up_active
 	# Si solo coliciona el raycast izquierdo
 	if $RayCastUpLeft.is_colliding() and !$RayCastUpRight.is_colliding():
-		if $RayCastUpLeft.get_collider().is_in_group('foor'):
+		raycast_up_active = $RayCastUpLeft.get_collider()
+		
+		if (raycast_up_active == null):
+			return
+			
+		if raycast_up_active.is_in_group('foor'):
 			get_parent().mov_position_player('move_right')
 		else:
-			other_object($RayCastUpLeft.get_collider())
+			other_object(raycast_up_active)
 		
 	# Si solo coliciona el raycast derecho
 	elif !$RayCastUpLeft.is_colliding() and $RayCastUpRight.is_colliding():
-		if $RayCastUpRight.get_collider().is_in_group('foor'):
+		raycast_up_active = $RayCastUpRight.get_collider()
+		
+		if (raycast_up_active == null):
+			return
+			
+		if raycast_up_active.is_in_group('foor'):
 			get_parent().mov_position_player('move_left')
 		else:
-			other_object($RayCastUpRight.get_collider())
+			other_object(raycast_up_active)
 	
 	elif $RayCastUpLeft.is_colliding() and $RayCastUpRight.is_colliding():
-		if $RayCastUpRight.get_collider().is_in_group('losa_floja'):
-			other_object($RayCastUpRight.get_collider())
+		raycast_up_active = $RayCastUpRight.get_collider()
+		
+		if (raycast_up_active == null):
+			return
+			
+		if raycast_up_active.is_in_group('losa_floja'):
+			other_object(raycast_up_active)
 			
 #func collition_down():
 #	if ($RaycastBott.is_colliding()):

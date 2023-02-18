@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/interactive_objects/slab_rotating_wheel.gd" type="Script" id=1]
-[ext_resource path="res://scenes/interactive_objects/rotating_wheel.gd" type="Script" id=2]
+[ext_resource path="res://interactive_objects/slab_rotating_wheel.gd" type="Script" id=1]
+[ext_resource path="res://interactive_objects/rotating_wheel.gd" type="Script" id=2]
 [ext_resource path="res://sprites/interactive_objects/platform_DDL.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/interactive_objects/barrel_DDL.png" type="Texture" id=1]
-[ext_resource path="res://scenes/interactive_objects/barrel.gd" type="Script" id=2]
+[ext_resource path="res://interactive_objects/barrel.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.0

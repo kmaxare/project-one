@@ -1,8 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/characters/enemy/crab_enemy.gd" type="Script" id=1]
+[ext_resource path="res://characters/enemy/crab_enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/characters/enemy/crab_enemy_DDL.png" type="Texture" id=2]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 9.5 )
