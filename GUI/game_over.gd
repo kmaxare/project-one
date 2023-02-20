@@ -1,18 +1,17 @@
-# Extiende la clase Control
 extends Control
 
 # Obtiene el nodo de texto para mostrar la puntuación del jugador
-onready var score = $VBoxContainer/scores/player/score
-onready var top_player_score = $VBoxContainer/scores/top_player/score
-onready var player_name = $VBoxContainer/scores/player/name
-onready var top_player_name = $VBoxContainer/scores/top_player/name
+onready var score = $VBoxContainer/Scores/Player/Score
+onready var top_player_score = $VBoxContainer/Scores/TopPlayer/Score
+onready var player_name = $VBoxContainer/Scores/Player/Name
+onready var top_player_name = $VBoxContainer/Scores/TopPlayer/Name
 
 # Función llamada al terminar la carga del nodo
 func _ready() -> void:
 	# Establece el texto de la puntuación del jugador en el valor actual de la puntuación
-	_ajustar_puntaje()
+	_adjust_score()
 
-func _ajustar_puntaje() -> void:
+func _adjust_score() -> void:
 	# Establece el texto de la puntuación del jugador en el valor actual de la puntuación
 	score.text = str(game_handler.points)
 	player_name.text = game_handler.player_name

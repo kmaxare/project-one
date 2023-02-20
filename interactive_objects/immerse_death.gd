@@ -1,4 +1,3 @@
-# Extiende la clase Area2D
 extends Area2D
 
 # Función llamada cuando un cuerpo que pertenece al grupo "player" entra en el área

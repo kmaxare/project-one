@@ -12,10 +12,10 @@ size = 15
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 20
+size = 15
 font_data = ExtResource( 1 )
 
-[node name="game_over" type="Control"]
+[node name="GameOver" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1.0
@@ -42,19 +42,19 @@ text = "Game Over"
 align = 1
 valign = 1
 
-[node name="scores" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Scores" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 58.0
 margin_right = 190.0
 margin_bottom = 108.0
 custom_constants/separation = 20
 
-[node name="player" type="HBoxContainer" parent="VBoxContainer/scores"]
+[node name="Player" type="HBoxContainer" parent="VBoxContainer/Scores"]
 margin_right = 190.0
 margin_bottom = 15.0
 custom_constants/separation = 75
 alignment = 1
 
-[node name="name" type="Label" parent="VBoxContainer/scores/player"]
+[node name="Name" type="Label" parent="VBoxContainer/Scores/Player"]
 margin_left = 8.0
 margin_right = 59.0
 margin_bottom = 15.0
@@ -63,7 +63,7 @@ text = "Nombre"
 align = 1
 valign = 1
 
-[node name="score" type="Label" parent="VBoxContainer/scores/player"]
+[node name="Score" type="Label" parent="VBoxContainer/Scores/Player"]
 margin_left = 134.0
 margin_right = 182.0
 margin_bottom = 15.0
@@ -72,14 +72,14 @@ text = "000000"
 align = 1
 valign = 1
 
-[node name="top_player" type="HBoxContainer" parent="VBoxContainer/scores"]
+[node name="TopPlayer" type="HBoxContainer" parent="VBoxContainer/Scores"]
 margin_top = 35.0
 margin_right = 190.0
 margin_bottom = 50.0
 custom_constants/separation = 75
 alignment = 1
 
-[node name="name" type="Label" parent="VBoxContainer/scores/top_player"]
+[node name="Name" type="Label" parent="VBoxContainer/Scores/TopPlayer"]
 margin_left = 8.0
 margin_right = 59.0
 margin_bottom = 15.0
@@ -88,7 +88,7 @@ text = "Nombre"
 align = 1
 valign = 1
 
-[node name="score" type="Label" parent="VBoxContainer/scores/top_player"]
+[node name="Score" type="Label" parent="VBoxContainer/Scores/TopPlayer"]
 margin_left = 134.0
 margin_right = 182.0
 margin_bottom = 15.0
@@ -97,7 +97,7 @@ text = "000000"
 align = 1
 valign = 1
 
-[node name="return_menu" type="Button" parent="."]
+[node name="ReturnMenu" type="Button" parent="."]
 margin_left = 67.0
 margin_top = 151.0
 margin_right = 257.0
@@ -105,7 +105,7 @@ margin_bottom = 176.0
 custom_fonts/font = SubResource( 3 )
 text = "return to menu"
 
-[node name="restart_level" type="Button" parent="."]
+[node name="RestartLevel" type="Button" parent="."]
 margin_left = 68.0
 margin_top = 120.0
 margin_right = 258.0
@@ -113,5 +113,5 @@ margin_bottom = 145.0
 custom_fonts/font = SubResource( 3 )
 text = "restart level"
 
-[connection signal="pressed" from="return_menu" to="." method="_on_return_menu_pressed"]
-[connection signal="pressed" from="restart_level" to="." method="_on_restart_level_pressed"]
+[connection signal="pressed" from="ReturnMenu" to="." method="_on_return_menu_pressed"]
+[connection signal="pressed" from="RestartLevel" to="." method="_on_restart_level_pressed"]
