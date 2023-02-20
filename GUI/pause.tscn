@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://text_fonts/font_example.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://GUI/pause.gd" type="Script" id=2]
+[ext_resource path="res://music/instance/bgm.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
@@ -56,6 +57,14 @@ focus_next = NodePath("../Resume")
 focus_previous = NodePath("../ReturnMenu")
 custom_fonts/font = SubResource( 1 )
 text = "quit"
+
+[node name="Sound" type="Control" parent="." groups=["sound"]]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Bgm" parent="Sound" instance=ExtResource( 3 )]
+margin_right = -40.0
+margin_bottom = -40.0
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/ReturnMenu" to="." method="_on_return_menu_pressed"]

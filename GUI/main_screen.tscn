@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GUI/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://text_fonts/font_example.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://tiles/floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://music/instance/bgm.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI/right_header_main_screen.gd" type="Script" id=6]
+[ext_resource path="res://sprites/tests/Prota/music0.png" type="Texture" id=7]
+[ext_resource path="res://sprites/tests/Prota/music1.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -108,33 +112,55 @@ margin_bottom = 16.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
-[node name="name_panel" type="Panel" parent="."]
+[node name="NamePanel" type="Panel" parent="."]
 visible = false
 margin_left = 55.0
 margin_top = 39.0
 margin_right = 270.0
 margin_bottom = 169.0
 
-[node name="name_intro" type="LineEdit" parent="name_panel"]
+[node name="NameIntro" type="LineEdit" parent="NamePanel"]
 margin_left = 29.0
 margin_top = 11.0
 margin_right = 182.0
 margin_bottom = 35.0
 text = "new player"
 
-[node name="name_done" type="Button" parent="name_panel"]
+[node name="NameDone" type="Button" parent="NamePanel"]
 margin_left = 156.0
 margin_top = 94.0
 margin_right = 189.0
 margin_bottom = 114.0
 text = "Ok"
 
-[node name="panel_hide" type="Button" parent="name_panel"]
+[node name="PanelHide" type="Button" parent="NamePanel"]
 margin_left = 29.0
 margin_top = 92.0
 margin_right = 96.0
 margin_bottom = 112.0
 text = "Return"
+
+[node name="Sound" type="Control" parent="." groups=["sound"]]
+
+[node name="Bgm" parent="Sound" instance=ExtResource( 5 )]
+
+[node name="RightHeader" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -15.0
+script = ExtResource( 6 )
+music_on = ExtResource( 7 )
+music_off = ExtResource( 8 )
+
+[node name="Buttons" type="VBoxContainer" parent="RightHeader"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MusicButton" type="TextureButton" parent="RightHeader/Buttons"]
+margin_right = 15.0
+margin_bottom = 14.0
+texture_normal = ExtResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Score" to="." method="_on_score_pressed"]
@@ -142,5 +168,6 @@ text = "Return"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="name_panel/name_done" to="." method="_on_name_done_pressed"]
-[connection signal="pressed" from="name_panel/panel_hide" to="." method="_on_panel_hide_pressed"]
+[connection signal="pressed" from="NamePanel/NameDone" to="." method="_on_name_done_pressed"]
+[connection signal="pressed" from="NamePanel/PanelHide" to="." method="_on_panel_hide_pressed"]
+[connection signal="pressed" from="RightHeader/Buttons/MusicButton" to="RightHeader" method="_on_MusicButton_pressed"]

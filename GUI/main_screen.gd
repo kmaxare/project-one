@@ -1,9 +1,9 @@
 extends Control
 
 #se carga el nodo del panel de introducción de nombre
-onready var name_panel : Panel = $name_panel
+onready var name_panel : Panel = $NamePanel
 #se carga la propiedad text del nodo name_intro
-onready var name_player : String = $name_panel/name_intro.text
+onready var name_player : String = $NamePanel/NameIntro.text
 
 #función que se ejecuta al principio de ejecutarse la escena
 func _ready() -> void:
@@ -48,3 +48,4 @@ func _on_name_done_pressed() -> void:
 # se presiono el boton regresar del panel de introducir nombre
 func _on_panel_hide_pressed() -> void:
 	name_panel.hide()
+	

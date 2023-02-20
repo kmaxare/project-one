@@ -6,6 +6,9 @@ onready var resume = $VBoxContainer/Resume
 var game_paused = false
 
 func _ready():
+	# Activar cuando sea necesario
+	$Sound/Bgm.playing_music('FirstLevel')
+	# Función que se ejecuta en cada proceso de física
 	resume.grab_focus()
 
 func _physics_process(delta):
