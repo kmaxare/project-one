@@ -24,13 +24,11 @@ script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 margin_left = -95.0
-margin_top = -87.0
+margin_top = 10.0
 margin_right = 95.0
-margin_bottom = 21.0
+margin_bottom = 108.0
 custom_constants/separation = 20
 alignment = 1
 
@@ -97,21 +95,39 @@ text = "000000"
 align = 1
 valign = 1
 
-[node name="ReturnMenu" type="Button" parent="."]
-margin_left = 67.0
-margin_top = 151.0
-margin_right = 257.0
-margin_bottom = 176.0
-custom_fonts/font = SubResource( 3 )
-text = "return to menu"
+[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -127.5
+margin_top = -35.0
+margin_right = 127.5
+margin_bottom = -35.0
+custom_constants/separation = 30
 
-[node name="RestartLevel" type="Button" parent="."]
-margin_left = 68.0
-margin_top = 120.0
-margin_right = 258.0
-margin_bottom = 145.0
+[node name="RestartLevel" type="Button" parent="VBoxContainer2"]
+margin_right = 107.0
+margin_bottom = 21.0
+focus_neighbour_left = NodePath("../ReturnMenu")
+focus_neighbour_right = NodePath("../ReturnMenu")
+focus_next = NodePath("../ReturnMenu")
+focus_previous = NodePath("../ReturnMenu")
 custom_fonts/font = SubResource( 3 )
 text = "restart level"
 
-[connection signal="pressed" from="ReturnMenu" to="." method="_on_return_menu_pressed"]
-[connection signal="pressed" from="RestartLevel" to="." method="_on_restart_level_pressed"]
+[node name="ReturnMenu" type="Button" parent="VBoxContainer2"]
+margin_left = 137.0
+margin_right = 255.0
+margin_bottom = 21.0
+focus_neighbour_left = NodePath("../RestartLevel")
+focus_neighbour_top = NodePath("../RestartLevel")
+focus_neighbour_right = NodePath("../RestartLevel")
+focus_neighbour_bottom = NodePath("../RestartLevel")
+focus_next = NodePath("../RestartLevel")
+focus_previous = NodePath("../RestartLevel")
+custom_fonts/font = SubResource( 3 )
+text = "return to menu"
+
+[connection signal="pressed" from="VBoxContainer2/RestartLevel" to="." method="_on_restart_level_pressed"]
+[connection signal="pressed" from="VBoxContainer2/ReturnMenu" to="." method="_on_return_menu_pressed"]
