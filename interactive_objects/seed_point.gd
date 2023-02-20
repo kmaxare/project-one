@@ -14,9 +14,9 @@ func _on_point_body_entered(body):
 	$AnimationPlayer.play("collected") # Para animacion (Pixel).
 	if body.is_in_group("player"):
 		if value == 1:
-			GameHandler.points += 1
+			game_handler.points += 1
 		elif value == 2:
-			GameHandler.points += 3
+			game_handler.points += 3
 #		queue_free() # Se pasa a animation_finished (Pixel).
 
 

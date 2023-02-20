@@ -108,9 +108,39 @@ margin_bottom = 16.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
+[node name="name_panel" type="Panel" parent="."]
+visible = false
+margin_left = 55.0
+margin_top = 39.0
+margin_right = 270.0
+margin_bottom = 169.0
+
+[node name="name_intro" type="LineEdit" parent="name_panel"]
+margin_left = 29.0
+margin_top = 11.0
+margin_right = 182.0
+margin_bottom = 35.0
+text = "new player"
+
+[node name="name_done" type="Button" parent="name_panel"]
+margin_left = 156.0
+margin_top = 94.0
+margin_right = 189.0
+margin_bottom = 114.0
+text = "Ok"
+
+[node name="panel_hide" type="Button" parent="name_panel"]
+margin_left = 29.0
+margin_top = 92.0
+margin_right = 96.0
+margin_bottom = 112.0
+text = "Return"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Score" to="." method="_on_score_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Instruccions" to="." method="_on_instruccions_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="name_panel/name_done" to="." method="_on_name_done_pressed"]
+[connection signal="pressed" from="name_panel/panel_hide" to="." method="_on_panel_hide_pressed"]
