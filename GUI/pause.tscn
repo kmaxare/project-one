@@ -18,39 +18,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -104.0
-margin_top = -46.0
-margin_right = 104.0
-margin_bottom = 46.0
-custom_constants/separation = 50
+margin_left = -59.0
+margin_top = -51.5
+margin_right = 59.0
+margin_bottom = 51.5
+custom_constants/separation = 20
 alignment = 1
 
 [node name="Resume" type="Button" parent="VBoxContainer"]
-margin_right = 208.0
+margin_right = 118.0
 margin_bottom = 21.0
+focus_neighbour_top = NodePath("../Quit")
+focus_neighbour_bottom = NodePath("../ReturnMenu")
+focus_next = NodePath("../ReturnMenu")
+focus_previous = NodePath("../Quit")
 custom_fonts/font = SubResource( 1 )
 text = "resume"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 71.0
-margin_right = 208.0
-margin_bottom = 92.0
-custom_constants/separation = 50
-alignment = 1
-
-[node name="ReturnMenu" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="ReturnMenu" type="Button" parent="VBoxContainer"]
+margin_top = 41.0
 margin_right = 118.0
-margin_bottom = 21.0
+margin_bottom = 62.0
+focus_neighbour_top = NodePath("../Resume")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Resume")
 custom_fonts/font = SubResource( 1 )
 text = "return to menu"
 
-[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 168.0
-margin_right = 208.0
-margin_bottom = 21.0
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 82.0
+margin_right = 118.0
+margin_bottom = 103.0
+focus_neighbour_top = NodePath("../ReturnMenu")
+focus_neighbour_bottom = NodePath("../Resume")
+focus_next = NodePath("../Resume")
+focus_previous = NodePath("../ReturnMenu")
 custom_fonts/font = SubResource( 1 )
 text = "quit"
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ReturnMenu" to="." method="_on_return_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/ReturnMenu" to="." method="_on_return_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

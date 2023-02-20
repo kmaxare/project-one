@@ -1,7 +1,12 @@
 extends Control
 
+onready var resume = $VBoxContainer/Resume
+
 # Variable para almacenar el estado de pausa del juego
 var game_paused = false
+
+func _ready():
+	resume.grab_focus()
 
 # Función que se ejecuta en cada proceso de física
 func _physics_process(delta):

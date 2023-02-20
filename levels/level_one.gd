@@ -3,6 +3,8 @@ extends Node2D
 var cont = 0
 
 func _ready() -> void:
+	game_handler.current_level = "res://levels/level_one.tscn"
+	
 	game_handler.time = 180
 	game_handler.points = 0
 
@@ -18,6 +20,5 @@ func time_control() -> void:
 		if game_handler.time == 0:
 			game_handler.game_over()
 
-
 func _on_LevelOne_tree_exiting() -> void:
-	game_handler.previous_scene = "res://levels/level_one.tscn"
+	get_tree().change_scene("res://GUI/game_over.tscn")

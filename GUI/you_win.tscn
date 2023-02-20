@@ -69,11 +69,11 @@ text = "000000"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="ReturnMenu" type="Button" parent="VBoxContainer"]
 margin_top = 93.0
 margin_right = 174.0
 margin_bottom = 118.0
 custom_fonts/font = SubResource( 3 )
 text = "return to menu"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ReturnMenu" to="." method="_on_ReturnMenu_pressed"]

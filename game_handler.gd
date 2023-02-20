@@ -1,7 +1,7 @@
 extends Node
 
 #variable de la dirección ultima escena jugada 
-var previous_scene : String = "res://GUI/main_screen.tscn"
+var current_level : String
 #variables para el ranking de jugadores 
 var player_name : String = "New Player"
 var player_score = 0
@@ -21,4 +21,5 @@ func _process(delta):
 		get_tree().reload_current_scene()
 
 func game_over():
-	get_tree().change_scene("res://GUI/game_over.tscn")
+	if get_tree().change_scene("res://GUI/game_over.tscn") != OK:
+		print("Error")
