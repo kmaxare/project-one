@@ -8,7 +8,6 @@ var game_paused = false
 func _ready():
 	resume.grab_focus()
 
-# Función que se ejecuta en cada proceso de física
 func _physics_process(delta):
 	# Comprueba si se ha presionado la acción de pausa
 	if Input.is_action_just_pressed("pause"):
