@@ -3,6 +3,10 @@ extends Control
 # Variable para almacenar el estado de pausa del juego
 var game_paused = false
 
+func _ready():
+	# Activar cuando sea necesario
+	$Sound/Bgm.playing_music('FirstLevel')
+
 # Función que se ejecuta en cada proceso de física
 func _physics_process(delta):
 	# Comprueba si se ha presionado la acción de pausa
