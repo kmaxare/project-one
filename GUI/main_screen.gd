@@ -17,22 +17,27 @@ func _on_start_pressed() -> void:
 #Función que se activa cuando se presiona el botón "score"
 func _on_score_pressed() -> void:
 	#Cambia a la escena "score.tscn"
-	get_tree().change_scene("res://GUI/score.tscn")
+	if get_tree().change_scene("res://GUI/score.tscn") != OK:
+		print('Error para reconocer escena score')
+#		get_tree().change_scene("res://GUI/score.tscn")
 
 #Función que se activa cuando se presiona el botón "instruccions"
 func _on_instruccions_pressed() -> void:
 	#Cambia a la escena "instruccions.tscn"
-	get_tree().change_scene("res://GUI/instruccions.tscn")
+	if get_tree().change_scene("res://GUI/instruccions.tscn") != OK:
+		print('Error para reconocer escena instruccions')
 
 #Función que se activa cuando se presiona el botón "controls"
 func _on_controls_pressed() -> void:
 	#Cambia a la escena "controls.tscn"
-	get_tree().change_scene("res://GUI/controls.tscn")
+	if get_tree().change_scene("res://GUI/controls.tscn") != OK:
+		print('Error para reconocer escena controls')
 
 #Función que se activa cuando se presiona el botón "credits"
 func _on_credits_pressed() -> void:
 	#Cambia a la escena "credits.tscn"
-	get_tree().change_scene("res://GUI/credits.tscn")
+	if get_tree().change_scene("res://GUI/credits.tscn") != OK:
+		print('Error para reconocer escena credits')
 
 #Función que se activa cuando se presiona el botón "quit"
 func _on_quit_pressed() -> void:
@@ -43,7 +48,8 @@ func _on_quit_pressed() -> void:
 # de cuando se introduce el juego
 func _on_name_done_pressed() -> void:
 	game_handler.player_name = name_player
-	get_tree().change_scene("res://levels/level_one.tscn")
+	if get_tree().change_scene("res://levels/level_one.tscn") != OK:
+		print('Error para reconocer escena level_one')
 
 # se presiono el boton regresar del panel de introducir nombre
 func _on_panel_hide_pressed() -> void:
