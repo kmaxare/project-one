@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://interactive_objects/trap_board.gd" type="Script" id=1]
 [ext_resource path="res://sprites/interactive_objects/platform_DDL.png" type="Texture" id=3]
@@ -71,6 +71,9 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 2, 0 ), Vector2( -2, 0 ), Vector2( 0, 0 ), Vector2( 2, 0 ), Vector2( -2, 0 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 13, 1 )
+
 [node name="TrapBoard" type="KinematicBody2D" groups=["losa_floja"]]
 pause_mode = 2
 collision_mask = 2
@@ -97,4 +100,11 @@ anims/vibracion = SubResource( 5 )
 position = Vector2( 4.17233e-07, -5 )
 scale = Vector2( 1.3, 0.2 )
 
+[node name="TrapArea" type="Area2D" parent="."]
+position = Vector2( 0, -9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapArea"]
+shape = SubResource( 6 )
+
 [connection signal="screen_exited" from="Visibility" to="." method="_on_Visibility_screen_exited"]
+[connection signal="body_entered" from="TrapArea" to="." method="_on_TrapArea_body_entered"]
