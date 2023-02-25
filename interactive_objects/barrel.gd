@@ -4,20 +4,20 @@ extends KinematicBody2D
 const FLOOR = Vector2(0, -1)
 
 # Variable exportada para establecer la velocidad del objeto
-export var speed = 100
+export var speed = 100.0
 
 # Variable para almacenar el movimiento del objeto
 onready var motion = Vector2.ZERO
 
 # Variable para establecer la gravedad del objeto
-var gravity = 8
+var gravity = 80.0
 
 # Función que se ejecuta en cada ciclo de física
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	# Establecer la velocidad en el eje x
 	motion.x = speed
 	# Aumentar la velocidad en el eje y debido a la gravedad
-	motion.y += gravity
+	motion.y += gravity * delta
 	# Mover el objeto y evitar colisiones con el suelo
 	motion = move_and_slide(motion, FLOOR)
 	
@@ -27,7 +27,6 @@ func _physics_process(delta):
 func change_direction(direction: float):
 	# Multiplicar la velocidad actual por la dirección especificada
 	speed *= direction
-	
 	anim_position_damage_area_of_barrel(direction)
 
 # Funcion para ajustar animacion del barril con respecto a su direccion

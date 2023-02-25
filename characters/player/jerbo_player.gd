@@ -25,6 +25,8 @@ const JUMPFORCE = -420 #-550
 var state : String = "fall"
 var prev_state : String = "idle"
 var v_knockback : float = 30
+# indica si esta activo el tiempo de inhabilitado
+# e invulnerable del jugador
 var disabled : bool = false
 var invulnerable : bool = false
 #bandera que indica si el personaje fue dañado	
@@ -39,7 +41,7 @@ var first_jump : bool = false
 var second_jump : bool = false
 
 func _ready() -> void:
-	#GameHandler.points += 7 # para propositos de prueba
+	game_handler.points += 7 # para propositos de prueba
 	set_borders()
 
 func _physics_process(_delta) -> void:
@@ -51,15 +53,14 @@ func _physics_process(_delta) -> void:
 		"hurt":
 			func_hurt() 
 	velocity.y += GRAVITY 
-	animation()
+	animation_player()
 	velocity = move_and_slide(velocity, vector_up)
 	if !is_on_floor() and !disabled:
 		if velocity.y < -1:
 			state = "jump"
 		if velocity.y > 1:
 			state = "fall"
-		
-	$RayCast.collition_down(JUMPFORCE) #verifica si golpeo enemigo
+	$RayCast.collition_fall(JUMPFORCE) #verifica si golpeo enemigo
 
 func _on_the_floor() -> void:
 	if Input.is_action_pressed("ui_right"):
@@ -132,7 +133,8 @@ func _jump_check() -> void:
 				timer_coyote.start(0.3)
 				coyote_time = true
 
-func animation() -> void:
+#aplica cambios a los parsonjes seleccionados
+func animation_player() -> void:
 	if damaged:
 		state = "hurt"
 		damaged = false

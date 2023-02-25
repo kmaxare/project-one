@@ -3,7 +3,6 @@
 [ext_resource path="res://sprites/characters/enemy/snake_enemy_DDL.png" type="Texture" id=1]
 [ext_resource path="res://characters/enemy/snake_enemy.gd" type="Script" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.5, 11 )
 
@@ -125,6 +124,7 @@ tracks/0/keys = {
 }
 
 [node name="SnakeEnemy" type="KinematicBody2D" groups=["enemy"]]
+collision_layer = 9
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

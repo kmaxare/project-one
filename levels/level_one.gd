@@ -21,4 +21,5 @@ func time_control() -> void:
 			game_handler.game_over()
 
 func _on_LevelOne_tree_exiting() -> void:
-	get_tree().change_scene("res://GUI/game_over.tscn")
+	#get_tree().change_scene("res://GUI/game_over.tscn")
+	pass

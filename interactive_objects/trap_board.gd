@@ -13,12 +13,12 @@ func _ready():
 func _process(delta):
 	collision_up = move_and_collide(arriba,true,true,movi)
 	if collision_up:
-		collision_up.collider.has_method("smash")
-		$AnimationPlayer.play("vibracion")
-		yield($AnimationPlayer, "animation_finished")
-		arriba = Vector2(0,4)
-		movi = false
-		
+		if collision_up.collider.has_method("animation_player"):
+			$AnimationPlayer.play("vibracion")
+			yield($AnimationPlayer, "animation_finished")
+			arriba = Vector2(0,4)
+			movi = false
+
 # TODO: Este parte del collisionDown no esta funcionando muy bien, dar una chequeada
 # Comentado por el momento, ya que la loza floja no deve poder ser destruida con un golpe inferior del jugador
 	collision_down = move_and_collide(Vector2.DOWN,true,true,true)

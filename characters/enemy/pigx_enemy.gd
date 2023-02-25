@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 # Enemigo Dos
-export (float) var gravity = 300
-export (float) var speed = 130
-export (float) var jump = 250
+export (float) var gravity = 300.0
+export (float) var speed = 130.0
+export (float) var jump = 250.0
 var speed_copy: int
 export (bool) var it_move = true # El enemigo se puede mover
 
