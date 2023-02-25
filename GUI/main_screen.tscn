@@ -1,26 +1,44 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://GUI/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://text_fonts/font_example.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://sprites/buttons/DDL_Button_Play.png" type="Texture" id=3]
 [ext_resource path="res://tiles/floor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://music/instance/bgm.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GUI/right_header_main_screen.gd" type="Script" id=6]
+[ext_resource path="res://music/bgm/principal_theme.ogg" type="AudioStream" id=5]
+[ext_resource path="res://text_fonts/PIXELADE.TTF" type="DynamicFontData" id=6]
 [ext_resource path="res://sprites/tests/Prota/music0.png" type="Texture" id=7]
 [ext_resource path="res://sprites/tests/Prota/music1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/buttons/DDL_Button_Play_Hover.png" type="Texture" id=9]
+[ext_resource path="res://sprites/buttons/DDL_Button_X.png" type="Texture" id=10]
+[ext_resource path="res://sprites/buttons/DDL_Button_Play_Pressed.png" type="Texture" id=11]
+[ext_resource path="res://sprites/buttons/DDL_Button_G.png" type="Texture" id=12]
+[ext_resource path="res://sprites/buttons/DDL_Button_X_Pressed.png" type="Texture" id=13]
+[ext_resource path="res://sprites/buttons/DDL_Button_X_Hover.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
-font_data = ExtResource( 3 )
+size = 22
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 10
-font_data = ExtResource( 3 )
+size = 14
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+music_on = ExtResource( 7 )
+music_off = ExtResource( 8 )
 
 [node name="FloorBackground" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( 131087, 28, 0, 131088, 29, 0, 131089, 30, 0, 196623, 31, 0, 196624, 32, 0, 196625, 33, 0, 262148, 2, 0, 262149, 4, 0, 262159, 31, 0, 262160, 32, 0, 262161, 26, 0, 262162, 29, 0, 262163, 30, 0, 327682, 2, 0, 327683, 3, 0, 327684, 1, 0, 327685, 7, 0, 327695, 31, 0, 327696, 32, 0, 327697, 32, 0, 327698, 32, 0, 327699, 33, 0, 393218, 5, 0, 393219, 6, 0, 393220, 6, 0, 393221, 7, 0, 393231, 31, 0, 393232, 32, 0, 393233, 32, 0, 393234, 32, 0, 393235, 33, 0, 458754, 5, 0, 458755, 6, 0, 458756, 6, 0, 458757, 7, 0, 458767, 31, 0, 458768, 32, 0, 458769, 32, 0, 458770, 32, 0, 458771, 33, 0, 524290, 5, 0, 524291, 6, 0, 524292, 6, 0, 524293, 7, 0, 524303, 31, 0, 524304, 32, 0, 524305, 32, 0, 524306, 32, 0, 524307, 33, 0, 589824, 2, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 589842, 3, 0, 589843, 4, 0, 655360, 5, 0, 655361, 6, 0, 655362, 6, 0, 655363, 6, 0, 655364, 6, 0, 655365, 6, 0, 655366, 6, 0, 655367, 6, 0, 655368, 6, 0, 655369, 6, 0, 655370, 6, 0, 655371, 6, 0, 655372, 6, 0, 655373, 6, 0, 655374, 6, 0, 655375, 6, 0, 655376, 6, 0, 655377, 6, 0, 655378, 6, 0, 655379, 7, 0, 720896, 52, 0, 720897, 52, 0, 720898, 52, 0, 720899, 52, 0, 720900, 52, 0, 720901, 52, 0, 720902, 52, 0, 720903, 52, 0, 720904, 52, 0, 720905, 52, 0, 720906, 52, 0, 720907, 52, 0, 720908, 52, 0, 720909, 52, 0, 720910, 52, 0, 720911, 52, 0, 720912, 52, 0, 720913, 52, 0, 720914, 52, 0, 720915, 52, 0 )
@@ -30,27 +48,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -102.0
+margin_left = -74.5
 margin_top = -100.0
-margin_right = 102.0
+margin_right = 74.5
 margin_bottom = 100.0
-rect_min_size = Vector2( 0, 200 )
-custom_constants/separation = 5
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_top = 23.0
-margin_right = 204.0
-margin_bottom = 63.0
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+margin_top = 15.0
+margin_right = 149.0
+margin_bottom = 55.0
 rect_min_size = Vector2( 0, 40 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 68.0
-margin_right = 204.0
-margin_bottom = 93.0
+[node name="ProjectName" type="Label" parent="VBoxContainer"]
+margin_top = 59.0
+margin_right = 149.0
+margin_bottom = 84.0
 rect_min_size = Vector2( 0, 25 )
 custom_fonts/font = SubResource( 1 )
 text = "Proyecto DDL"
@@ -58,116 +74,141 @@ align = 1
 valign = 1
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_top = 98.0
-margin_right = 204.0
-margin_bottom = 114.0
+margin_top = 88.0
+margin_right = 149.0
+margin_bottom = 109.0
+focus_neighbour_top = NodePath("../../Music/MusicButton")
+focus_neighbour_bottom = NodePath("../Score")
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 
 [node name="Score" type="Button" parent="VBoxContainer"]
-margin_top = 119.0
-margin_right = 204.0
-margin_bottom = 135.0
+margin_top = 113.0
+margin_right = 149.0
+margin_bottom = 134.0
+focus_neighbour_top = NodePath("../Start")
+focus_neighbour_bottom = NodePath("../Instruccions&Controls")
 custom_fonts/font = SubResource( 2 )
 text = "Score"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 140.0
-margin_right = 204.0
-margin_bottom = 156.0
-custom_constants/separation = 80
-alignment = 1
-
-[node name="Instruccions" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 70.0
-margin_bottom = 16.0
+[node name="Instruccions&Controls" type="Button" parent="VBoxContainer"]
+margin_top = 138.0
+margin_right = 149.0
+margin_bottom = 159.0
+focus_neighbour_top = NodePath("../Score")
+focus_neighbour_bottom = NodePath("../HBoxContainer2/Credits")
 custom_fonts/font = SubResource( 2 )
-text = "Instructions"
-
-[node name="Controls" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 150.0
-margin_right = 204.0
-margin_bottom = 16.0
-custom_fonts/font = SubResource( 2 )
-text = "Controls"
+text = "Instruccions & controls"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 161.0
-margin_right = 204.0
-margin_bottom = 177.0
+margin_top = 163.0
+margin_right = 149.0
+margin_bottom = 184.0
 custom_constants/separation = 80
 alignment = 1
 
 [node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 25.0
-margin_right = 70.0
-margin_bottom = 16.0
+margin_right = 42.0
+margin_bottom = 21.0
+focus_neighbour_left = NodePath("../Quit")
+focus_neighbour_top = NodePath("../../Instruccions&Controls")
+focus_neighbour_right = NodePath("../Quit")
+focus_neighbour_bottom = NodePath("../../../Music/MusicButton")
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 150.0
-margin_right = 179.0
-margin_bottom = 16.0
+margin_left = 122.0
+margin_right = 149.0
+margin_bottom = 21.0
+focus_neighbour_left = NodePath("../Credits")
+focus_neighbour_top = NodePath("../../Instruccions&Controls")
+focus_neighbour_right = NodePath("../Credits")
+focus_neighbour_bottom = NodePath("../../../Music/MusicButton")
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
 [node name="NamePanel" type="Panel" parent="."]
-visible = false
-margin_left = 55.0
-margin_top = 39.0
-margin_right = 270.0
-margin_bottom = 169.0
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 288.0
+margin_bottom = 161.0
+
+[node name="NameTexture" type="TextureRect" parent="NamePanel"]
+margin_left = 24.0
+margin_top = 40.0
+margin_right = 232.0
+margin_bottom = 104.0
+texture = ExtResource( 12 )
+expand = true
 
 [node name="NameIntro" type="LineEdit" parent="NamePanel"]
-margin_left = 29.0
-margin_top = 11.0
-margin_right = 182.0
-margin_bottom = 35.0
-text = "new player"
+margin_left = 48.0
+margin_top = 40.0
+margin_right = 208.0
+margin_bottom = 72.0
+focus_next = NodePath("../NameDone")
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/read_only = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+align = 1
+max_length = 16
+placeholder_text = "Ingresa tu nombre"
 
-[node name="NameDone" type="Button" parent="NamePanel"]
-margin_left = 156.0
-margin_top = 94.0
-margin_right = 189.0
-margin_bottom = 114.0
-text = "Ok"
+[node name="NameDone" type="TextureButton" parent="NamePanel"]
+margin_left = 112.0
+margin_top = 112.0
+margin_right = 144.0
+margin_bottom = 136.0
+focus_neighbour_top = NodePath("../NameIntro")
+focus_neighbour_bottom = NodePath("../NameReturn")
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+expand = true
 
-[node name="PanelHide" type="Button" parent="NamePanel"]
-margin_left = 29.0
-margin_top = 92.0
-margin_right = 96.0
-margin_bottom = 112.0
-text = "Return"
+[node name="NameReturn" type="TextureButton" parent="NamePanel"]
+margin_left = 216.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 33.0
+focus_neighbour_top = NodePath("../NameDone")
+focus_neighbour_bottom = NodePath("../NameIntro")
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 
-[node name="Sound" type="Control" parent="." groups=["sound"]]
+[node name="Music" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 
-[node name="Bgm" parent="Sound" instance=ExtResource( 5 )]
-
-[node name="RightHeader" type="Control" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -15.0
-script = ExtResource( 6 )
-music_on = ExtResource( 7 )
-music_off = ExtResource( 8 )
-
-[node name="Buttons" type="VBoxContainer" parent="RightHeader"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="MusicButton" type="TextureButton" parent="RightHeader/Buttons"]
-margin_right = 15.0
-margin_bottom = 14.0
+[node name="MusicButton" type="TextureButton" parent="Music"]
+margin_left = 296.0
+margin_top = 8.0
+margin_right = 311.0
+margin_bottom = 22.0
+focus_neighbour_top = NodePath("../../VBoxContainer/HBoxContainer2/Quit")
+focus_neighbour_bottom = NodePath("../../VBoxContainer/Start")
 texture_normal = ExtResource( 7 )
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Score" to="." method="_on_score_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Instruccions" to="." method="_on_instruccions_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Controls" to="." method="_on_controls_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="NamePanel/NameDone" to="." method="_on_name_done_pressed"]
-[connection signal="pressed" from="NamePanel/PanelHide" to="." method="_on_panel_hide_pressed"]
-[connection signal="pressed" from="RightHeader/Buttons/MusicButton" to="RightHeader" method="_on_MusicButton_pressed"]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Score" to="." method="_on_Score_pressed"]
+[connection signal="pressed" from="VBoxContainer/Instruccions&Controls" to="." method="_on_InstruccionsControls_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="NamePanel/NameDone" to="." method="_on_NameDone_pressed"]
+[connection signal="pressed" from="NamePanel/NameReturn" to="." method="_on_NameReturn_pressed"]
+[connection signal="pressed" from="Music/MusicButton" to="." method="_on_MusicButton_pressed"]
