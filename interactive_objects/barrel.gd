@@ -5,6 +5,7 @@ const FLOOR = Vector2(0, -1)
 
 # Variable exportada para establecer la velocidad del objeto
 export var speed = 100
+export (Texture) var smash_barrel
 
 # Variable para almacenar el movimiento del objeto
 onready var motion = Vector2.ZERO

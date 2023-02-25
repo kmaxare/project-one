@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://sprites/interactive_objects/barrel_DDL.png" type="Texture" id=1]
+[ext_resource path="res://sprites/interactive_objects/barrel/barrel_DDL.png" type="Texture" id=1]
 [ext_resource path="res://interactive_objects/barrel.gd" type="Script" id=2]
+[ext_resource path="res://sprites/interactive_objects/barrel/smash_barrel_DDL.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 14.0
-height = 4.00001
+radius = 12.0
+height = 6.00003
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -32,6 +33,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:smash_barrel")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -83,11 +96,15 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "smash"
+
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 15, 11 )
+extents = Vector2( 12.5, 10 )
 
 [node name="Barrel" type="KinematicBody2D" groups=["barrel"]]
 script = ExtResource( 2 )
+smash_barrel = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -103,10 +120,12 @@ anims/RESET = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/rolling_left = SubResource( 6 )
 anims/rolling_right = SubResource( 4 )
+anims/smash = SubResource( 7 )
 
 [node name="Damage" type="Area2D" parent="."]
 
 [node name="DamageCollision" type="CollisionShape2D" parent="Damage"]
+position = Vector2( 0.5, 0 )
 shape = SubResource( 5 )
 
 [connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
