@@ -157,6 +157,9 @@ position = Vector2( 801, 499 )
 [node name="TrapBoardGenerator6" parent="TrapBoard" instance=ExtResource( 22 )]
 position = Vector2( 865, 499 )
 
+[node name="TrapBoardGenerator7" parent="TrapBoard" instance=ExtResource( 22 )]
+position = Vector2( 317, 409 )
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="CrabEnemyTilemap" parent="Enemies" instance=ExtResource( 15 )]
