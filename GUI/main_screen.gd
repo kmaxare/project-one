@@ -5,7 +5,6 @@ export (Texture) var music_on
 export (Texture) var music_off
 onready var music_button = $Music/MusicButton
 onready var music_player = $Music/MusicPlayer
-var is_music_playing = true
 
 # Variables para el panel de introducción del nombre del jugador
 onready var start_button = $VBoxContainer/Start
@@ -16,9 +15,15 @@ func _ready() -> void:
 	# Al cargar el nodo, se oculta el panel y se pone el foco en el botón de inicio
 	name_panel.hide()
 	start_button.grab_focus()
+	
+	if game_handler.is_music_playing == true:
+		music_player.play(game_handler.song_position)
+	else:
+		music_button.texture_normal = music_off
 
 # Botón para ir a la pantalla de créditos
 func _on_Credits_pressed():
+	game_handler.song_position = music_player.get_playback_position()
 	if get_tree().change_scene("res://GUI/credits.tscn") != OK:
 		print('Error para reconocer escena credits')
 
@@ -28,16 +33,17 @@ func _on_InstruccionsControls_pressed():
 	
 # Botón para controlar el volumen de la música
 func _on_MusicButton_pressed():
-	if is_music_playing:
+	if game_handler.is_music_playing:
 		# Si la música está sonando, se detiene y se cambia la textura del botón
-		is_music_playing = false
+		game_handler.is_music_playing = false
 		music_button.texture_normal = music_off
-		music_player.volume_db = -80
+		music_player.stop()
+		game_handler.song_position = music_player.get_playback_position()
 	else:
 		# Si la música está detenida, se reproduce y se cambia la textura del botón
-		is_music_playing = true
+		game_handler.is_music_playing = true
 		music_button.texture_normal = music_on
-		music_player.volume_db = -10
+		music_player.play(game_handler.song_position)
 	
 # Botón para guardar el nombre del jugador y comenzar el juego
 func _on_NameDone_pressed():
