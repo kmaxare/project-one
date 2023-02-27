@@ -5,7 +5,7 @@ onready var top_player_score = $VBoxContainer/Scores/TopPlayer/Score
 onready var player_name = $VBoxContainer/Scores/Player/Name
 onready var top_player_name = $VBoxContainer/Scores/TopPlayer/Name
 
-onready var restart_level = $VBoxContainer2/RestartLevel
+onready var restart_level = $HBoxContainer/RestartLevel
 
 # Función llamada al terminar la carga del nodo
 func _ready() -> void:

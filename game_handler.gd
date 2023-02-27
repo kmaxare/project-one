@@ -9,7 +9,7 @@ var song_position = 0
 #variables para el ranking de jugadores 
 var player_name : String = "New Player"
 var player_score = 0
-var top_player_name : String = "Top Player"
+var top_player_name : String = "Top Player Name"
 var top_player_score = 15
 
 # Variable para puntos del jugador

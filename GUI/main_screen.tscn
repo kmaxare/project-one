@@ -98,7 +98,7 @@ margin_bottom = 159.0
 focus_neighbour_top = NodePath("../Score")
 focus_neighbour_bottom = NodePath("../HBoxContainer2/Credits")
 custom_fonts/font = SubResource( 2 )
-text = "Instruccions & controls"
+text = "Instruccions & Controls"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 163.0
