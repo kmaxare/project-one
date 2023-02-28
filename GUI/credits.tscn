@@ -83,7 +83,7 @@ valign = 1
 [node name="Programming" type="VBoxContainer" parent="CreditsControl"]
 margin_top = 220.0
 margin_right = 193.0
-margin_bottom = 269.0
+margin_bottom = 286.0
 
 [node name="Role" type="Label" parent="CreditsControl/Programming"]
 margin_right = 193.0
@@ -95,9 +95,50 @@ valign = 1
 [node name="Names" type="Label" parent="CreditsControl/Programming"]
 margin_top = 18.0
 margin_right = 193.0
-margin_bottom = 49.0
+margin_bottom = 66.0
 text = "Axel García
-MiniGCJ23"
+MiniGrat CJ
+Gustabo Cubilla"
+align = 1
+valign = 1
+
+[node name="Music" type="VBoxContainer" parent="CreditsControl"]
+margin_top = 316.0
+margin_right = 193.0
+margin_bottom = 348.0
+
+[node name="Role" type="Label" parent="CreditsControl/Music"]
+margin_right = 193.0
+margin_bottom = 14.0
+text = "Music"
+align = 1
+valign = 1
+
+[node name="Names" type="Label" parent="CreditsControl/Music"]
+margin_top = 18.0
+margin_right = 193.0
+margin_bottom = 32.0
+text = "Daniel Rvez"
+align = 1
+valign = 1
+
+[node name="DesignLevel" type="VBoxContainer" parent="CreditsControl"]
+margin_top = 378.0
+margin_right = 193.0
+margin_bottom = 410.0
+
+[node name="Role" type="Label" parent="CreditsControl/DesignLevel"]
+margin_right = 193.0
+margin_bottom = 14.0
+text = "Diseño de Nivel:"
+align = 1
+valign = 1
+
+[node name="Names" type="Label" parent="CreditsControl/DesignLevel"]
+margin_top = 18.0
+margin_right = 193.0
+margin_bottom = 32.0
+text = "Santiago Rolf"
 align = 1
 valign = 1
 

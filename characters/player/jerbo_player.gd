@@ -31,6 +31,8 @@ var invulnerable : bool = false
 var damaged : bool = false
 # bandera que indica si el personaje fue dañado por la derecha
 var damaged_right : bool = false
+#bandera que indica si el personaje esta aturdido
+var is_stunned: bool = false
 # bandera que indica que esta activo el coyote time 
 var coyote_time : bool = false
 # bandera que indica que esta activo el primer salto 
@@ -50,6 +52,10 @@ func _physics_process(_delta) -> void:
 			_on_the_air()
 		"hurt":
 			func_hurt() 
+		"stunned":
+			yield($AnimationPlayer, "animation_finished")
+			func_hurt()
+			
 	velocity.y += GRAVITY 
 	animation()
 	velocity = move_and_slide(velocity, vector_up)
@@ -145,6 +151,11 @@ func animation() -> void:
 		else:
 			velocity.x += v_knockback
 			look_r = false
+	if is_stunned:
+		state = "stunned"
+		is_stunned = false
+#		disabled = true
+				
 	# SE VERIFICA QUE SE HAYA CAMBIADO DE ESTADO
 	if state != prev_state:
 		_jump_check()
@@ -162,7 +173,10 @@ func damage_received(damage, positionEnemy : Vector2) -> void:
 	if !invulnerable:
 	# activa la bandera de que ya recibio daño, para que no reciba 
 	# más daño hasta que la bandera cambie a false de nuevo
-		damaged = true
+		if damage > 0:
+			damaged = true
+		else:
+			is_stunned = true
 #es el tiempo en segundos, potecia y prioridad (importancia de
 # ejecución) del shake (sacudida) de camara
 		screen_shake(0.3, 0.1, 2)

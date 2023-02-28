@@ -27,9 +27,17 @@ func _process(delta):
 		yield($AnimationPlayer, "animation_finished")
 		queue_free()
 
+
 #se elimina cuando sale de la vista
 func _on_Visibility_screen_exited():
+	# Cuando la trampa fue activada y sale de la camara de vision del jugador esta desaparece
 	if is_active:
+		if !get_parent().is_in_group('trap_board_generator'):
+			print('ERROR la tabla trampa no tiene padre')
+			return
+		
+		# Indicamos al padre que no tenemos tabla trampa
+		get_parent().have_table = false
 		queue_free()
 
 

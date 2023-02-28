@@ -5,7 +5,6 @@ const FLOOR = Vector2(0, -1)
 
 # Variable exportada para establecer la velocidad del objeto
 export var speed = 100
-export (Texture) var smash_barrel
 
 # Variable para almacenar el movimiento del objeto
 onready var motion = Vector2.ZERO
@@ -38,13 +37,15 @@ func anim_position_damage_area_of_barrel(direction):
 	elif (direction < 0):
 		$AnimBarrel.play("rolling_left")
 	
-	$Damage.position = Vector2(3 * direction, 6)
+	$AreaDamage.position = Vector2(3 * direction, 6)
 
 # Función llamada cuando un cuerpo entra en contacto con este objeto
-func _on_damage_body_entered(body):
+func _on_AreaDamage_body_entered(body):
 	# Verifica si el cuerpo que entró en contacto es el jugador
 	if body.is_in_group("player"):
+		$AnimBarrel.play("smash")
 		# Llama a la función damage_received en el cuerpo del jugador
-		body.damage_received(1, position)
+		body.damage_received(1, global_position)
+		yield($AnimBarrel, "animation_finished")
 		# Elimina este objeto de la escena
 		queue_free()
