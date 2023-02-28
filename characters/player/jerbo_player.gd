@@ -53,7 +53,7 @@ func _physics_process(_delta) -> void:
 		"hurt":
 			func_hurt() 
 		"stunned":
-			yield($AnimationPlayer, "animation_finished")
+#			yield($AnimationPlayer, "animation_finished")
 			func_hurt()
 			
 	velocity.y += GRAVITY 
