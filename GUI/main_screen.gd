@@ -8,7 +8,7 @@ onready var music_player = $Music/MusicPlayer
 
 # Variables para el panel de introducción del nombre del jugador
 onready var start_button = $VBoxContainer/Start
-onready var name_panel : Panel = $NamePanel
+onready var name_panel = $NamePanel
 onready var name_player = $NamePanel/NameIntro
 
 func _ready() -> void:

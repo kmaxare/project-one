@@ -2,18 +2,18 @@
 
 [ext_resource path="res://GUI/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://sprites/buttons/DDL_Button_Play.png" type="Texture" id=3]
+[ext_resource path="res://sprites/buttons/DDL_Button_Back.png" type="Texture" id=3]
 [ext_resource path="res://tiles/floor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://music/bgm/principal_theme.ogg" type="AudioStream" id=5]
 [ext_resource path="res://text_fonts/PIXELADE.TTF" type="DynamicFontData" id=6]
 [ext_resource path="res://sprites/tests/Prota/music0.png" type="Texture" id=7]
 [ext_resource path="res://sprites/tests/Prota/music1.png" type="Texture" id=8]
-[ext_resource path="res://sprites/buttons/DDL_Button_Play_Hover.png" type="Texture" id=9]
-[ext_resource path="res://sprites/buttons/DDL_Button_X.png" type="Texture" id=10]
-[ext_resource path="res://sprites/buttons/DDL_Button_Play_Pressed.png" type="Texture" id=11]
+[ext_resource path="res://sprites/buttons/DDL_Button_G_Hover.png" type="Texture" id=9]
+[ext_resource path="res://sprites/buttons/DDL_Button_Back_Hover.png" type="Texture" id=10]
+[ext_resource path="res://sprites/buttons/DDL_Button_G_Pressed.png" type="Texture" id=11]
 [ext_resource path="res://sprites/buttons/DDL_Button_G.png" type="Texture" id=12]
-[ext_resource path="res://sprites/buttons/DDL_Button_X_Pressed.png" type="Texture" id=13]
-[ext_resource path="res://sprites/buttons/DDL_Button_X_Hover.png" type="Texture" id=14]
+[ext_resource path="res://sprites/buttons/DDL_Button_Back_Pressed.png" type="Texture" id=13]
+[ext_resource path="res://sprites/buttons/DDL_Main_Backgroun.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -24,7 +24,7 @@ size = 14
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 19
+size = 15
 font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxEmpty" id=4]
@@ -128,26 +128,65 @@ focus_neighbour_bottom = NodePath("../../../Music/MusicButton")
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
-[node name="NamePanel" type="Panel" parent="."]
+[node name="NamePanel" type="TextureRect" parent="."]
 visible = false
 margin_left = 32.0
 margin_top = 16.0
 margin_right = 288.0
 margin_bottom = 161.0
-
-[node name="NameTexture" type="TextureRect" parent="NamePanel"]
-margin_left = 24.0
-margin_top = 40.0
-margin_right = 232.0
-margin_bottom = 104.0
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WriteYourName" type="LineEdit" parent="NamePanel"]
+margin_left = 72.0
+margin_top = 8.0
+margin_right = 184.0
+margin_bottom = 32.0
+focus_next = NodePath("../NameDone")
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/read_only = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Escribe tu nombre"
+align = 1
+editable = false
+
+[node name="PressStart" type="LineEdit" parent="NamePanel"]
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 184.0
+margin_bottom = 96.0
+focus_next = NodePath("../NameDone")
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/read_only = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "dale Start"
+align = 1
+editable = false
 
 [node name="NameIntro" type="LineEdit" parent="NamePanel"]
-margin_left = 48.0
+margin_left = 72.0
 margin_top = 40.0
-margin_right = 208.0
-margin_bottom = 72.0
+margin_right = 184.0
+margin_bottom = 64.0
 focus_next = NodePath("../NameDone")
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
 custom_colors/cursor_color = Color( 0, 0, 0, 1 )
@@ -161,31 +200,32 @@ custom_styles/read_only = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 align = 1
-max_length = 16
-placeholder_text = "Ingresa tu nombre"
+max_length = 8
 
 [node name="NameDone" type="TextureButton" parent="NamePanel"]
-margin_left = 112.0
-margin_top = 112.0
-margin_right = 144.0
-margin_bottom = 136.0
+margin_left = 72.0
+margin_top = 104.0
+margin_right = 184.0
+margin_bottom = 128.0
 focus_neighbour_top = NodePath("../NameIntro")
 focus_neighbour_bottom = NodePath("../NameReturn")
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
 expand = true
 
 [node name="NameReturn" type="TextureButton" parent="NamePanel"]
-margin_left = 216.0
-margin_top = 8.0
-margin_right = 248.0
-margin_bottom = 33.0
+margin_left = 16.0
+margin_top = 104.0
+margin_right = 48.0
+margin_bottom = 129.0
 focus_neighbour_top = NodePath("../NameDone")
 focus_neighbour_bottom = NodePath("../NameIntro")
-texture_normal = ExtResource( 10 )
+texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 14 )
+texture_hover = ExtResource( 10 )
+texture_focused = ExtResource( 10 )
 
 [node name="Music" type="Control" parent="."]
 margin_right = 40.0
