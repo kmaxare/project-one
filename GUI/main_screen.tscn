@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://GUI/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/text_buttons/DDL_Button_Credits_Hover.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://sprites/text_buttons/DDL_Button_Instuc.png" type="Texture" id=27]
 [ext_resource path="res://sprites/text_buttons/DDL_Button_Start.png" type="Texture" id=28]
 [ext_resource path="res://sprites/logo/DDL_Logo.png" type="Texture" id=29]
+[ext_resource path="res://sprites/main_background/DDL_Fondo_principal.png" type="Texture" id=30]
 
 [sub_resource type="DynamicFont" id=3]
 size = 15
@@ -47,6 +48,13 @@ script = ExtResource( 1 )
 music_on = ExtResource( 7 )
 music_off = ExtResource( 8 )
 
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 320.0
+margin_bottom = 192.0
+texture = ExtResource( 30 )
+expand = true
+stretch_mode = 1
+
 [node name="FloorBackground" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( 131087, 28, 0, 131088, 29, 0, 131089, 30, 0, 196623, 31, 0, 196624, 32, 0, 196625, 33, 0, 262148, 2, 0, 262149, 4, 0, 262159, 31, 0, 262160, 32, 0, 262161, 26, 0, 262162, 29, 0, 262163, 30, 0, 327682, 2, 0, 327683, 3, 0, 327684, 1, 0, 327685, 7, 0, 327695, 31, 0, 327696, 32, 0, 327697, 32, 0, 327698, 32, 0, 327699, 33, 0, 393218, 5, 0, 393219, 6, 0, 393220, 6, 0, 393221, 7, 0, 393231, 31, 0, 393232, 32, 0, 393233, 32, 0, 393234, 32, 0, 393235, 33, 0, 458754, 5, 0, 458755, 6, 0, 458756, 6, 0, 458757, 7, 0, 458767, 31, 0, 458768, 32, 0, 458769, 32, 0, 458770, 32, 0, 458771, 33, 0, 524290, 5, 0, 524291, 6, 0, 524292, 6, 0, 524293, 7, 0, 524303, 31, 0, 524304, 32, 0, 524305, 32, 0, 524306, 32, 0, 524307, 33, 0, 589824, 2, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 589842, 3, 0, 589843, 4, 0, 655360, 5, 0, 655361, 6, 0, 655362, 6, 0, 655363, 6, 0, 655364, 6, 0, 655365, 6, 0, 655366, 6, 0, 655367, 6, 0, 655368, 6, 0, 655369, 6, 0, 655370, 6, 0, 655371, 6, 0, 655372, 6, 0, 655373, 6, 0, 655374, 6, 0, 655375, 6, 0, 655376, 6, 0, 655377, 6, 0, 655378, 6, 0, 655379, 7, 0, 720896, 52, 0, 720897, 52, 0, 720898, 52, 0, 720899, 52, 0, 720900, 52, 0, 720901, 52, 0, 720902, 52, 0, 720903, 52, 0, 720904, 52, 0, 720905, 52, 0, 720906, 52, 0, 720907, 52, 0, 720908, 52, 0, 720909, 52, 0, 720910, 52, 0, 720911, 52, 0, 720912, 52, 0, 720913, 52, 0, 720914, 52, 0, 720915, 52, 0 )
 
@@ -56,7 +64,7 @@ margin_top = 80.0
 margin_right = 192.0
 margin_bottom = 104.0
 focus_neighbour_top = NodePath("../Music/MusicButton")
-focus_neighbour_bottom = NodePath("../HBoxContainer2/Instruccions&Controls")
+focus_neighbour_bottom = NodePath("../Score")
 texture_normal = ExtResource( 28 )
 texture_pressed = ExtResource( 25 )
 texture_hover = ExtResource( 21 )

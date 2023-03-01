@@ -1,5 +1,7 @@
 extends Control
 
+export var reset = -375
+
 # Obtiene el nodo del botón de retorno
 onready var button_return = $Return
 # Obtiene el nodo de control de los créditos
@@ -26,7 +28,7 @@ func move_credits():
 	credits_control.rect_position.y -= 0.25
 	
 	# Si los créditos llegan al final, reinicia su posición
-	if credits_control.rect_position.y == -275:
+	if credits_control.rect_position.y == reset:
 		credits_control.rect_position.y = 200
 
 # Función llamada al presionar el botón de retorno

@@ -20,9 +20,9 @@ script = ExtResource( 2 )
 
 [node name="Return" type="TextureButton" parent="."]
 margin_left = 8.0
-margin_top = 144.0
+margin_top = 152.0
 margin_right = 40.0
-margin_bottom = 169.0
+margin_bottom = 177.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 

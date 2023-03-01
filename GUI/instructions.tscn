@@ -1,0 +1,247 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://sprites/buttons/DDL_Button_Back.png" type="Texture" id=1]
+[ext_resource path="res://GUI/instructions.gd" type="Script" id=2]
+[ext_resource path="res://sprites/buttons/DDL_Button_Back_Pressed.png" type="Texture" id=3]
+[ext_resource path="res://sprites/keys/SPACE_DDL_Teclas.png" type="Texture" id=4]
+[ext_resource path="res://sprites/keys/AWD_DDL_Teclas.png" type="Texture" id=5]
+[ext_resource path="res://sprites/main_background/DDL_Fondo_menus.png" type="Texture" id=6]
+[ext_resource path="res://sprites/keys/M_DDL_Tecla.png" type="Texture" id=7]
+[ext_resource path="res://sprites/main_background/DDL_Fondo_principal.png" type="Texture" id=8]
+[ext_resource path="res://text_fonts/PIXELADE.TTF" type="DynamicFontData" id=9]
+[ext_resource path="res://music/bgm/principal_theme.ogg" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("WASD:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 1.8
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("WASD:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("M:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 0.6
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("M:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Space:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+length = 0.6
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Space:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="Instruccions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -92.0
+margin_right = 160.0
+margin_bottom = 94.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="MenuBackground" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.5
+margin_top = -81.0
+margin_right = 112.5
+margin_bottom = 81.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -35.5
+margin_top = 20.0
+margin_right = 35.5
+margin_bottom = 17.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Instrucciones"
+align = 1
+valign = 1
+
+[node name="WASD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="WASD" type="Sprite" parent="WASD"]
+position = Vector2( 216, 64 )
+texture = ExtResource( 5 )
+hframes = 6
+
+[node name="WASDAnimation" type="AnimationPlayer" parent="WASD"]
+anims/RESET = SubResource( 2 )
+anims/idle = SubResource( 3 )
+
+[node name="Instruction" type="Label" parent="WASD"]
+margin_left = 96.0
+margin_top = 56.0
+margin_right = 151.0
+margin_bottom = 73.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Moverse"
+align = 1
+valign = 1
+
+[node name="M" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="M" type="Sprite" parent="M"]
+position = Vector2( 216, 112 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="MAnimation" type="AnimationPlayer" parent="M"]
+anims/RESET = SubResource( 5 )
+anims/idle = SubResource( 6 )
+
+[node name="Instruction" type="Label" parent="M"]
+margin_left = 96.0
+margin_top = 96.0
+margin_right = 151.0
+margin_bottom = 113.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Saltar"
+align = 1
+valign = 1
+
+[node name="Space" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Space" type="Sprite" parent="Space"]
+position = Vector2( 216, 144 )
+texture = ExtResource( 4 )
+hframes = 2
+
+[node name="SpaceAnimation" type="AnimationPlayer" parent="Space"]
+anims/RESET = SubResource( 7 )
+anims/idle = SubResource( 8 )
+
+[node name="Instruction" type="Label" parent="Space"]
+margin_left = 96.0
+margin_top = 136.0
+margin_right = 151.0
+margin_bottom = 153.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Pausa"
+align = 1
+valign = 1
+
+[node name="Return" type="TextureButton" parent="."]
+margin_left = 8.0
+margin_top = 152.0
+margin_right = 40.0
+margin_bottom = 177.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+
+[connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]

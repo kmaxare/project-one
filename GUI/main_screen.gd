@@ -29,7 +29,9 @@ func _on_Credits_pressed():
 
 # Botón para mostrar las instrucciones y controles del juego
 func _on_InstruccionsControls_pressed():
-	pass # Replace with function body.
+	game_handler.song_position = music_player.get_playback_position()
+	if get_tree().change_scene("res://GUI/instructions.tscn") != OK:
+		print("Error para reconocer la escena instructions")
 	
 # Botón para controlar el volumen de la música
 func _on_MusicButton_pressed():
