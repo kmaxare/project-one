@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GUI/credits.gd" type="Script" id=1]
 [ext_resource path="res://text_fonts/credits.tres" type="DynamicFont" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sprites/buttons/DDL_Button_Back_Pressed.png" type="Texture" id=4]
 [ext_resource path="res://music/bgm/principal_theme.ogg" type="AudioStream" id=5]
 [ext_resource path="res://sprites/main_background/DDL_Fondo_principal.png" type="Texture" id=6]
+[ext_resource path="res://text_fonts/GUI.tres" type="DynamicFont" id=7]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -48,7 +49,7 @@ margin_top = 25.0
 margin_right = 204.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 2 )
-text = "Kevin Arenas A."
+text = "Kevin Arenas C."
 align = 1
 valign = 1
 
@@ -101,7 +102,7 @@ valign = 1
 [node name="Programming" type="VBoxContainer" parent="CreditsControl"]
 margin_top = 276.0
 margin_right = 204.0
-margin_bottom = 346.0
+margin_bottom = 370.0
 
 [node name="Role" type="Label" parent="CreditsControl/Programming"]
 margin_right = 204.0
@@ -114,7 +115,7 @@ valign = 1
 [node name="Names" type="Label" parent="CreditsControl/Programming"]
 margin_top = 25.0
 margin_right = 204.0
-margin_bottom = 70.0
+margin_bottom = 94.0
 custom_fonts/font = ExtResource( 2 )
 text = "Axel García
 MiniGrat CJ
@@ -123,41 +124,45 @@ align = 1
 valign = 1
 
 [node name="Music" type="VBoxContainer" parent="CreditsControl"]
-margin_top = 316.0
-margin_right = 193.0
-margin_bottom = 348.0
+margin_top = 400.0
+margin_right = 204.0
+margin_bottom = 446.0
 
 [node name="Role" type="Label" parent="CreditsControl/Music"]
-margin_right = 193.0
-margin_bottom = 14.0
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 7 )
 text = "Music"
 align = 1
 valign = 1
 
 [node name="Names" type="Label" parent="CreditsControl/Music"]
-margin_top = 18.0
-margin_right = 193.0
-margin_bottom = 32.0
+margin_top = 25.0
+margin_right = 204.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 7 )
 text = "Daniel Rvez"
 align = 1
 valign = 1
 
 [node name="DesignLevel" type="VBoxContainer" parent="CreditsControl"]
-margin_top = 378.0
-margin_right = 193.0
-margin_bottom = 410.0
+margin_top = 476.0
+margin_right = 204.0
+margin_bottom = 522.0
 
 [node name="Role" type="Label" parent="CreditsControl/DesignLevel"]
-margin_right = 193.0
-margin_bottom = 14.0
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 7 )
 text = "Diseño de Nivel:"
 align = 1
 valign = 1
 
 [node name="Names" type="Label" parent="CreditsControl/DesignLevel"]
-margin_top = 18.0
-margin_right = 193.0
-margin_bottom = 32.0
+margin_top = 25.0
+margin_right = 204.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 7 )
 text = "Santiago Rolf"
 align = 1
 valign = 1
