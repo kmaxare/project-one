@@ -3,7 +3,6 @@
 [ext_resource path="res://sprites/characters/enemy/snake_enemy_DDL.png" type="Texture" id=1]
 [ext_resource path="res://characters/enemy/snake_enemy.gd" type="Script" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.5, 11 )
 
@@ -168,5 +167,8 @@ collision_mask = 16
 wait_time = 2.0
 one_shot = true
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]

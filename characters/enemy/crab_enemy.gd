@@ -13,6 +13,7 @@ export (int) var dir_desp = -1
 
 var distance = Vector2()
 var move = Vector2()
+var is_on_camera: bool = false
 
 
 func _ready():
@@ -21,6 +22,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if !is_on_camera:
+		return
+	
 	if (live):
 		if (it_move):
 			$AnimEnemyUno.play("run")
@@ -55,3 +59,6 @@ func death(deathTipe) -> void:
 	yield($AnimEnemyUno, "animation_finished")
 	queue_free()
 	
+	
+func _on_VisibilityNotifier2D_screen_entered():
+	is_on_camera = true
