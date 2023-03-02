@@ -13,8 +13,12 @@ export (int) var dir_desp = -1
 
 var distance = Vector2()
 var move = Vector2()
+var is_on_camera: bool = false
 
 func _ready():
+	if !is_on_camera:
+		return
+	
 	set_direction_raycast()
 	speed_copy = speed
 	$AnimEnemyUno.play("idle")
@@ -103,3 +107,6 @@ func _on_Timer_timeout():
 	speed_copy = speed
 	$RayCastVision.enabled = true
 
+
+func _on_VisibilityNotifier2D_screen_entered():
+	is_on_camera = true

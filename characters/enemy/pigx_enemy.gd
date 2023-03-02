@@ -13,12 +13,16 @@ export (int) var dir_desp = -1
 
 var distance = Vector2()
 var move = Vector2()
+var is_on_camera: bool = false
 
 func _ready():
 	set_direction_raycast()
 	speed_copy = speed
 
 func _physics_process(delta):
+	if !is_on_camera:
+		return
+	
 	if (live):
 		if (it_move):
 			$AnimEnemyUno.play("walk")
@@ -75,3 +79,7 @@ func velocidad_despl(isJump: bool):
 
 func _on_Timer_timeout():
 	if is_on_floor(): saltar()
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	is_on_camera = true
