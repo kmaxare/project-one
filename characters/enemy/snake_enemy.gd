@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 # Enemigo Dos
 export (float) var gravity = 150
+export (float) var vel_gravity_limit = 200
 export (float) var speed = 130
 export (float) var jump = 250
 var speed_copy: int
@@ -16,22 +17,26 @@ var move = Vector2()
 var is_on_camera: bool = false
 
 func _ready():
-	if !is_on_camera:
-		return
-	
 	set_direction_raycast()
 	speed_copy = speed
 	$AnimEnemyUno.play("idle")
 
 func _physics_process(delta):
+	if !is_on_camera:
+		return
+	
 	if (live):
 		
 		if (it_move):
 			$AnimEnemyUno.play("walk")
 			distance.x = speed_copy * delta
-			
 			move.x = (dir_desp * distance.x)/delta
-			move.y += gravity * delta
+			
+			# Condicional de gravedad
+			if move.y < vel_gravity_limit:
+				move.y += gravity * delta
+			elif is_on_wall():
+				move.y = 0
 			move_and_slide(move, Vector2(0,-1))
 			
 		if is_on_wall():

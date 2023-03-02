@@ -4,6 +4,7 @@ enum states {idle, run, hurt}
 var enemy_state = states
 
 export (float) var gravity = 150
+export (float) var vel_gravity_limit = 200
 export (float) var speed = 60
 export (bool) var it_move = true # El enemigo se puede mover
 
@@ -30,9 +31,15 @@ func _physics_process(delta):
 			$AnimEnemyUno.play("run")
 			distance.x = speed * delta
 			move.x = (dir_desp * distance.x)/delta
-			move.y += gravity * delta
+			# Condicional de gravedad
+			if move.y < vel_gravity_limit:
+				move.y += gravity * delta
+			elif is_on_wall():
+				move.y = 0
+			
 			move_and_slide(move, Vector2(0,-1))
 
+		# Condicional para reconocer bordes o muros
 		if is_on_wall() or (is_on_floor() and !$RayCastLimit.is_colliding()):
 			dir_desp = -dir_desp
 			$Sprite.flip_h = !$Sprite.flip_h
