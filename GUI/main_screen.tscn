@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://GUI/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/text_buttons/DDL_Button_Credits_Hover.png" type="Texture" id=2]
@@ -6,12 +6,11 @@
 [ext_resource path="res://tiles/floor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://music/bgm/principal_theme.ogg" type="AudioStream" id=5]
 [ext_resource path="res://text_fonts/PIXELADE.TTF" type="DynamicFontData" id=6]
-[ext_resource path="res://sprites/tests/Prota/music0.png" type="Texture" id=7]
-[ext_resource path="res://sprites/tests/Prota/music1.png" type="Texture" id=8]
-[ext_resource path="res://sprites/buttons/DDL_Button_G_Hover.png" type="Texture" id=9]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla_Pressed_Hover.png" type="Texture" id=7]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla_Pressed.png" type="Texture" id=8]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla_Hover.png" type="Texture" id=9]
 [ext_resource path="res://sprites/buttons/DDL_Button_Back_Hover.png" type="Texture" id=10]
-[ext_resource path="res://sprites/buttons/DDL_Button_G_Pressed.png" type="Texture" id=11]
-[ext_resource path="res://sprites/buttons/DDL_Button_G.png" type="Texture" id=12]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla.png" type="Texture" id=11]
 [ext_resource path="res://sprites/buttons/DDL_Button_Back_Pressed.png" type="Texture" id=13]
 [ext_resource path="res://sprites/buttons/DDL_Main_Backgroun.png" type="Texture" id=14]
 [ext_resource path="res://sprites/text_buttons/DDL_Button_Instuc_Pressed.png" type="Texture" id=15]
@@ -45,8 +44,10 @@ font_data = ExtResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-music_on = ExtResource( 7 )
+music_on = ExtResource( 11 )
+music_on_hover = ExtResource( 9 )
 music_off = ExtResource( 8 )
+music_off_hover = ExtResource( 7 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 320.0
@@ -182,27 +183,6 @@ text = "Escribe tu nombre"
 align = 1
 editable = false
 
-[node name="PressStart" type="LineEdit" parent="NamePanel"]
-margin_left = 72.0
-margin_top = 72.0
-margin_right = 184.0
-margin_bottom = 96.0
-focus_next = NodePath("../NameDone")
-custom_colors/selection_color = Color( 0, 0, 0, 1 )
-custom_colors/cursor_color = Color( 0, 0, 0, 1 )
-custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-custom_styles/read_only = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-text = "dale Start"
-align = 1
-editable = false
-
 [node name="NameIntro" type="LineEdit" parent="NamePanel"]
 margin_left = 72.0
 margin_top = 40.0
@@ -230,11 +210,12 @@ margin_right = 184.0
 margin_bottom = 128.0
 focus_neighbour_top = NodePath("../NameIntro")
 focus_neighbour_bottom = NodePath("../NameReturn")
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 9 )
-texture_focused = ExtResource( 9 )
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 25 )
+texture_hover = ExtResource( 21 )
+texture_focused = ExtResource( 21 )
 expand = true
+stretch_mode = 3
 
 [node name="NameReturn" type="TextureButton" parent="NamePanel"]
 margin_left = 16.0
@@ -257,9 +238,11 @@ margin_left = 296.0
 margin_top = 8.0
 margin_right = 311.0
 margin_bottom = 22.0
-focus_neighbour_top = NodePath("../../HBoxContainer2/Quit")
+focus_neighbour_top = NodePath("../../HBoxContainer2/Instruccions&Controls")
 focus_neighbour_bottom = NodePath("../../Start")
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 5 )

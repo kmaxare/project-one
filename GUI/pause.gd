@@ -24,22 +24,19 @@ func _physics_process(_delta):
 			visible = false
 			get_tree().paused = false
 
-# Función que se ejecuta al presionar el botón de reanudar
-func _on_resume_pressed():
-	# Reanuda el juego y oculta la pantalla de pausa
-	game_paused = false
-	visible = false
-	get_tree().paused = false
-
-# Función que se ejecuta al presionar el botón de volver al menú principal
-func _on_return_menu_pressed():
+func _on_BackToMenu_pressed():
 	get_tree().paused = false
 	# Cambia a la escena del menú principal
 	if get_tree().change_scene("res://GUI/main_screen.tscn") != OK:
 		print("Error al cargar el menu principal")
 
-# Función que se ejecuta al presionar el botón de salir
-func _on_quit_pressed():
+func _on_Restart_pressed():
 	get_tree().paused = false
-	# Sale del juego
-	get_tree().quit()
+	if get_tree().reload_current_scene() != OK:
+		print("Error al recargar la escena del nivel")
+
+func _on_Resume_pressed():
+	# Reanuda el juego y oculta la pantalla de pausa
+	game_paused = false
+	visible = false
+	get_tree().paused = false

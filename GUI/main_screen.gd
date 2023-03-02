@@ -2,7 +2,10 @@ extends Control
 
 # Variables para controlar la música
 export (Texture) var music_on
+export (Texture) var music_on_hover
 export (Texture) var music_off
+export (Texture) var music_off_hover
+
 onready var music_button = $Music/MusicButton
 onready var music_player = $Music/MusicPlayer
 
@@ -39,12 +42,16 @@ func _on_MusicButton_pressed():
 		# Si la música está sonando, se detiene y se cambia la textura del botón
 		game_handler.is_music_playing = false
 		music_button.texture_normal = music_off
+		music_button.texture_focused = music_off_hover
+		music_button.texture_hover = music_off_hover
 		music_player.stop()
 		game_handler.song_position = music_player.get_playback_position()
 	else:
 		# Si la música está detenida, se reproduce y se cambia la textura del botón
 		game_handler.is_music_playing = true
 		music_button.texture_normal = music_on
+		music_button.texture_focused = music_on_hover
+		music_button.texture_hover = music_on_hover
 		music_player.play(game_handler.song_position)
 	
 # Botón para guardar el nombre del jugador y comenzar el juego
@@ -64,6 +71,7 @@ func _on_Quit_pressed():
 
 # Botón para ir a la pantalla de puntuación
 func _on_Score_pressed():
+	game_handler.song_position = music_player.get_playback_position()
 	if get_tree().change_scene("res://GUI/score.tscn") != OK:
 		print('Error para reconocer escena score')
 

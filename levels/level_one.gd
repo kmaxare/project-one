@@ -20,5 +20,5 @@ func time_control() -> void:
 		if game_handler.time == 0:
 			game_handler.game_over()
 
-func _on_LevelOne_tree_exiting() -> void:
-	get_tree().change_scene("res://GUI/game_over.tscn")
+#func _on_LevelOne_tree_exiting() -> void:
+	#get_tree().change_scene("res://GUI/game_over.tscn")

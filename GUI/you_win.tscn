@@ -1,17 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://text_fonts/font_example.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://text_fonts/PIXELADE.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://GUI/you_win.gd" type="Script" id=2]
+[ext_resource path="res://sprites/buttons/DDL_Button_Home.png" type="Texture" id=3]
+[ext_resource path="res://sprites/main_background/DDL_Fondo_menus.png" type="Texture" id=4]
+[ext_resource path="res://sprites/buttons/DDL_Button_Home_Pressed.png" type="Texture" id=5]
+[ext_resource path="res://sprites/main_background/DDL_Fondo_principal.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 45
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 15
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 1 )
 
@@ -20,60 +20,85 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 320.0
+margin_bottom = 184.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="MenuBackground" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.5
+margin_top = -81.0
+margin_right = 112.5
+margin_bottom = 81.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ReturnMenu" type="TextureButton" parent="."]
+margin_left = 8.0
+margin_top = 152.0
+margin_right = 40.0
+margin_bottom = 177.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -87.0
-margin_top = -59.0
+margin_top = -43.5
 margin_right = 87.0
-margin_bottom = 59.0
+margin_bottom = 43.5
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="YouWin" type="Label" parent="VBoxContainer"]
 margin_right = 174.0
-margin_bottom = 38.0
+margin_bottom = 46.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "you win"
+text = "You Win"
 align = 1
 valign = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 58.0
+margin_top = 66.0
 margin_right = 174.0
-margin_bottom = 73.0
+margin_bottom = 87.0
 custom_constants/separation = 20
 
 [node name="Player" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2"]
 margin_right = 174.0
-margin_bottom = 15.0
-custom_constants/separation = 75
+margin_bottom = 21.0
+custom_constants/separation = 50
 alignment = 1
 
 [node name="Name" type="Label" parent="VBoxContainer/VBoxContainer2/Player"]
-margin_right = 51.0
-margin_bottom = 15.0
+margin_left = 11.0
+margin_right = 64.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Nombre"
 align = 1
 valign = 1
 
 [node name="Score" type="Label" parent="VBoxContainer/VBoxContainer2/Player"]
-margin_left = 126.0
-margin_right = 174.0
-margin_bottom = 15.0
+margin_left = 114.0
+margin_right = 162.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "000000"
 align = 1
 valign = 1
 
-[node name="ReturnMenu" type="Button" parent="VBoxContainer"]
-margin_top = 93.0
-margin_right = 174.0
-margin_bottom = 118.0
-custom_fonts/font = SubResource( 3 )
-text = "return to menu"
-
-[connection signal="pressed" from="VBoxContainer/ReturnMenu" to="." method="_on_ReturnMenu_pressed"]
+[connection signal="pressed" from="ReturnMenu" to="." method="_on_ReturnMenu_pressed"]

@@ -1,7 +1,7 @@
 extends Control
 
 onready var score = $VBoxContainer/VBoxContainer2/Player/Score
-onready var return_menu = $VBoxContainer/ReturnMenu
+onready var return_menu = $ReturnMenu
 
 func _ready():
 	# Establece el texto de la puntuación del jugador en el valor actual de la puntuación
