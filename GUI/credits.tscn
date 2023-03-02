@@ -1,101 +1,121 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GUI/credits.gd" type="Script" id=1]
+[ext_resource path="res://text_fonts/credits.tres" type="DynamicFont" id=2]
+[ext_resource path="res://sprites/buttons/DDL_Button_Back.png" type="Texture" id=3]
+[ext_resource path="res://sprites/buttons/DDL_Button_Back_Pressed.png" type="Texture" id=4]
+[ext_resource path="res://music/bgm/principal_theme.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sprites/main_background/DDL_Fondo_principal.png" type="Texture" id=6]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+reset = -365
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 320.0
+margin_bottom = 184.0
+texture = ExtResource( 6 )
+expand = true
 
 [node name="CreditsControl" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.5
+margin_left = -102.0
 margin_top = 110.0
-margin_right = 96.5
-margin_bottom = 379.0
+margin_right = 102.0
+margin_bottom = 456.0
 custom_constants/separation = 30
 alignment = 1
 
 [node name="Project Manager" type="VBoxContainer" parent="CreditsControl"]
-margin_right = 193.0
-margin_bottom = 32.0
+margin_right = 204.0
+margin_bottom = 46.0
 
 [node name="Role" type="Label" parent="CreditsControl/Project Manager"]
-margin_right = 193.0
-margin_bottom = 14.0
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
 text = "Director de proyecto:"
 align = 1
 valign = 1
 
 [node name="Names" type="Label" parent="CreditsControl/Project Manager"]
-margin_top = 18.0
-margin_right = 193.0
-margin_bottom = 32.0
+margin_top = 25.0
+margin_right = 204.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 2 )
 text = "Kevin Arenas A."
 align = 1
 valign = 1
 
 [node name="Art direction, concept art and level design" type="VBoxContainer" parent="CreditsControl"]
-margin_top = 62.0
-margin_right = 193.0
-margin_bottom = 111.0
+margin_top = 76.0
+margin_right = 204.0
+margin_bottom = 146.0
 
 [node name="Role" type="Label" parent="CreditsControl/Art direction, concept art and level design"]
-margin_right = 193.0
-margin_bottom = 31.0
+margin_right = 204.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
 text = "Dirección de arte,
  concept art y diseño de nivel:"
 align = 1
 valign = 1
 
 [node name="Names" type="Label" parent="CreditsControl/Art direction, concept art and level design"]
-margin_top = 35.0
-margin_right = 193.0
-margin_bottom = 49.0
+margin_top = 49.0
+margin_right = 204.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 2 )
 text = "Isaac (Pixel) Cervantes"
 align = 1
 valign = 1
 
 [node name="Drawing and animation" type="VBoxContainer" parent="CreditsControl"]
-margin_top = 141.0
-margin_right = 193.0
-margin_bottom = 190.0
+margin_top = 176.0
+margin_right = 204.0
+margin_bottom = 246.0
 
 [node name="Role" type="Label" parent="CreditsControl/Drawing and animation"]
-margin_right = 193.0
-margin_bottom = 14.0
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
 text = "Dibujo y animación:"
 align = 1
 valign = 1
 
 [node name="Names" type="Label" parent="CreditsControl/Drawing and animation"]
-margin_top = 18.0
-margin_right = 193.0
-margin_bottom = 49.0
+margin_top = 25.0
+margin_right = 204.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 2 )
 text = "Isaac (Pixel) Cervantes
 Brayan Carreón Bonilla"
 align = 1
 valign = 1
 
 [node name="Programming" type="VBoxContainer" parent="CreditsControl"]
-margin_top = 220.0
-margin_right = 193.0
-margin_bottom = 286.0
+margin_top = 276.0
+margin_right = 204.0
+margin_bottom = 346.0
 
 [node name="Role" type="Label" parent="CreditsControl/Programming"]
-margin_right = 193.0
-margin_bottom = 14.0
+margin_right = 204.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 2 )
 text = "Programación:"
 align = 1
 valign = 1
 
 [node name="Names" type="Label" parent="CreditsControl/Programming"]
-margin_top = 18.0
-margin_right = 193.0
-margin_bottom = 66.0
+margin_top = 25.0
+margin_right = 204.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 2 )
 text = "Axel García
 MiniGrat CJ
 Gustabo Cubilla"
@@ -142,11 +162,16 @@ text = "Santiago Rolf"
 align = 1
 valign = 1
 
-[node name="Return" type="Button" parent="."]
-margin_left = 10.0
-margin_top = 150.0
-margin_right = 64.0
-margin_bottom = 170.0
-text = "Return"
+[node name="Return" type="TextureButton" parent="."]
+margin_left = 8.0
+margin_top = 152.0
+margin_right = 40.0
+margin_bottom = 177.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
