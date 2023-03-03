@@ -3,7 +3,7 @@ extends KinematicBody2D
 # Enemigo Dos
 export (float) var gravity = 300
 export (float) var vel_gravity_limit = 200
-export (float) var speed = 130
+export (float) var speed = 120
 export (float) var jump = 250
 var speed_copy: int
 export (bool) var it_move = true # El enemigo se puede mover
@@ -28,7 +28,6 @@ func _physics_process(delta):
 		if (it_move):
 			$AnimEnemyUno.play("walk")
 			distance.x = speed_copy * delta
-			
 			move.x = (dir_desp * distance.x)/delta
 			# Condicional de gravedad
 			if move.y < vel_gravity_limit:
