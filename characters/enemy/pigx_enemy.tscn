@@ -4,10 +4,10 @@
 [ext_resource path="res://characters/enemy/pigx_enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 10 )
+extents = Vector2( 13.5, 11.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 13, 12.5 )
+extents = Vector2( 14.5, 11 )
 
 [sub_resource type="Animation" id=9]
 length = 0.001
@@ -173,13 +173,13 @@ vframes = 6
 frame = 35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2, 6 )
+position = Vector2( 0.5, 4.5 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="." groups=["area"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 2, 4.5 )
+position = Vector2( 0.5, 6 )
 shape = SubResource( 2 )
 
 [node name="AnimEnemyUno" type="AnimationPlayer" parent="."]
