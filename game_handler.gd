@@ -38,3 +38,5 @@ func add_player_list(player_param: String, points_param: int):
 		players_list.append({'player': player_param, 'points': points_param})
 	else:
 		pass
+		
+	player_name = player_param

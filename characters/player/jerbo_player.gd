@@ -103,9 +103,9 @@ func _on_the_air() -> void:
 	# Spregunta si se ha presionado el boton de salto
 	if Input.is_action_just_pressed("ui_jump"):
 		# pregunta si solo se ha tomado el primer salto
-		if first_jump and !second_jump:
-			_jump()
-			second_jump = true
+#		if first_jump and !second_jump:
+#			_jump()
+#			second_jump = true
 		# pregunta si esta activo el coyote time
 		if coyote_time:
 			_jump()
