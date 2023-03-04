@@ -33,11 +33,25 @@ func game_over():
 	if get_tree().change_scene("res://GUI/game_over.tscn") != OK:
 		print("Error")
 
-func player_list(player_param: String, points_param: int):
-	if player_param != player_name:
-		players_list.append({'player': player_param, 'points': points_param})
+func create_player(player_param: String):
+	var player_exists = false
+	for index in range(players_list.size()):
+		if players_list[index]['player'] == player_param:
+			player_exists = true
+	if !player_exists:
+		players_list.append({'player': player_param, 'points': 0})
 		player_name = player_param
-	else:
-		players_list[-1]['points'] = points
 	
+	#Si existe un registro
+	for index in range(players_list.size()):
+		if players_list[index]['player'] == player_param:
+			players_list[index]['points'] = points
+			print(players_list)
+			return # Si encuentra al jguador retorn y ya no continua con la funcion
+
+	players_list.append({'player': player_param, 'points': 0})
 	print(players_list)
+	
+func save_player():
+	
+	pass

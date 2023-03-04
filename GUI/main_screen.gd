@@ -57,7 +57,7 @@ func _on_MusicButton_pressed():
 # Botón para guardar el nombre del jugador y comenzar el juego
 func _on_NameDone_pressed():
 #	game_handler.player_name = name_player.text
-	game_handler.player_list(name_player.text, 0)
+	game_handler.save_player_list(name_player.text)
 	if get_tree().change_scene("res://levels/level_one.tscn") != OK:
 		print("Error para reconocer la escena del nivel")
 		
