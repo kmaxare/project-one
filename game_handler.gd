@@ -33,10 +33,11 @@ func game_over():
 	if get_tree().change_scene("res://GUI/game_over.tscn") != OK:
 		print("Error")
 
-func add_player_list(player_param: String, points_param: int):
+func player_list(player_param: String, points_param: int):
 	if player_param != player_name:
 		players_list.append({'player': player_param, 'points': points_param})
+		player_name = player_param
 	else:
-		pass
-		
-	player_name = player_param
+		players_list[-1]['points'] = points
+	
+	print(players_list)
