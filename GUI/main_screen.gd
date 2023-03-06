@@ -22,6 +22,14 @@ func _ready() -> void:
 		music_player.play(game_handler.song_position)
 	else:
 		music_button.texture_normal = music_off
+		
+
+func _process(_delta):
+	# Iniciar el juego despues de poner nombre del jugador
+	# OJO Solucion temporal
+	if Input.is_action_just_pressed("enter") and !$NamePanel/NameDone.disabled:
+		if get_tree().change_scene("res://levels/level_one.tscn") != OK:
+			print("Error para reconocer la escena del nivel")
 
 # Botón para ir a la pantalla de créditos
 func _on_Credits_pressed():
@@ -83,6 +91,8 @@ func _on_Start_pressed():
 
 func _on_NameIntro_text_changed(new_text):
 	if $NamePanel/NameIntro.text != '':
+		$NamePanel/NameDone.disabled = false
 		$NamePanel/NameDone.visible = true
 	else:
+		$NamePanel/NameDone.disabled = true
 		$NamePanel/NameDone.visible = false

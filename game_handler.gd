@@ -10,7 +10,7 @@ var song_position = 0
 var player_name : String = "New Player"
 var player_score = 0
 var top_player_name : String = "Top Player Name"
-var top_player_score = 15
+var top_player_score = 0
 
 # Lista de jugadores
 var players_list = []
