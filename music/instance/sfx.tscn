@@ -1,0 +1,114 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://music/sfx/buttons/displace_button.wav" type="AudioStream" id=1]
+[ext_resource path="res://music/sfx/buttons/select_button.wav" type="AudioStream" id=2]
+[ext_resource path="res://music/instance/sfx.gd" type="Script" id=3]
+[ext_resource path="res://music/sfx/characters/enemy/crab/damange_received_crab.wav" type="AudioStream" id=4]
+[ext_resource path="res://music/sfx/characters/enemy/pigx/damange_received_pigx.wav" type="AudioStream" id=5]
+[ext_resource path="res://music/sfx/characters/enemy/pigx/jump_pigx.wav" type="AudioStream" id=6]
+[ext_resource path="res://music/sfx/characters/enemy/pigx/load_pigx.wav" type="AudioStream" id=7]
+[ext_resource path="res://music/sfx/characters/enemy/snake/damange_received_snake.wav" type="AudioStream" id=8]
+[ext_resource path="res://music/sfx/characters/enemy/snake/load_snake.wav" type="AudioStream" id=9]
+[ext_resource path="res://music/sfx/characters/player/jump_jerbo.wav" type="AudioStream" id=10]
+[ext_resource path="res://music/sfx/characters/enemy/snake/speed_snake.wav" type="AudioStream" id=11]
+[ext_resource path="res://music/sfx/characters/player/damage_received_jerbo.wav" type="AudioStream" id=12]
+[ext_resource path="res://music/sfx/characters/player/stunned_jerbo.wav" type="AudioStream" id=13]
+[ext_resource path="res://music/sfx/interactive_objects/barrel/barrel_displacement.wav" type="AudioStream" id=14]
+[ext_resource path="res://music/sfx/interactive_objects/box/break_box.wav" type="AudioStream" id=15]
+[ext_resource path="res://music/sfx/interactive_objects/power_up/get_power_up.wav" type="AudioStream" id=16]
+[ext_resource path="res://music/sfx/interactive_objects/box/bang_box.wav" type="AudioStream" id=17]
+[ext_resource path="res://music/sfx/interactive_objects/barrel/barrel_explosion_two.wav" type="AudioStream" id=18]
+[ext_resource path="res://music/sfx/interactive_objects/barrel/barrel_explosion_one.wav" type="AudioStream" id=19]
+[ext_resource path="res://music/sfx/interactive_objects/seed/clear_seed_point.wav" type="AudioStream" id=20]
+[ext_resource path="res://music/sfx/interactive_objects/seed/dark_seed_point.wav" type="AudioStream" id=21]
+[ext_resource path="res://music/sfx/interactive_objects/trap_board/bang_trap_board.wav" type="AudioStream" id=22]
+[ext_resource path="res://music/sfx/interactive_objects/trap_board/break_trap_board_one.wav" type="AudioStream" id=23]
+[ext_resource path="res://music/sfx/interactive_objects/trap_board/break_trap_board_two.wav" type="AudioStream" id=24]
+[ext_resource path="res://music/sfx/interactive_objects/trap_board/fall_trap_board.wav" type="AudioStream" id=25]
+[ext_resource path="res://music/sfx/tiles/bang_tile.wav" type="AudioStream" id=26]
+[ext_resource path="res://music/sfx/tiles/submerge_water_tile.wav" type="AudioStream" id=27]
+
+[node name="Sfx" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -320.0
+margin_bottom = -180.0
+script = ExtResource( 3 )
+
+[node name="DisplaceButton" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 1 )
+
+[node name="SelectButton" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 2 )
+
+[node name="DamangeReceivedCrab" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 4 )
+
+[node name="DamangeReceivedPigx" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 5 )
+
+[node name="JumpPigx" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 6 )
+
+[node name="LoadPigx" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 7 )
+
+[node name="DamangeReceivedSnake" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 8 )
+
+[node name="LoadSnake" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 9 )
+
+[node name="SpeedSnake" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 11 )
+
+[node name="DamageReceivedJerbo" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 12 )
+
+[node name="JumpJerbo" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 10 )
+
+[node name="StunnedJerbo" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 13 )
+
+[node name="BarrelDisplacement" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 14 )
+
+[node name="BarrelExplosionOne" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 19 )
+
+[node name="BarrelExplosionTwo" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 18 )
+
+[node name="BangBox" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 17 )
+
+[node name="BreakBox" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 15 )
+
+[node name="GetPowerUp" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 16 )
+
+[node name="ClearSeedPoint" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 20 )
+
+[node name="DarkSeedPoint" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 21 )
+
+[node name="BangTrapBoard" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 22 )
+
+[node name="BreakTrapBoardOne" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 23 )
+
+[node name="BreakTrapBoardTwo" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 24 )
+
+[node name="FallTrapBoard" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 25 )
+
+[node name="BangTile" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 26 )
+
+[node name="SubmergeWaterTile" type="AudioStreamPlayer" parent="." groups=["sfx"]]
+stream = ExtResource( 27 )

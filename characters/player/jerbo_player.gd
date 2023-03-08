@@ -87,6 +87,7 @@ func _on_the_floor() -> void:
 
 func _jump() -> void:
 	velocity.y = JUMPFORCE
+	$Sfx.playing_sfx('JumpJerbo')
 	state = "jump"
 
 func _on_the_air() -> void:
@@ -141,6 +142,7 @@ func _jump_check() -> void:
 func animation() -> void:
 	if damaged:
 		state = "hurt"
+		$Sfx.playing_sfx('DamageReceivedJerbo')
 		damaged = false
 		disabled = true
 		invulnerable = true
@@ -153,6 +155,7 @@ func animation() -> void:
 			look_r = false
 	if is_stunned:
 		state = "stunned"
+#		$Sfx.playing_sfx('StunnedJerbo')
 		is_stunned = false
 #		disabled = true
 				

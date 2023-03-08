@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://interactive_objects/trap_board.gd" type="Script" id=1]
+[ext_resource path="res://music/instance/sfx.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/interactive_objects/platform_DDL.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -118,6 +119,8 @@ position = Vector2( 15, -1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrapArea"]
 shape = SubResource( 6 )
+
+[node name="Sfx" parent="." instance=ExtResource( 2 )]
 
 [connection signal="screen_exited" from="Visibility" to="." method="_on_Visibility_screen_exited"]
 [connection signal="body_entered" from="TrapArea" to="." method="_on_TrapArea_body_entered"]
