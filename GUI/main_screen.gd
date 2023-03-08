@@ -8,7 +8,6 @@ export (Texture) var music_off_hover
 
 onready var music_button = $Music/MusicButton
 onready var music_player = $Music/MusicPlayer
-
 # Variables para el panel de introducción del nombre del jugador
 onready var start_button = $Start
 onready var name_panel = $NamePanel
@@ -23,6 +22,14 @@ func _ready() -> void:
 		music_player.play(game_handler.song_position)
 	else:
 		music_button.texture_normal = music_off
+		
+
+func _process(_delta):
+	# Iniciar el juego despues de poner nombre del jugador
+	# OJO Solucion temporal
+	if Input.is_action_just_pressed("enter") and !$NamePanel/NameDone.disabled:
+		if get_tree().change_scene("res://levels/level_one.tscn") != OK:
+			print("Error para reconocer la escena del nivel")
 
 # Botón para ir a la pantalla de créditos
 func _on_Credits_pressed():
@@ -56,10 +63,11 @@ func _on_MusicButton_pressed():
 	
 # Botón para guardar el nombre del jugador y comenzar el juego
 func _on_NameDone_pressed():
-	game_handler.player_name = name_player.text
+#	game_handler.player_name = name_player.text
+	game_handler.create_player(name_player.text)
 	if get_tree().change_scene("res://levels/level_one.tscn") != OK:
 		print("Error para reconocer la escena del nivel")
-		
+
 # Botón para cancelar la introducción del nombre del jugador y volver al menú principal
 func _on_NameReturn_pressed():
 	name_panel.hide()
@@ -79,3 +87,12 @@ func _on_Score_pressed():
 func _on_Start_pressed():
 	name_panel.show()
 	name_player.grab_focus()
+
+
+func _on_NameIntro_text_changed(new_text):
+	if $NamePanel/NameIntro.text != '':
+		$NamePanel/NameDone.disabled = false
+		$NamePanel/NameDone.visible = true
+	else:
+		$NamePanel/NameDone.disabled = true
+		$NamePanel/NameDone.visible = false

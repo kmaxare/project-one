@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://GUI/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/text_buttons/DDL_Button_Credits_Hover.png" type="Texture" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://sprites/seed/DDL_Logo_Semilla_semilla_1.png" type="Texture" id=37]
 [ext_resource path="res://sprites/seed/DDL_Logo_Semilla_semilla_0.png" type="Texture" id=38]
 [ext_resource path="res://GUI/seed_animation.tres" type="Texture" id=39]
+[ext_resource path="res://sprites/buttons/DDL_Button_M_Hover.png" type="Texture" id=40]
 
 [sub_resource type="AnimatedTexture" id=7]
 frames = 9
@@ -237,15 +238,18 @@ align = 1
 max_length = 8
 
 [node name="NameDone" type="TextureButton" parent="NamePanel"]
+visible = false
 margin_left = 72.0
 margin_top = 104.0
 margin_right = 184.0
 margin_bottom = 128.0
 focus_neighbour_top = NodePath("../NameIntro")
 focus_neighbour_bottom = NodePath("../NameReturn")
+disabled = true
 texture_normal = ExtResource( 28 )
 texture_pressed = ExtResource( 25 )
 texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 40 )
 texture_focused = ExtResource( 21 )
 expand = true
 stretch_mode = 3
@@ -286,6 +290,7 @@ volume_db = -10.0
 [connection signal="pressed" from="Buttons/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="Buttons/Instruccions&Controls" to="." method="_on_InstruccionsControls_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="text_changed" from="NamePanel/NameIntro" to="." method="_on_NameIntro_text_changed"]
 [connection signal="pressed" from="NamePanel/NameDone" to="." method="_on_NameDone_pressed"]
 [connection signal="pressed" from="NamePanel/NameReturn" to="." method="_on_NameReturn_pressed"]
 [connection signal="pressed" from="Music/MusicButton" to="." method="_on_MusicButton_pressed"]

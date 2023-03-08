@@ -25,6 +25,7 @@
 [node name="LevelOne" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 14 )
+timer_level = 40
 
 [node name="Settings" type="Node2D" parent="."]
 
