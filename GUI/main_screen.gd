@@ -27,7 +27,8 @@ func _ready() -> void:
 func _process(_delta):
 	# Iniciar el juego despues de poner nombre del jugador
 	# OJO Solucion temporal
-	if Input.is_action_just_pressed("enter") and not $NamePanel/NameDone.disabled:
+	if Input.is_action_just_pressed("enter") and !$NamePanel/NameDone.disabled:
+		game_handler.create_player(name_player.text)
 		if get_tree().change_scene("res://levels/level_one.tscn") != OK:
 			print("Error para reconocer la escena del nivel")
 
