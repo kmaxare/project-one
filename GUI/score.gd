@@ -3,14 +3,19 @@ extends Control
 onready var music_player = $Music
 onready var return_button = $Return
 
-onready var local_top_player_name = $ScoreContainer/LocalTopPlayer/Name
-onready var local_top_player_score = $ScoreContainer/LocalTopPlayer/Score
+onready var score_list = $ScoreList
 
 func _ready():
-	return_button.grab_focus()
+	var scores = ""
+	var player_name
+	var player_points
+	for index in range(game_handler.players_list.size()):
+		player_name = str(game_handler.players_list[index]['player'])
+		player_points = str(game_handler.players_list[index]['points'])
+		scores += player_name + " " + player_points + "\n"
+	score_list.text = scores
 	
-	local_top_player_name.text = game_handler.top_player_name
-	local_top_player_score.text = str(game_handler.top_player_score)
+	return_button.grab_focus()
 	
 	if game_handler.is_music_playing:
 		music_player.play(game_handler.song_position)
