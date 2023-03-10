@@ -12,6 +12,9 @@ onready var motion = Vector2.ZERO
 # Variable para establecer la gravedad del objeto
 var gravity = 8
 
+# Variable para reconocersonido
+var play_bang = false
+
 # Función que se ejecuta en cada ciclo de física
 func _physics_process(delta):
 	# Establecer la velocidad en el eje x
@@ -21,7 +24,13 @@ func _physics_process(delta):
 	# Mover el objeto y evitar colisiones con el suelo
 	motion = move_and_slide(motion, FLOOR)
 	
-	
+	#Rebote del barril
+	if is_on_floor():
+		if $Sprite.frame == 7 and !play_bang:
+			play_bang = true
+			$BangFloor.play()
+			yield($BangFloor, "finished")
+			play_bang = false
 
 # Función para cambiar la dirección del movimiento del objeto
 func change_direction(direction: float):
@@ -44,6 +53,7 @@ func _on_AreaDamage_body_entered(body):
 	# Verifica si el cuerpo que entró en contacto es el jugador
 	if body.is_in_group("player"):
 		$AnimBarrel.play("smash")
+		$Sfx.playing_sfx('BarrelExplosionOne')
 		# Llama a la función damage_received en el cuerpo del jugador
 		body.damage_received(1, global_position)
 		yield($AnimBarrel, "animation_finished")

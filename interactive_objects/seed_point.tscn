@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://interactive_objects/seed_point.gd" type="Script" id=1]
 [ext_resource path="res://sprites/interactive_objects/seed/seed_dark_point_DDL.png" type="Texture" id=2]
 [ext_resource path="res://sprites/interactive_objects/seed/seed_clear_point_DDL.png" type="Texture" id=3]
+[ext_resource path="res://music/instance/sfx.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 4.0
@@ -149,6 +150,8 @@ playback_speed = 1.5
 anims/RESET = SubResource( 4 )
 anims/collected = SubResource( 2 )
 anims/idle = SubResource( 3 )
+
+[node name="Sfx" parent="." instance=ExtResource( 4 )]
 
 [connection signal="body_entered" from="." to="." method="_on_point_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

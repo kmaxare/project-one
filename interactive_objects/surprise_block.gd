@@ -44,6 +44,7 @@ func destuirBloque():
 		queue_free()
 	else:
 		$Animation.play("hit")
+		$Sfx.playing_sfx('BangBox')
 
 
 

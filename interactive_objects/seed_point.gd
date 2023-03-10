@@ -33,6 +33,7 @@ func _on_point_body_entered(body):
 	$AnimationPlayer.play("collected") # Para animacion (Pixel).
 	if body.is_in_group("player"):
 		game_handler.points += points_seed
+#		$Sfx.playing_sfx('')
 #		queue_free() # Se pasa a animation_finished (Pixel).
 
 
