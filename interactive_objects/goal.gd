@@ -17,6 +17,6 @@ func _ready():
 
 
 func _on_goal_body_entered(body):
-	if get_tree().change_scene("res://GUI/you_win.tscn") != OK:
-		print("Error")
-	pass # Replace with function body.
+	if (body.is_in_group('player')):
+		if get_tree().change_scene("res://GUI/you_win.tscn") != OK:
+			print("Error")
