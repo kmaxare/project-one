@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DDL_winner_temporal.ogg-f951582cccb1afdcdcfe279107df48a8.oggstr"
+
+[deps]
+
+source_file="res://music/sfx/interactive_objects/goal/DDL_winner_temporal.ogg"
+dest_files=[ "res://.import/DDL_winner_temporal.ogg-f951582cccb1afdcdcfe279107df48a8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

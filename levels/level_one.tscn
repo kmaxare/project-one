@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/enemy/snake_enemy_tilemap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interactive_objects/surprise_block_tilemap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/floor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://interactive_objects/goal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interactive_objects/goal/goal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sprites/parallax_background/cielo_fondo_DDL_parallax.png" type="Texture" id=7]
 [ext_resource path="res://interactive_objects/seed_point_tilemap.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interactive_objects/immerse_death.tscn" type="PackedScene" id=9]
@@ -125,25 +125,23 @@ position = Vector2( 1276, 461 )
 position = Vector2( 611, 37 )
 
 [node name="ImmerseDeath" parent="InteractiveBlocks" instance=ExtResource( 9 )]
-position = Vector2( 388, 607 )
+position = Vector2( 388, 571 )
 
 [node name="ImmerseDeath2" parent="InteractiveBlocks" instance=ExtResource( 9 )]
-position = Vector2( 505, 607 )
+position = Vector2( 497, 573 )
 
 [node name="ImmerseDeath3" parent="InteractiveBlocks" instance=ExtResource( 9 )]
-position = Vector2( 682, 607 )
+position = Vector2( 690, 578 )
 
 [node name="ImmerseDeath4" parent="InteractiveBlocks" instance=ExtResource( 9 )]
-position = Vector2( 828, 609 )
+position = Vector2( 836, 576 )
 
 [node name="ImmerseDeath5" parent="InteractiveBlocks" instance=ExtResource( 9 )]
 position = Vector2( 1197, 230 )
 
 [node name="goal" parent="InteractiveBlocks" instance=ExtResource( 6 )]
-position = Vector2( 1172, 507 )
-
-[node name="goal2" parent="InteractiveBlocks" instance=ExtResource( 6 )]
-position = Vector2( 74, 425 )
+position = Vector2( 1180, 499 )
+scale = Vector2( 1, 1 )
 
 [node name="TrapBoard" type="Node2D" parent="."]
 
