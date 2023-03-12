@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "active"
-length = 1.2
+length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -33,7 +33,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 10, 11, 12, 13, 14, 15 ]
@@ -56,6 +56,7 @@ tracks/0/keys = {
 }
 
 [node name="goal" type="Area2D"]
+visible = false
 scale = Vector2( 0.07, 0.07 )
 collision_layer = 0
 collision_mask = 2
