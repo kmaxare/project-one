@@ -1,13 +1,26 @@
 extends Control
 
+# Variables para controlar la música
+export (Texture) var music_on
+export (Texture) var music_on_hover
+export (Texture) var music_off
+export (Texture) var music_off_hover
+
 onready var resume = $VBoxContainer/Resume
+
+var song
+onready var music_button = $MusicButton
+onready var music_player = $MusicPlayer
 
 # Variable para almacenar el estado de pausa del juego
 var game_paused = false
 
 func _ready():
-	# Activar cuando sea necesario
-	$Sound/Bgm.playing_music('FirstLevel')
+	game_handler.current_song = "res://music/bgm/first_level.ogg"
+	song = load(game_handler.current_song)
+	game_handler.level_song_position = 0
+	music_player.stream = song
+	music_player.play()
 
 func _physics_process(_delta):
 	# Comprueba si se ha presionado la acción de pausa
@@ -29,6 +42,23 @@ func _on_BackToMenu_pressed():
 	# Cambia a la escena del menú principal
 	if get_tree().change_scene("res://GUI/main_screen.tscn") != OK:
 		print("Error al cargar el menu principal")
+		
+func _on_MusicButton_pressed():
+	if game_handler.is_level_music_playing:
+		# Si la música está sonando, se detiene y se cambia la textura del botón
+		game_handler.is_level_music_playing = false
+		music_button.texture_normal = music_off
+		music_button.texture_focused = music_off_hover
+		music_button.texture_hover = music_off_hover
+		game_handler.level_song_position = music_player.get_playback_position()
+		music_player.stop()
+	else:
+		# Si la música está detenida, se reproduce y se cambia la textura del botón
+		game_handler.is_level_music_playing = true
+		music_button.texture_normal = music_on
+		music_button.texture_focused = music_on_hover
+		music_button.texture_hover = music_on_hover
+		music_player.play(game_handler.level_song_position)
 
 func _on_Restart_pressed():
 	get_tree().paused = false

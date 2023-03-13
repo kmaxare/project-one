@@ -13,10 +13,10 @@ func _ready():
 	# Establece el enfoque en el botón de retorno
 	button_return.grab_focus()
 	
-	if game_handler.is_music_playing == true:
-		music_player.play(game_handler.song_position)
+	if game_handler.is_menu_music_playing == true:
+		music_player.play(game_handler.menu_song_position)
 	else:
-		music_player.seek(game_handler.song_position)
+		music_player.seek(game_handler.menu_song_position)
 
 # Función de proceso de física, se llama en cada fotograma
 func _physics_process(_delta):
@@ -33,7 +33,7 @@ func move_credits():
 
 # Función llamada al presionar el botón de retorno
 func _on_return_pressed():
-	game_handler.song_position = music_player.get_playback_position()
+	game_handler.menu_song_position = music_player.get_playback_position()
 	# Cambia a la pantalla principal
 	if get_tree().change_scene("res://GUI/main_screen.tscn") != OK:
 		print("Error")
