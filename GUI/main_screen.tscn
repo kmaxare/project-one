@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://GUI/main_screen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/text_buttons/DDL_Button_Credits_Hover.png" type="Texture" id=2]
@@ -39,7 +39,6 @@
 [ext_resource path="res://sprites/seed/DDL_Logo_Semilla_semilla_1.png" type="Texture" id=37]
 [ext_resource path="res://sprites/seed/DDL_Logo_Semilla_semilla_0.png" type="Texture" id=38]
 [ext_resource path="res://GUI/seed_animation.tres" type="Texture" id=39]
-[ext_resource path="res://sprites/buttons/DDL_Button_M_Hover.png" type="Texture" id=40]
 
 [sub_resource type="AnimatedTexture" id=7]
 frames = 9
@@ -66,11 +65,11 @@ frame_8/delay_sec = 0.0
 size = 15
 font_data = ExtResource( 6 )
 
+[sub_resource type="StyleBoxEmpty" id=6]
+
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=6]
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
@@ -196,26 +195,21 @@ margin_bottom = 161.0
 texture = ExtResource( 14 )
 expand = true
 
-[node name="WriteYourName" type="LineEdit" parent="NamePanel"]
-margin_left = 72.0
-margin_top = 8.0
-margin_right = 184.0
-margin_bottom = 32.0
+[node name="WriteYourName" type="Label" parent="NamePanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.0
+margin_top = -60.0
+margin_right = 46.0
+margin_bottom = -46.5
 focus_next = NodePath("../NameDone")
-custom_colors/selection_color = Color( 0, 0, 0, 1 )
-custom_colors/cursor_color = Color( 0, 0, 0, 1 )
-custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-custom_styles/read_only = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Escribe tu nombre"
 align = 1
-editable = false
 
 [node name="NameIntro" type="LineEdit" parent="NamePanel"]
 margin_left = 72.0
@@ -243,13 +237,14 @@ margin_left = 72.0
 margin_top = 104.0
 margin_right = 184.0
 margin_bottom = 128.0
+focus_neighbour_left = NodePath("../NameReturn")
 focus_neighbour_top = NodePath("../NameIntro")
-focus_neighbour_bottom = NodePath("../NameReturn")
+focus_neighbour_right = NodePath("../NameReturn")
+focus_neighbour_bottom = NodePath("../NameIntro")
 disabled = true
 texture_normal = ExtResource( 28 )
 texture_pressed = ExtResource( 25 )
 texture_hover = ExtResource( 21 )
-texture_disabled = ExtResource( 40 )
 texture_focused = ExtResource( 21 )
 expand = true
 stretch_mode = 3
@@ -259,7 +254,9 @@ margin_left = 16.0
 margin_top = 104.0
 margin_right = 48.0
 margin_bottom = 129.0
-focus_neighbour_top = NodePath("../NameDone")
+focus_neighbour_left = NodePath("../NameDone")
+focus_neighbour_top = NodePath("../NameIntro")
+focus_neighbour_right = NodePath("../NameDone")
 focus_neighbour_bottom = NodePath("../NameIntro")
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 13 )
