@@ -17,12 +17,12 @@ func _ready():
 	
 	return_button.grab_focus()
 	
-	if game_handler.is_music_playing:
-		music_player.play(game_handler.song_position)
+	if game_handler.is_menu_music_playing:
+		music_player.play(game_handler.menu_song_position)
 	else:
-		music_player.seek(game_handler.song_position)
+		music_player.seek(game_handler.menu_song_position)
 
 func _on_Return_pressed():
-	game_handler.song_position = music_player.get_playback_position()
+	game_handler.menu_song_position = music_player.get_playback_position()
 	if get_tree().change_scene("res://GUI/main_screen.tscn") != OK:
 		print("Error")

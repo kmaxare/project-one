@@ -1,10 +1,14 @@
 extends Node
 
-#variable de la dirección ultima escena jugada 
+# Variable de la dirección ultima escena jugada 
 var current_level : String
+var current_song
 
-var is_music_playing = true
-var song_position = 0
+var is_level_music_playing = true
+var level_song_position = 0
+
+var is_menu_music_playing = true
+var menu_song_position = 0
 
 #variables para el ranking de jugadores 
 var player_name : String = "New Player"

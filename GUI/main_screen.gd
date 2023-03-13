@@ -18,8 +18,8 @@ func _ready() -> void:
 	name_panel.hide()
 	start_button.grab_focus()
 	
-	if game_handler.is_music_playing == true:
-		music_player.play(game_handler.song_position)
+	if game_handler.is_menu_music_playing == true:
+		music_player.play(game_handler.menu_song_position)
 	else:
 		music_button.texture_normal = music_off
 		
@@ -34,33 +34,33 @@ func _process(_delta):
 
 # Botón para ir a la pantalla de créditos
 func _on_Credits_pressed():
-	game_handler.song_position = music_player.get_playback_position()
+	game_handler.menu_song_position = music_player.get_playback_position()
 	if get_tree().change_scene("res://GUI/credits.tscn") != OK:
 		print('Error para reconocer escena credits')
 
 # Botón para mostrar las instrucciones y controles del juego
 func _on_InstruccionsControls_pressed():
-	game_handler.song_position = music_player.get_playback_position()
+	game_handler.menu_song_position = music_player.get_playback_position()
 	if get_tree().change_scene("res://GUI/instructions.tscn") != OK:
 		print("Error para reconocer la escena instructions")
 	
 # Botón para controlar el volumen de la música
 func _on_MusicButton_pressed():
-	if game_handler.is_music_playing:
+	if game_handler.is_menu_music_playing:
 		# Si la música está sonando, se detiene y se cambia la textura del botón
-		game_handler.is_music_playing = false
+		game_handler.is_menu_music_playing = false
 		music_button.texture_normal = music_off
 		music_button.texture_focused = music_off_hover
 		music_button.texture_hover = music_off_hover
+		game_handler.menu_song_position = music_player.get_playback_position()
 		music_player.stop()
-		game_handler.song_position = music_player.get_playback_position()
 	else:
 		# Si la música está detenida, se reproduce y se cambia la textura del botón
-		game_handler.is_music_playing = true
+		game_handler.is_menu_music_playing = true
 		music_button.texture_normal = music_on
 		music_button.texture_focused = music_on_hover
 		music_button.texture_hover = music_on_hover
-		music_player.play(game_handler.song_position)
+		music_player.play(game_handler.menu_song_position)
 	
 # Botón para guardar el nombre del jugador y comenzar el juego
 func _on_NameDone_pressed():
@@ -80,7 +80,7 @@ func _on_Quit_pressed():
 
 # Botón para ir a la pantalla de puntuación
 func _on_Score_pressed():
-	game_handler.song_position = music_player.get_playback_position()
+	game_handler.menu_song_position = music_player.get_playback_position()
 	if get_tree().change_scene("res://GUI/score.tscn") != OK:
 		print('Error para reconocer escena score')
 
@@ -88,7 +88,6 @@ func _on_Score_pressed():
 func _on_Start_pressed():
 	name_panel.show()
 	name_player.grab_focus()
-
 
 func _on_NameIntro_text_changed(new_text):
 	if $NamePanel/NameIntro.text != '':

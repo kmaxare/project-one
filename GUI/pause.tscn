@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sprites/buttons/DDL_Button_Home_Hover.png" type="Texture" id=1]
 [ext_resource path="res://GUI/pause.gd" type="Script" id=2]
-[ext_resource path="res://music/instance/bgm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla_Pressed.png" type="Texture" id=3]
 [ext_resource path="res://sprites/buttons/DDL_Button_Home_Pressed.png" type="Texture" id=4]
 [ext_resource path="res://sprites/buttons/DDL_Button_Play.png" type="Texture" id=5]
 [ext_resource path="res://sprites/buttons/DDL_Button_Play_Hover.png" type="Texture" id=6]
@@ -13,6 +13,9 @@
 [ext_resource path="res://sprites/buttons/DDL_Button_Back_Pressed.png" type="Texture" id=11]
 [ext_resource path="res://text_fonts/PIXELADE.TTF" type="DynamicFontData" id=12]
 [ext_resource path="res://sprites/main_background/DDL_Fondo_menus.png" type="Texture" id=13]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla.png" type="Texture" id=14]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla_Pressed_Hover.png" type="Texture" id=15]
+[ext_resource path="res://sprites/buttons/M_DDL_Tecla_Hover.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 12 )
@@ -25,6 +28,10 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+music_on = ExtResource( 14 )
+music_on_hover = ExtResource( 16 )
+music_off = ExtResource( 3 )
+music_off_hover = ExtResource( 15 )
 
 [node name="MenuBackground" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -65,7 +72,7 @@ alignment = 1
 [node name="Resume" type="TextureButton" parent="VBoxContainer"]
 margin_right = 32.0
 margin_bottom = 25.0
-focus_neighbour_top = NodePath("../BackToMenu")
+focus_neighbour_top = NodePath("../../MusicButton")
 focus_neighbour_bottom = NodePath("../Restart")
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 7 )
@@ -88,7 +95,7 @@ margin_top = 90.0
 margin_right = 32.0
 margin_bottom = 115.0
 focus_neighbour_top = NodePath("../Restart")
-focus_neighbour_bottom = NodePath("../Resume")
+focus_neighbour_bottom = NodePath("../../MusicButton")
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 1 )
@@ -141,14 +148,21 @@ menú"
 align = 1
 valign = 1
 
-[node name="Sound" type="Control" parent="." groups=["sound"]]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="MusicButton" type="TextureButton" parent="."]
+margin_left = 240.0
+margin_top = 16.0
+margin_right = 256.0
+margin_bottom = 33.0
+focus_neighbour_top = NodePath("../VBoxContainer/BackToMenu")
+focus_neighbour_bottom = NodePath("../VBoxContainer/Resume")
+texture_normal = ExtResource( 14 )
+texture_hover = ExtResource( 16 )
+texture_focused = ExtResource( 16 )
 
-[node name="Bgm" parent="Sound" instance=ExtResource( 3 )]
-margin_right = -40.0
-margin_bottom = -40.0
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackToMenu" to="." method="_on_BackToMenu_pressed"]
+[connection signal="pressed" from="MusicButton" to="." method="_on_MusicButton_pressed"]

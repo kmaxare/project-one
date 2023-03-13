@@ -5,6 +5,7 @@ export var timer_level: int = 60
 
 func _ready() -> void:
 	game_handler.current_level = "res://levels/level_one.tscn"
+	game_handler.level_song_position = 0
 	game_handler.points = 0
 	
 	if timer_level > 0:
@@ -24,7 +25,3 @@ func time_control() -> void:
 		
 		if game_handler.time == 0:
 			game_handler.game_over()
-
-#func _on_LevelOne_tree_exiting() -> void:
-	#get_tree().change_scene("res://GUI/game_over.tscn")
-
